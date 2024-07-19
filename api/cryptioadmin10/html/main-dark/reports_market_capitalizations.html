@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../images/favicon.ico">
+
+    <title>Crypto Tokenizer UI Interface & Cryptocurrency Admin Template</title>
+  
+	<!-- Vendors Style-->
+	<link rel="stylesheet" href="css/vendors_css.css">
+	  
+	<!-- Style-->  
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/skin_color.css">	
+
+</head>
+<body class="hold-transition dark-skin sidebar-mini theme-primary">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+  <header class="main-header">
+	<div class="d-flex align-items-center logo-box pl-20">		
+		<a href="#" class="waves-effect waves-light nav-link rounded d-none d-md-inline-block push-btn" data-toggle="push-menu" role="button">
+			<img src="../images/svg-icon/collapse.svg" class="img-fluid svg-icon" alt="">
+		</a>
+		<!-- Logo -->
+		<a href="index.html" class="logo">
+		  <!-- logo-->
+		  <div class="logo-lg">
+			  <span class="light-logo"><img src="../images/logo-dark-text.png" alt="logo"></span>
+			  <span class="dark-logo"><img src="../images/logo-light-text.png" alt="logo"></span>
+		  </div>
+		</a>
+	</div>  
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top pl-10">
+      <!-- Sidebar toggle button-->
+	  <div class="app-menu">
+		<ul class="header-megamenu nav">
+			<li class="btn-group nav-item d-md-none">
+				<a href="#" class="waves-effect waves-light nav-link rounded push-btn" data-toggle="push-menu" role="button">
+					<img src="../images/svg-icon/collapse.svg" class="img-fluid svg-icon" alt="">
+			    </a>
+			</li>
+			<li class="btn-group nav-item">
+				<a href="#" data-provide="fullscreen" class="waves-effect waves-light nav-link rounded full-screen" title="Full Screen">
+					<img src="../images/svg-icon/fullscreen.svg" class="img-fluid svg-icon" alt="">
+			    </a>
+			</li>
+			<li class="btn-group d-md-inline-flex d-none">
+				<div class="search-bx ml-10">
+					<form>
+						<div class="input-group">
+						  <input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+						  <div class="input-group-append">
+							<button class="btn" type="submit" id="button-addon2"><img src="../images/svg-icon/search.svg" class="img-fluid" alt="search"></button>
+						  </div>
+						</div>
+					</form>
+				</div>
+			</li>
+		</ul> 
+	  </div>
+		
+      <div class="navbar-custom-menu r-side">
+        <ul class="nav navbar-nav">	
+		  <!-- Notifications -->
+		  <li class="dropdown notifications-menu">
+			<a href="#" class="waves-effect waves-light dropdown-toggle" data-toggle="dropdown" title="Notifications">
+			  <img src="../images/svg-icon/notifications.svg" class="img-fluid svg-icon" alt="">
+			</a>
+			<ul class="dropdown-menu animated bounceIn">
+
+			  <li class="header">
+				<div class="p-20">
+					<div class="flexbox">
+						<div>
+							<h4 class="mb-0 mt-0">Notifications</h4>
+						</div>
+						<div>
+							<a href="#" class="text-danger">Clear All</a>
+						</div>
+					</div>
+				</div>
+			  </li>
+
+			  <li>
+				<!-- inner menu: contains the actual data -->
+				<ul class="menu sm-scrol">
+				  <li>
+					<a href="#">
+					  <i class="fa fa-users text-info"></i> Curabitur id eros quis nunc suscipit blandit.
+					</a>
+				  </li>
+				  <li>
+					<a href="#">
+					  <i class="fa fa-warning text-warning"></i> Duis malesuada justo eu sapien elementum, in semper diam posuere.
+					</a>
+				  </li>
+				  <li>
+					<a href="#">
+					  <i class="fa fa-users text-danger"></i> Donec at nisi sit amet tortor commodo porttitor pretium a erat.
+					</a>
+				  </li>
+				  <li>
+					<a href="#">
+					  <i class="fa fa-shopping-cart text-success"></i> In gravida mauris et nisi
+					</a>
+				  </li>
+				  <li>
+					<a href="#">
+					  <i class="fa fa-user text-danger"></i> Praesent eu lacus in libero dictum fermentum.
+					</a>
+				  </li>
+				  <li>
+					<a href="#">
+					  <i class="fa fa-user text-primary"></i> Nunc fringilla lorem 
+					</a>
+				  </li>
+				  <li>
+					<a href="#">
+					  <i class="fa fa-user text-success"></i> Nullam euismod dolor ut quam interdum, at scelerisque ipsum imperdiet.
+					</a>
+				  </li>
+				</ul>
+			  </li>
+			  <li class="footer">
+				  <a href="#">View all</a>
+			  </li>
+			</ul>
+		  </li>	
+		  
+	      <!-- User Account-->
+          <li class="dropdown user user-menu">
+            <a href="#" class="waves-effect waves-light dropdown-toggle" data-toggle="dropdown" title="User">
+				<img src="../images/svg-icon/user.svg" class="rounded svg-icon" alt="" />
+            </a>
+            <ul class="dropdown-menu animated flipInX">
+              <!-- User image -->
+              <li class="user-header bg-img" style="background-image: url(../images/user-info.jpg)" data-overlay="3">
+				  <div class="flexbox align-self-center">					  
+				  	<img src="../images/avatar/7.jpg" class="float-left rounded-circle" alt="User Image">					  
+					<h4 class="user-name align-self-center">
+					  <span>Samuel Brus</span>
+					  <small>samuel@gmail.com</small>
+					</h4>
+				  </div>
+              </li>
+              <!-- Menu Body -->
+              <li class="user-body">
+				    <a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-person"></i> My Profile</a>
+					<a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-bag"></i> My Balance</a>
+					<a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-email-unread"></i> Inbox</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-settings"></i> Account Setting</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="javascript:void(0)"><i class="ion-log-out"></i> Logout</a>
+					<div class="dropdown-divider"></div>
+					<div class="p-10"><a href="javascript:void(0)" class="btn btn-sm btn-rounded btn-success">View Profile</a></div>
+              </li>
+            </ul>
+          </li>	
+		  
+          <!-- Control Sidebar Toggle Button -->
+          <li>
+              <a href="#" data-toggle="control-sidebar" title="Setting" class="waves-effect waves-light">
+			  	<img src="../images/svg-icon/settings.svg" class="img-fluid svg-icon" alt="">
+			  </a>
+          </li>
+			
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar-->
+    <section class="sidebar">	
+      <!-- sidebar menu-->
+      <ul class="sidebar-menu" data-widget="tree">
+		
+		<li class="treeview">
+          <a href="#">
+			<img src="../images/svg-icon/sidebar-menu/dashboard.svg" class="svg-icon" alt="">
+            <span>Dashboard</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="index.html"><i class="ti-more"></i>Dashboard 1</a></li>
+            <li><a href="index2.html"><i class="ti-more"></i>Dashboard 2</a></li>
+            <li><a href="index3.html"><i class="ti-more"></i>Dashboard 3</a></li>
+            <li><a href="index4.html"><i class="ti-more"></i>Dashboard 4</a></li>
+            <li><a href="index5.html"><i class="ti-more"></i>Dashboard 5</a></li>
+            <li><a href="index6.html"><i class="ti-more"></i>Dashboard 6</a></li>
+            <li><a href="index7.html"><i class="ti-more"></i>Dashboard 7</a></li>
+            <li><a href="index8.html"><i class="ti-more"></i>Dashboard 8</a></li>
+            <li><a href="index9.html"><i class="ti-more"></i>Dashboard 9</a></li>
+          </ul>
+        </li>    
+		
+        <li class="treeview">
+          <a href="#">
+			<img src="../images/svg-icon/sidebar-menu/layout.svg" class="svg-icon" alt="">
+            <span>Layout</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="layout_boxed.html"><i class="ti-more"></i>Boxed</a></li>
+            <li><a href="layout_fixed.html"><i class="ti-more"></i>Fixed</a></li>
+            <li><a href="layout_collapsed_sidebar.html"><i class="ti-more"></i>Mini Sidebar</a></li>
+          </ul>
+        </li>		  
+		
+        <li class="header">Crypto</li>
+		
+		<li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/charts.svg" class="svg-icon" alt="">
+			<span>Charts</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="charts_chartjs.html"><i class="ti-more"></i>ChartJS</a></li>
+            <li><a href="charts_flot.html"><i class="ti-more"></i>Flot</a></li>
+            <li><a href="charts_inline.html"><i class="ti-more"></i>Inline charts</a></li>
+            <li><a href="charts_morris.html"><i class="ti-more"></i>Morris</a></li>
+            <li><a href="charts_peity.html"><i class="ti-more"></i>Peity</a></li>
+            <li><a href="charts_chartist.html"><i class="ti-more"></i>Chartist</a></li>
+          </ul>
+        </li>		  
+        <li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/charts2.svg" class="svg-icon" alt="">
+			<span>C3 Charts</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="charts_c3_axis.html"><i class="ti-more"></i>Axis Chart</a></li>
+            <li><a href="charts_c3_bar.html"><i class="ti-more"></i>Bar Chart</a></li>
+            <li><a href="charts_c3_data.html"><i class="ti-more"></i>Data Chart</a></li>
+            <li><a href="charts_c3_line.html"><i class="ti-more"></i>Line Chart</a></li>
+          </ul>
+        </li>		  
+        <li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/charts3.svg" class="svg-icon" alt="">
+			<span>Echarts</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="charts_echarts_basic.html"><i class="ti-more"></i>Basic Charts</a></li>
+            <li><a href="charts_echarts_bar.html"><i class="ti-more"></i>Bar Chart</a></li>
+            <li><a href="charts_echarts_pie_doughnut.html"><i class="ti-more"></i>Pie & Doughnut Chart</a></li>
+          </ul>
+        </li>
+		  
+		<li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/reports.svg" class="svg-icon" alt="">
+            <span>Analyses</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+			<li><a href="reports_transactions.html"><i class="ti-more"></i>Transactions</a></li>
+            <li><a href="reports_top_gainers_losers.html"><i class="ti-more"></i>Gainers/Losers</a></li>
+            <li><a href="reports_market_capitalizations.html"><i class="ti-more"></i>Market</a></li>
+            <li><a href="reports_crypto_stats.html"><i class="ti-more"></i>Stats</a></li>
+          </ul>
+        </li> 
+		<li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/ico.svg" class="svg-icon" alt="">
+            <span>ICO</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+			<li><a href="ico_distribution_countdown.html"><i class="ti-more"></i>Countdown</a></li>
+            <li><a href="ico_roadmap_timeline.html"><i class="ti-more"></i>Timeline</a></li>
+            <li><a href="ico_progress.html"><i class="ti-more"></i>Progress</a></li>
+            <li><a href="ico_details.html"><i class="ti-more"></i>Details</a></li>
+            <li><a href="ico_listing.html"><i class="ti-more"></i>Listing</a></li>
+            <li><a href="ico_filter.html"><i class="ti-more"></i>ICO Filters</a></li>	
+          </ul>
+        </li> 
+		<li>
+          <a href="currency_exchange.html">
+            <img src="../images/svg-icon/sidebar-menu/exchange.svg" class="svg-icon" alt="">
+            <span>Exchange</span>
+          </a>
+        </li> 
+		<li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/members.svg" class="svg-icon" alt="">
+            <span>Associates</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+			<li><a href="members.html"><i class="ti-more"></i>Grid</a></li>
+            <li><a href="members_list.html"><i class="ti-more"></i>List</a></li>
+            <li><a href="member_profile.html"><i class="ti-more"></i>Profile</a></li>	
+          </ul>
+        </li>
+		<li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/tickers.svg" class="svg-icon" alt="">
+            <span>Tickers</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="tickers.html"><i class="ti-more"></i>Ticker</a></li>
+            <li><a href="tickers_live_pricing.html"><i class="ti-more"></i>Live Prices</a></li>	
+          </ul>
+        </li>
+		<li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/transactions.svg" class="svg-icon" alt="">
+            <span>Transactions</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="transactions_tables.html"><i class="ti-more"></i>Tables</a></li>
+            <li><a href="transaction_search.html"><i class="ti-more"></i>Search</a></li>	
+            <li><a href="transaction_details.html"><i class="ti-more"></i>Details</a></li>
+            <li><a href="transactions_counter.html"><i class="ti-more"></i>Counter</a></li>
+          </ul>
+        </li>
+		
+        <li class="header">Apps & UI </li>
+		  
+        <li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/mailbox.svg" class="svg-icon" alt="">
+			<span>Mailbox</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="mailbox_inbox.html"><i class="ti-more"></i>Inbox</a></li>
+            <li><a href="mailbox_compose.html"><i class="ti-more"></i>Compose</a></li>
+            <li><a href="mailbox_read_mail.html"><i class="ti-more"></i>Read</a></li>
+          </ul>
+        </li>
+		  
+        <li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/apps.svg" class="svg-icon" alt="">
+			<span>Apps</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="contact_app_chat.html"><i class="ti-more"></i>Chat</a></li>
+            <li><a href="extra_taskboard.html"><i class="ti-more"></i>Todo</a></li>
+            <li><a href="extra_calendar.html"><i class="ti-more"></i>Calendar</a></li>
+            <li><a href="extra_app_ticket.html"><i class="ti-more"></i>Support</a></li>
+          </ul>
+        </li>	  
+		
+		<li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/invoice.svg" class="svg-icon" alt="">
+			<span>Invoice</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+			<li><a href="invoice.html"><i class="ti-more"></i>Invoice</a></li>
+			<li><a href="invoicelist.html"><i class="ti-more"></i>Invoice List</a></li>	
+          </ul>
+        </li>
+		
+		<li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/uielements.svg" class="svg-icon" alt="">
+			<span>UI Elements</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+			<li><a href="ui_typography.html"><i class="ti-more"></i>Typography</a></li>
+			<li><a href="ui_grid.html"><i class="ti-more"></i>Grid</a></li>
+			<li><a href="ui_tab.html"><i class="ti-more"></i>Tabs</a></li>
+			<li><a href="ui_timeline.html"><i class="ti-more"></i>Timeline</a></li>
+			<li><a href="ui_timeline_horizontal.html"><i class="ti-more"></i>Horizontal Timeline</a></li>
+            <li><a href="component_bootstrap_switch.html"><i class="ti-more"></i>Bootstrap Switch</a></li>
+            <li><a href="component_date_paginator.html"><i class="ti-more"></i>Date Paginator</a></li>
+            <li><a href="component_media_advanced.html"><i class="ti-more"></i>Advanced Medias</a></li>
+			<li><a href="component_modals.html"><i class="ti-more"></i>Modals</a></li>
+            <li><a href="component_rangeslider.html"><i class="ti-more"></i>Range Slider</a></li>
+            <li><a href="component_rating.html"><i class="ti-more"></i>Ratings</a></li>
+            <li><a href="component_animations.html"><i class="ti-more"></i>Animations</a></li>
+          </ul>
+        </li>			  
+		  
+		<li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/advancedui.svg" class="svg-icon" alt="">
+            <span>Advanced UI</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="ui_badges.html"><i class="ti-more"></i>Badges</a></li>
+            <li><a href="ui_border_utilities.html"><i class="ti-more"></i>Border</a></li>
+            <li><a href="ui_buttons.html"><i class="ti-more"></i>Buttons</a></li>	
+            <li><a href="ui_dropdown.html"><i class="ti-more"></i>Dropdown</a></li>
+            <li><a href="ui_dropdown_grid.html"><i class="ti-more"></i>Dropdown Grid</a></li>
+            <li><a href="ui_progress_bars.html"><i class="ti-more"></i>Progress Bars</a></li>
+            <li><a href="ui_ribbons.html"><i class="ti-more"></i>Ribbons</a></li>
+            <li><a href="ui_sliders.html"><i class="ti-more"></i>Sliders</a></li>
+          </ul>
+        </li>  
+		
+		<li>
+          <a href="ui_color_utilities.html">
+            <img src="../images/svg-icon/sidebar-menu/color.svg" class="svg-icon" alt="">
+			<span>Color</span>
+          </a>
+        </li>        
+		
+		<li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/icons.svg" class="svg-icon" alt="">
+            <span>Icons</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="icons_fontawesome.html"><i class="ti-more"></i>Font Awesome</a></li>
+            <li><a href="icons_glyphicons.html"><i class="ti-more"></i>Glyphicons</a></li>
+            <li><a href="icons_material.html"><i class="ti-more"></i>Material Icons</a></li>	
+            <li><a href="icons_themify.html"><i class="ti-more"></i>Themify Icons</a></li>
+            <li><a href="icons_simpleline.html"><i class="ti-more"></i>Simple Line Icons</a></li>
+            <li><a href="icons_cryptocoins.html"><i class="ti-more"></i>Cryptocoins Icons</a></li>
+            <li><a href="icons_flag.html"><i class="ti-more"></i>Flag Icons</a></li>
+            <li><a href="icons_weather.html"><i class="ti-more"></i>Weather Icons</a></li>
+          </ul>
+        </li> 
+		  
+        <li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/cards.svg" class="svg-icon" alt="">
+            <span>Cards</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+			<li><a href="box_advanced.html"><i class="ti-more"></i>Advanced Card</a></li>
+            <li><a href="box_basic.html"><i class="ti-more"></i>Basic Card</a></li>
+            <li><a href="box_color.html"><i class="ti-more"></i>Card Color</a></li>
+          </ul>
+        </li>	  	
+		
+        <li class="header">Forms & Elements</li>  
+		
+		<li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/forms1.svg" class="svg-icon" alt="">
+            <span>Forms Elements</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="forms_advanced.html"><i class="ti-more"></i>Form Elements</a></li>
+            <li><a href="forms_mask.html"><i class="ti-more"></i>Formatter</a></li>
+            <li><a href="forms_xeditable.html"><i class="ti-more"></i>Xeditable Editor</a></li>	
+            <li><a href="forms_code_editor.html"><i class="ti-more"></i>Code Editor</a></li>
+            <li><a href="forms_editors.html"><i class="ti-more"></i>Editor</a></li>
+            <li><a href="forms_dropzone.html"><i class="ti-more"></i>Dropzone</a></li>
+            <li><a href="forms_editor_markdown.html"><i class="ti-more"></i>Markdown</a></li>
+          </ul>
+        </li>  		
+		<li>
+          <a href="forms_general.html">
+            <img src="../images/svg-icon/sidebar-menu/forms2.svg" class="svg-icon" alt="">
+			<span>Form Layout</span>
+          </a>
+        </li>	
+		<li>
+          <a href="forms_wizard.html">
+            <img src="../images/svg-icon/sidebar-menu/forms3.svg" class="svg-icon" alt="">
+			<span>Form Wizard</span>
+          </a>
+        </li>	
+		<li>
+          <a href="forms_validation.html">
+            <img src="../images/svg-icon/sidebar-menu/forms4.svg" class="svg-icon" alt="">
+			<span>Form Validation</span>
+          </a>
+        </li>
+		  
+		<li class="header">Maps & Extensions</li>		  
+		
+		<li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/maps.svg" class="svg-icon" alt="">
+			<span>Maps</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+			<li><a href="map_google.html"><i class="ti-more"></i>Google Map</a></li>
+			<li><a href="map_vector.html"><i class="ti-more"></i>Vector Map</a></li>
+          </ul>
+        </li> 	  
+		
+		<li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/extensions.svg" class="svg-icon" alt="">
+			<span>Extensions</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+			<li><a href="component_sweatalert.html"><i class="ti-more"></i>Sweet Alert</a></li>
+			<li><a href="component_notification.html"><i class="ti-more"></i>Toastr</a></li>
+			<li><a href="extension_fullscreen.html"><i class="ti-more"></i>Fullscreen</a></li>
+			<li><a href="extension_pace.html"><i class="ti-more"></i>Pace</a></li>
+			<li><a href="component_nestable.html"><i class="ti-more"></i>Nestable</a></li>
+			<li><a href="component_portlet_draggable.html"><i class="ti-more"></i>Draggable</a></li>
+          </ul>
+        </li> 
+		
+        <li class="header">Pages</li> 	
+		  
+		<li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/authentication.svg" class="svg-icon" alt="">
+			<span>Authentication</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="auth_login.html"><i class="ti-more"></i>Login</a></li>
+            <li><a href="auth_login2.html"><i class="ti-more"></i>Login 2</a></li>
+			<li><a href="auth_register.html"><i class="ti-more"></i>Register</a></li>
+			<li><a href="auth_register2.html"><i class="ti-more"></i>Register 2</a></li>
+			<li><a href="auth_lockscreen.html"><i class="ti-more"></i>Lockscreen</a></li>
+			<li><a href="auth_user_pass.html"><i class="ti-more"></i>Recover password</a></li>	
+          </ul>
+        </li>	  
+		  
+		<li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/miscellaneous.svg" class="svg-icon" alt="">
+			<span>Miscellaneous</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+			<li><a href="error_400.html"><i class="ti-more"></i>Error 400</a></li>
+			<li><a href="error_403.html"><i class="ti-more"></i>Error 403</a></li>
+			<li><a href="error_404.html"><i class="ti-more"></i>Error 404</a></li>
+			<li><a href="error_500.html"><i class="ti-more"></i>Error 500</a></li>
+			<li><a href="error_503.html"><i class="ti-more"></i>Error 503</a></li>
+			<li><a href="error_maintenance.html"><i class="ti-more"></i>Maintenance</a></li>	
+          </ul>
+        </li>
+		  
+		<li>
+          <a href="email_index.html">
+            <img src="../images/svg-icon/sidebar-menu/emails.svg" class="svg-icon" alt="">
+			<span>Emails</span>
+          </a>
+        </li>	  	   
+		  
+		<li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/pages.svg" class="svg-icon" alt="">
+			<span>Sample Pages</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="sample_blank.html"><i class="ti-more"></i>Blank</a></li>
+            <li><a href="sample_coming_soon.html"><i class="ti-more"></i>Coming Soon</a></li>
+            <li><a href="sample_faq.html"><i class="ti-more"></i>FAQ</a></li>
+          </ul>
+        </li>  
+		
+		  
+        <li class="treeview">
+          <a href="#">
+            <img src="../images/svg-icon/sidebar-menu/multilevel.svg" class="svg-icon" alt="">
+			<span>Multilevel</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#">Level One</a></li>
+            <li class="treeview">
+              <a href="#">Level One
+                <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="#">Level Two</a></li>
+                <li class="treeview">
+                  <a href="#">Level Two
+                    <span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="#">Level Three</a></li>
+                    <li><a href="#">Level Three</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#">Level One</a></li>
+          </ul>
+        </li>  
+		  
+		<li>
+          <a href="auth_login.html">
+            <img src="../images/svg-icon/sidebar-menu/logout.svg" class="svg-icon" alt="">
+			<span>Log Out</span>
+          </a>
+        </li> 
+        
+      </ul>
+    </section>
+  </aside>
+  
+  
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Market</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Reports</li>
+								<li class="breadcrumb-item active" aria-current="page">Market</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				<div class="right-title">
+					<div class="d-flex mt-10 justify-content-end">
+						<div class="d-lg-flex mr-20 ml-10 d-none">
+							<div class="chart-text mr-10">
+								<h6 class="mb-0"><small>THIS MONTH</small></h6>
+								<h4 class="mt-0 text-primary">$12,125</h4>
+							</div>
+							<div class="spark-chart">
+								<div id="thismonth"><canvas width="60" height="35" style="display: inline-block; width: 60px; height: 35px; vertical-align: top;"></canvas></div>
+							</div>
+						</div>
+						<div class="d-lg-flex mr-20 ml-10 d-none">
+							<div class="chart-text mr-10">
+								<h6 class="mb-0"><small>LAST YEAR</small></h6>
+								<h4 class="mt-0 text-danger">$22,754</h4>
+							</div>
+							<div class="spark-chart">
+								<div id="lastyear"><canvas width="60" height="35" style="display: inline-block; width: 60px; height: 35px; vertical-align: top;"></canvas></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Main content -->
+		<section class="content">
+		  <div class="row">
+			<div class="col-12">
+				<div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Market Capitalizations</h4>
+					</div>
+					<div class="box-body">
+						<div class="table-responsive">
+							<table class="table table-bordered dataTable no-footer table-striped" id="dataTable_crypto" role="grid">
+							  <thead>
+								 <tr role="row">
+									<th colspan="2" rowspan="1">Currency</th>
+									<th class="text-right">Price</th>
+									<th class="text-right">Market Cap</th>
+									<th class="text-right">Volume 24H</th>
+									<th class="text-right">Change % (1H)</th>
+									<th class="text-right">Change % (24H)</th>
+									<th class="text-right">Change % (7D)</th>
+									<th class="text-right">Chart</th>
+								 </tr>
+							  </thead>
+							   <tbody>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc BTC" title="BTC"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Bitcoin</a></small>
+										<h6 class="text-muted">BTC</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 12,723.40</p></td>
+									 <td class="text-right"><p><span>$</span> 312,078,267,295</p></td>
+									 <td class="text-right"><p><span>$</span> 123,950,900,000</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -3.82%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 23.96%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -45.20%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc ETH" title="ETH"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Ethereum</a></small>
+										<h6 class="text-muted">ETH</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 123,070.39</p></td>
+									 <td class="text-right"><p><span>$</span> 123,892,495,504</p></td>
+									 <td class="text-right"><p><span>$</span> 7,123,310,000</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -4.28%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 54.13%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -12.74%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,10,10,5,5,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc XRP" title="XRP"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Ripple</a></small>
+										<h6 class="text-muted">XRP</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 1123.64</p></td>
+									 <td class="text-right"><p><span>$</span> 132,391,183,730</p></td>
+									 <td class="text-right"><p><span>$</span> 132,143,400,000</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -2.12%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 12.62%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -52.44%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,20,20,10,10,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc ADA" title="ADA"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Cardano</a></small>
+										<h6 class="text-muted">ADA</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 123.68</p></td>
+									 <td class="text-right"><p><span>$</span> 123,643,890,043</p></td>
+									 <td class="text-right"><p><span>$</span> 123,687,430,000</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -45.40%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 1.76%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -2.91%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,20,20,10,10,14,16,15,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc LTC" title="LTC"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Litecoin</a></small>
+										<h6 class="text-muted">LTC</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 123.88</p></td>
+									 <td class="text-right"><p><span>$</span> 123,901,285,520</p></td>
+									 <td class="text-right"><p><span>$</span> 123,235,390,000</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -7.56%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 21.96%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -23.74%</label></td>
+									 <td><a href="#"><span class="sparklines">18,14,10,10,11,14,14,20,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc XEM" title="XEM"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> NEM</a></small>
+										<h6 class="text-muted">XEM</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 123.11</p></td>
+									 <td class="text-right"><p><span>$</span> 45,996,569,999</p></td>
+									 <td class="text-right"><p><span>$</span> 45543,335,000</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -8.35%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 12.32%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -32.62%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,20,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc NEO" title="NEO"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> NEO</a></small>
+										<h6 class="text-muted">NEO</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 544.15</p></td>
+									 <td class="text-right"><p><span>$</span> 543,694,490,000</p></td>
+									 <td class="text-right"><p><span>$</span> 453,304,130,000</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -9.32%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 12.90%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 54.05%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,20,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc DASH" title="DASH"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Dash</a></small>
+										<h6 class="text-muted">DASH</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 5435.27</p></td>
+									 <td class="text-right"><p><span>$</span> 5435,771,308,110</p></td>
+									 <td class="text-right"><p><span>$</span> 4535,439,000</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -9.94%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 65.83%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -54.47%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,20,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc EOS" title="EOS"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> EOS</a></small>
+										<h6 class="text-muted">EOS</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 354.57</p></td>
+									 <td class="text-right"><p><span>$</span> 4534,460,354,540</p></td>
+									 <td class="text-right"><p><span>$</span> 543,566,560,000</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -7.17%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 45.84%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -12.43%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,20,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc XMR" title="XMR"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Monero</a></small>
+										<h6 class="text-muted">XMR</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 543.11</p></td>
+									 <td class="text-right"><p><span>$</span> 453,249,235,883</p></td>
+									 <td class="text-right"><p><span>$</span> 4534,650,000</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -5.92%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 12.27%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -45.78%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,20,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc ETC" title="ETC"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Ethereum Classic</a></small>
+										<h6 class="text-muted">ETC</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 453.35</p></td>
+									 <td class="text-right"><p><span>$</span> 453,109,936,842</p></td>
+									 <td class="text-right"><p><span>$</span> 434,273,000</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -6.03%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 12.92%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -12.33%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,20,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc QTUM" title="QTUM"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Qtum</a></small>
+										<h6 class="text-muted">QTUM</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 453.18</p></td>
+									 <td class="text-right"><p><span>$</span> 453,817,991,874</p></td>
+									 <td class="text-right"><p><span>$</span> 453,043,000</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -6.16%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 12.87%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -54.11%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,20,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc LSK" title="LSK"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Lisk</a></small>
+										<h6 class="text-muted">LSK</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 453.77</p></td>
+									 <td class="text-right"><p><span>$</span> 453,784,607,027</p></td>
+									 <td class="text-right"><p><span>$</span> 453,214,400</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -5.97%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 12.82%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -0.49%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,20,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc OMG" title="OMG"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> OmiseGO</a></small>
+										<h6 class="text-muted">OMG</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 453.79</p></td>
+									 <td class="text-right"><p><span>$</span> 543,916,950,969</p></td>
+									 <td class="text-right"><p><span>$</span> 453,669,000</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -12.55%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 56.28%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -45.04%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,20,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc USDT" title="USDT"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Tether</a></small>
+										<h6 class="text-muted">USDT</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 4534.03</p></td>
+									 <td class="text-right"><p><span>$</span> 543,672,345,408</p></td>
+									 <td class="text-right"><p><span>$</span> 453,941,850,000</p></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 7.78%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 14.93%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 54.13%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc XVG" title="XVG"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Verge</a></small>
+										<h6 class="text-muted">XVG</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 0.11</p></td>
+									 <td class="text-right"><p><span>$</span> 1,663,900,911</p></td>
+									 <td class="text-right"><p><span>$</span> 261,147,000</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -9.63%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 54.25%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -12.29%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,20,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc ZEC" title="ZEC"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Zcash</a></small>
+										<h6 class="text-muted">ZEC</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 453.40</p></td>
+									 <td class="text-right"><p><span>$</span> 534,636,048,635</p></td>
+									 <td class="text-right"><p><span>$</span> 453,861,000</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -45.95%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 54.30%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -21.25%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,20,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc STRAT" title="STRAT"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Stratis</a></small>
+										<h6 class="text-muted">STRAT</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 867.53</p></td>
+									 <td class="text-right"><p><span>$</span> 786,532,582,626</p></td>
+									 <td class="text-right"><p><span>$</span> 786,016,000</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -65.87%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 56.40%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -45.87%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc ARDR" title="ARDR"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Ardor</a></small>
+										<h6 class="text-muted">ARDR</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 867.48</p></td>
+									 <td class="text-right"><p><span>$</span> 786,482,804,960</p></td>
+									 <td class="text-right"><p><span>$</span> 786,149,000</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -54.61%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 54.43%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 45.45%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc BCN" title="BCN"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Bytecoin</a></small>
+										<h6 class="text-muted">BCN</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 456.01</p></td>
+									 <td class="text-right"><p><span>$</span> 1546,465,618,587</p></td>
+									 <td class="text-right"><p><span>$</span> 45,811,700</p></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 7.63%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 54.15%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -12.15%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc STEEM" title="STEEM"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Steem</a></small>
+										<h6 class="text-muted">STEEM</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 4456.45</p></td>
+									 <td class="text-right"><p><span>$</span> 1546,100,959,745</p></td>
+									 <td class="text-right"><p><span>$</span> 25465,037,000</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -5.88%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 45.02%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -12.83%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc BTS" title="BTS"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> BitShares</a></small>
+										<h6 class="text-muted">BTS</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 546.36</p></td>
+									 <td class="text-right"><p><span>$</span> 546,934,004</p></td>
+									 <td class="text-right"><p><span>$</span> 546,824,700</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -9.65%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 54.07%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -12.46%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc DOGE" title="DOGE"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Dogecoin</a></small>
+										<h6 class="text-muted">DOGE</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 456.01</p></td>
+									 <td class="text-right"><p><span>$</span> 941,142,659</p></td>
+									 <td class="text-right"><p><span>$</span> 63,248,100</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -9.44%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 54.99%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -32.79%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc WAVES" title="WAVES"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Waves</a></small>
+										<h6 class="text-muted">WAVES</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 53.78</p></td>
+									 <td class="text-right"><p><span>$</span> 35,976,000</p></td>
+									 <td class="text-right"><p><span>$</span> 654,506,800</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -7.76%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 32.61%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -32.42%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc REP" title="REP"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Augur</a></small>
+										<h6 class="text-muted">REP</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 567.95</p></td>
+									 <td class="text-right"><p><span>$</span> 789,479,700</p></td>
+									 <td class="text-right"><p><span>$</span> 345,136,300</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -8.58%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 57.27%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -45.46%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc KMD" title="KMD"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Komodo</a></small>
+										<h6 class="text-muted">KMD</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 532.81</p></td>
+									 <td class="text-right"><p><span>$</span> 35,469,055</p></td>
+									 <td class="text-right"><p><span>$</span> 567,785,800</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -98.38%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 48.65%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -11.35%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc DGB" title="DGB"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> DigiByte</a></small>
+										<h6 class="text-muted">DGB</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 567.07</p></td>
+									 <td class="text-right"><p><span>$</span> 235,577,239</p></td>
+									 <td class="text-right"><p><span>$</span> 35,695,200</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -54.55%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 1.31%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -12.83%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc ARK" title="ARK"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Ark</a></small>
+										<h6 class="text-muted">ARK</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 35.65</p></td>
+									 <td class="text-right"><p><span>$</span> 56,050,748</p></td>
+									 <td class="text-right"><p><span>$</span> 568,076,300</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -12.91%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 12.48%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -12.47%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc SALT" title="SALT"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> SALT</a></small>
+										<h6 class="text-muted">SALT</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 768.99</p></td>
+									 <td class="text-right"><p><span>$</span> 685,586,223</p></td>
+									 <td class="text-right"><p><span>$</span> 586,684,300</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -9.53%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 32.98%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -1.19%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc BAT" title="BAT"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Basic Attention Token</a></small>
+										<h6 class="text-muted">BAT</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 456.63</p></td>
+									 <td class="text-right"><p><span>$</span> 5435,186,000</p></td>
+									 <td class="text-right"><p><span>$</span> 435,758,900</p></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -12.29%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 23.56%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -32.68%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>
+								  <tr role="row">
+									 <td><span><a href="#"><i class="cc GNT" title="GNT"></i></a></span></td>
+									 <td>
+										<small><a href="#" class="hover-warning"> Golem</a></small>
+										<h6 class="text-muted">GNT</h6>
+									 </td>
+									 <td class="text-right"><p><span>$</span> 235.73</p></td>
+									 <td class="text-right"><p><span>$</span> 235,448,133</p></td>
+									 <td class="text-right"><p><span>$</span> 235,969,100</p></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 54.46%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-success"><i class="fa fa-chevron-up"></i> 12.84%</label></td>
+									 <td class="no-wrap text-right"><label class="label label-danger"><i class="fa fa-chevron-down"></i> -32.94%</label></td>
+									 <td><a href="#"><span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span></a></td>
+								  </tr>								  
+							   </tbody>
+							</table>
+						</div>
+					</div>
+					<!-- /.box-body -->
+				  </div>
+			</div>
+		  </div>
+		</section>
+		<!-- /.content -->
+	  
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+ 
+   <footer class="main-footer">
+    <div class="pull-right d-none d-sm-inline-block">
+        <ul class="nav nav-primary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
+		  <li class="nav-item">
+			<a class="nav-link" href="javascript:void(0)">FAQ</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="#">Purchase Now</a>
+		  </li>
+		</ul>
+    </div>
+	  &copy; 2020 <a href="https://www.multipurposethemes.com/">Multipurpose Themes</a>. All Rights Reserved.
+  </footer>
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar">
+	  
+	<div class="rpanel-title">
+		<span class="pull-right btn btn-circle p-10">
+			<img src="../images/svg-icon/close.svg" data-toggle="control-sidebar" class="img-fluid svg-icon" alt="">
+		</span> 
+	</div>  <!-- Create the tabs -->
+    <ul class="nav nav-tabs control-sidebar-tabs">
+      <li class="nav-item"><a href="#control-sidebar-home-tab" data-toggle="tab"><img src="../images/svg-icon/apps.svg" class="img-fluid svg-icon" alt=""></a></li>
+      <li class="nav-item"><a href="#control-sidebar-settings-tab" data-toggle="tab"><img src="../images/svg-icon/advanced.svg" class="img-fluid svg-icon" alt=""></a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!-- Home tab content -->
+      <div class="tab-pane" id="control-sidebar-home-tab">
+          <div class="flexbox">
+			<a href="javascript:void(0)" class="text-grey">
+				<i class="ti-more"></i>
+			</a>	
+			<p>Users</p>
+			<a href="javascript:void(0)" class="text-right text-grey"><i class="ti-plus"></i></a>
+		  </div>
+		  <div class="lookup lookup-sm lookup-right d-none d-lg-block">
+			<input type="text" name="s" placeholder="Search" class="w-p100">
+		  </div>
+          <div class="media-list media-list-hover mt-20">
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-success" href="#">
+				<img src="../images/avatar/1.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="font-size-16">
+				  <a class="hover-primary" href="#"><strong>Tyler</strong></a>
+				</p>
+				<p>Praesent tristique diam...</p>
+				  <span>Just now</span>
+			  </div>
+			</div>
+
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-danger" href="#">
+				<img src="../images/avatar/2.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="font-size-16">
+				  <a class="hover-primary" href="#"><strong>Luke</strong></a>
+				</p>
+				<p>Cras tempor diam ...</p>
+				  <span>33 min ago</span>
+			  </div>
+			</div>
+
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-warning" href="#">
+				<img src="../images/avatar/3.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="font-size-16">
+				  <a class="hover-primary" href="#"><strong>Evan</strong></a>
+				</p>
+				<p>In posuere tortor vel...</p>
+				  <span>42 min ago</span>
+			  </div>
+			</div>
+
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-primary" href="#">
+				<img src="../images/avatar/4.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="font-size-16">
+				  <a class="hover-primary" href="#"><strong>Evan</strong></a>
+				</p>
+				<p>In posuere tortor vel...</p>
+				  <span>42 min ago</span>
+			  </div>
+			</div>			
+			
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-success" href="#">
+				<img src="../images/avatar/1.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="font-size-16">
+				  <a class="hover-primary" href="#"><strong>Tyler</strong></a>
+				</p>
+				<p>Praesent tristique diam...</p>
+				  <span>Just now</span>
+			  </div>
+			</div>
+
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-danger" href="#">
+				<img src="../images/avatar/2.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="font-size-16">
+				  <a class="hover-primary" href="#"><strong>Luke</strong></a>
+				</p>
+				<p>Cras tempor diam ...</p>
+				  <span>33 min ago</span>
+			  </div>
+			</div>
+
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-warning" href="#">
+				<img src="../images/avatar/3.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="font-size-16">
+				  <a class="hover-primary" href="#"><strong>Evan</strong></a>
+				</p>
+				<p>In posuere tortor vel...</p>
+				  <span>42 min ago</span>
+			  </div>
+			</div>
+
+			<div class="media py-10 px-0">
+			  <a class="avatar avatar-lg status-primary" href="#">
+				<img src="../images/avatar/4.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+				<p class="font-size-16">
+				  <a class="hover-primary" href="#"><strong>Evan</strong></a>
+				</p>
+				<p>In posuere tortor vel...</p>
+				  <span>42 min ago</span>
+			  </div>
+			</div>
+			  
+		  </div>
+
+      </div>
+      <!-- /.tab-pane -->
+      <!-- Settings tab content -->
+      <div class="tab-pane" id="control-sidebar-settings-tab">
+          <div class="flexbox">
+			<a href="javascript:void(0)" class="text-grey">
+				<i class="ti-more"></i>
+			</a>	
+			<p>Todo List</p>
+			<a href="javascript:void(0)" class="text-right text-grey"><i class="ti-plus"></i></a>
+		  </div>
+        <ul class="todo-list mt-20">
+			<li class="py-15 px-5 by-1">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_1" class="filled-in">
+			  <label for="basic_checkbox_1" class="mb-0 h-15"></label>
+			  <!-- todo text -->
+			  <span class="text-line">Nulla vitae purus</span>
+			  <!-- Emphasis label -->
+			  <small class="badge bg-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
+			  <!-- General tools such as edit or delete-->
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_2" class="filled-in">
+			  <label for="basic_checkbox_2" class="mb-0 h-15"></label>
+			  <span class="text-line">Phasellus interdum</span>
+			  <small class="badge bg-info"><i class="fa fa-clock-o"></i> 4 hours</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5 by-1">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_3" class="filled-in">
+			  <label for="basic_checkbox_3" class="mb-0 h-15"></label>
+			  <span class="text-line">Quisque sodales</span>
+			  <small class="badge bg-warning"><i class="fa fa-clock-o"></i> 1 day</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_4" class="filled-in">
+			  <label for="basic_checkbox_4" class="mb-0 h-15"></label>
+			  <span class="text-line">Proin nec mi porta</span>
+			  <small class="badge bg-success"><i class="fa fa-clock-o"></i> 3 days</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5 by-1">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_5" class="filled-in">
+			  <label for="basic_checkbox_5" class="mb-0 h-15"></label>
+			  <span class="text-line">Maecenas scelerisque</span>
+			  <small class="badge bg-primary"><i class="fa fa-clock-o"></i> 1 week</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_6" class="filled-in">
+			  <label for="basic_checkbox_6" class="mb-0 h-15"></label>
+			  <span class="text-line">Vivamus nec orci</span>
+			  <small class="badge bg-info"><i class="fa fa-clock-o"></i> 1 month</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5 by-1">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_7" class="filled-in">
+			  <label for="basic_checkbox_7" class="mb-0 h-15"></label>
+			  <!-- todo text -->
+			  <span class="text-line">Nulla vitae purus</span>
+			  <!-- Emphasis label -->
+			  <small class="badge bg-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
+			  <!-- General tools such as edit or delete-->
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_8" class="filled-in">
+			  <label for="basic_checkbox_8" class="mb-0 h-15"></label>
+			  <span class="text-line">Phasellus interdum</span>
+			  <small class="badge bg-info"><i class="fa fa-clock-o"></i> 4 hours</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5 by-1">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_9" class="filled-in">
+			  <label for="basic_checkbox_9" class="mb-0 h-15"></label>
+			  <span class="text-line">Quisque sodales</span>
+			  <small class="badge bg-warning"><i class="fa fa-clock-o"></i> 1 day</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+			<li class="py-15 px-5">
+			  <!-- checkbox -->
+			  <input type="checkbox" id="basic_checkbox_10" class="filled-in">
+			  <label for="basic_checkbox_10" class="mb-0 h-15"></label>
+			  <span class="text-line">Proin nec mi porta</span>
+			  <small class="badge bg-success"><i class="fa fa-clock-o"></i> 3 days</small>
+			  <div class="tools">
+				<i class="fa fa-edit"></i>
+				<i class="fa fa-trash-o"></i>
+			  </div>
+			</li>
+		  </ul>
+      </div>
+      <!-- /.tab-pane -->
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
+  
+  <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+
+	<!-- Vendor JS -->
+	<script src="js/vendors.min.js"></script>
+	
+	<!-- Vendor plugin -->
+	<script src="../assets/vendor_components/datatable/datatables.min.js"></script>
+	<script src="js/pages/market-capitalizations.js"></script>
+	
+	<!-- Crypto Tokenizer Admin App -->
+	<script src="js/template.js"></script>
+	<script src="js/demo.js"></script>
+	
+
+</body>
+</html>

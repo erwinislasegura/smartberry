@@ -1,0 +1,442 @@
+
+
+font-face {
+	font-family: SourceSansPro;
+	src: Arial, sans-serif;
+  }
+  
+  .clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
+  
+  a {
+	color: #4253a1;
+	text-decoration: none;
+  }
+  
+  body {
+	position: relative;
+	width: 21cm;  
+	height: 29.7cm; 
+	margin: 0 auto; 
+	color: #555555;
+	background: #FFFFFF; 
+	font-family: Arial, sans-serif; 
+	font-size: 12px; 
+	font-family: Arial, sans-serif;
+  }
+  
+  header {
+	padding: 10px 0;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #AAAAAA;
+  }
+  
+  #logo {
+	width: 50%;
+	float: left;
+	margin-top: 8px;
+  }
+  
+  #logo img {
+	height: 60px;
+  }
+  
+  #company {
+	width: 50%;
+	float: right;
+	font-size: 10px;
+	text-align: right;
+  }
+  
+  
+  #details {
+	margin-bottom: 10px;
+  }
+  
+  #client {
+	font-size: 10px;
+	width: 300px;
+	padding-left: 6px;
+	border-left: 6px solid #777777;
+	float: left;
+  }
+  
+  #client .to {
+	color: #777777;
+  }
+  
+  h2.name {
+	font-size: 1.4em;
+	font-weight: normal;
+	margin: 0;
+  }
+  
+  #invoice {
+	font-size: 10px;
+	width: 200px;
+	float: right;
+	text-align: right;
+  }
+  
+  #invoice h1, h2 {
+	color: #4253a1;
+	line-height: 1em;
+	font-weight: normal;
+	margin: 0  0 10px 0;
+  }
+  
+  
+  
+  #invoice .date {
+	font-size: 1.1em;
+	color: #777777;
+  }
+
+
+  #invoicer {
+	font-size: 10px;
+	width: 200px;
+	float: left;
+	text-align: left;
+	border-left: 6px solid #777777;
+  }
+  
+  #invoicer h1, h2 {
+	color: #4253a1;
+	line-height: 1em;
+	font-weight: normal;
+	margin: 0  0 10px 0;
+  }
+  
+  
+  
+  #invoicer .dater {
+	font-size: 1.1em;
+	color: #777777;
+  }
+
+  
+  h1.titulo{
+	width: 100%;
+	height: auto;
+	padding: 5px 0px;
+	text-align: center;
+	font-weight: bolder;
+	color: #000000;
+	
+  }
+  
+  table {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin-bottom: 10px;
+  }
+  
+  table th,
+  table td {
+	background: #EEEEEE;
+	text-align: center;
+	border-bottom: 1px solid #FFFFFF;
+  }
+  
+  table th {
+	padding: 3px;
+	white-space: nowrap;        
+	font-weight: bold;
+	font-size: 10px;
+	text-transform: uppercase;
+  }
+  
+  table td {
+	text-align: center;
+	font-size: 8px;
+	text-transform: none;
+  }
+  
+  table td h3{
+	color: #57B223;
+	font-weight: normal;
+	margin: 0 0 0.2em 0;
+  }
+  
+  table .color {
+	color: #FFFFFF;
+	background: #b8b7b7;
+  }
+  table .color2 {
+	color: #000000;
+	font-size: 8px;
+	background: transparent;
+  }
+  table .color3 {
+	color: #000000;
+	border-top: 2px solid #000000;
+	font-size: 8px;
+	background: transparent;
+  }
+
+
+
+  table .left {
+	text-align: left;
+  }
+  
+  table .right {
+	text-align: right;
+  }
+  
+  table .center {
+	text-align: center;
+  }
+  
+  table .gris {
+	background: #DDDDDD;
+  }
+  
+  
+  
+  
+  table tbody tr:last-child td {
+	border: none;
+  }
+  
+  table tfoot td {
+	padding: 10px 20px;
+	background: #FFFFFF;
+	border-bottom: none;
+	white-space: nowrap; 
+	border-top: 1px solid #AAAAAA; 
+  }
+  
+  
+  table tfoot tr:last-child td {
+	color: #57B223;
+	font-size: 1.4em;
+	border-top: 1px solid #57B223; 
+  
+  }
+  
+  table tfoot tr td:first-child {
+	border: none;
+  }
+  
+  #thanks{
+	font-size: 2em;
+	margin-bottom: 50px;
+  }
+  
+  #notices{
+	padding-left: 6px;
+	border-left: 6px solid #4253a1;  
+  }
+  
+  #notices .notice {
+	font-size: 10px;
+  }
+  
+  footer {
+	color: #777777;	
+	height: 10px;
+	bottom: 0;
+	border-top: 1px solid #AAAAAA;
+	padding: 2px 0;
+	text-align: left;
+	font-size: 8px;
+	width: 100%;
+  }
+  
+  .cuadrado , #cuadrado{
+	  font-size: large;
+	  width: 100px;
+	  height: 100px;
+	  border: 2px solid #000000;
+	  border-radius: 1px;
+	  -webkit-border-radius: 1px;
+	  -moz-border-radius: 1px;
+	  -ms-border-radius: 1px;
+	  -o-border-radius: 1px;
+}
+
+
+
+img {
+	max-width: 210px;
+	max-height: 60px;
+}
+
+
+
+input[type=checkbox] {
+
+	padding: 10px;
+  }
+
+  .bcolor, #bcolor{
+	color: #FFFFFF;
+	background: #b8b7b7;
+	padding: 10px;
+	
+  }
+
+.margin10 #margin10{
+	
+	margin-left: 10%;
+	margin-right: 10%;
+}
+.pp10,  #pp10{
+	padding: 10px;
+}
+.pp20,  #pp20{
+	padding: 20px;
+}
+.pp30,  #pp30{
+	padding: 30px;
+}
+.ppb, #ppb{
+	
+	padding-bottom: 20px;
+}
+
+.pprl , #pprl{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.pptb , #pptb{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.pptb10 , #pptb10{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.tarja, #tarja{
+	font-size: 7px;
+}
+.borr, #borr{
+	border: 2px solid #000000;
+	border-radius: 15px solid #000000;
+	-webkit-border-radius: 15px solid #000000;
+	-moz-border-radius: 15px solid #000000;
+	-ms-border-radius: 15px solid #000000;
+	-o-border-radius: 15px solid #000000;
+}
+.bor, #bor{	
+	border: 1px solid #000000;
+}
+.bor2, #bor2{
+	
+	border: 1px solid #bbb5b5;
+}
+.bor3, #bor3{
+	border: 2px solid #4253a1;
+	border-radius: 15px solid #4253a1;
+	-webkit-border-radius: 15px solid #4253a1;
+	-moz-border-radius: 15px solid #0e163a;
+	-ms-border-radius: 15px solid #4253a1;
+	-o-border-radius: 15px solid #4253a1;
+}
+.bor3, #bor3{
+	
+	border-left: 1px solid #bbb5b5;
+	border-right: 1px solid #bbb5b5;
+	border-top: 1px solid #bbb5b5;
+	border-bottom: 1px solid #bbb5b5;
+}
+.bl, #bl{
+	border-left: 1px solid #000000;
+}
+.br, #br{
+	border-right: 1px solid #000000;
+}
+.bb, #bb{
+	border-bottom: 2px solid #000000;
+}
+.bt, #bt{
+	border-top: 1px solid #000000;
+}
+.bl2, #bl2{
+	border-left: 2px solid #bbb5b5;
+}
+.br2, #br2{
+	border-right: 2px solid #bbb5b5;
+}
+.bb2, #bb2{
+	border-bottom: 2px solid #bbb5b5;
+}
+.bt2, #bt2{
+	border-top: 2px solid #bbb5b5;
+}
+
+/*style=" border-top: 1px solid #000000;"*/
+
+/*ESCTRUCURA BASE PDF TARJA*/
+.f9, #f9{	
+	font-size: 9px;	
+}
+.f10, #f10{	
+	font-size: 10px;	
+}
+.f11, #f11{	
+	font-size: 11px;	
+}
+.f12, #f12{	
+	font-size: 12px;	
+}
+.f15, #f15{	
+	font-size: 15px;	
+}
+.f20, #f20{	
+	font-size: 20px;	
+}
+.f25, #f25{	
+	font-size: 25px;	
+}
+.f30, #f30{	
+	font-size: 30px;	
+	font-weight: bolder;
+}
+
+.f40, #f40{	
+	font-size: 40px;	
+}
+.f50, #f50{	
+	font-size: 50px;	
+	font-weight: bolder;
+}
+/*ALIGNACIONTEXTO*/
+
+.center, #center {
+
+
+    text-align: center;
+}
+
+.justify, #justify {
+
+    text-align: justify;
+}
+
+.right, #right {
+
+    text-align: right;
+}
+
+.left, #left {
+
+    text-align: left;
+}
+
+.start, #start {
+    text-align: start;
+}
+
+.end, #end {
+    text-align: end;
+
+}

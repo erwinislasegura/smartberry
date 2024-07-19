@@ -1,0 +1,82 @@
+﻿
+
+
+
+/* Ensure that the demo table scrolls */
+th, td { white-space: nowrap; }
+div.dataTables_wrapper {
+    width: auto;
+    margin: 0 auto;
+}
+
+
+
+/**
+FORMATO DE MENSAJE DE VALIDACION DE FORMULARIO
+**/
+
+
+.validacion, #validacion {
+    color: #ff0000;
+    font-size: 8px;
+    text-transform:capitalize;
+}
+
+.validacion2, #validacion2 {
+    color: #ff0000;
+    font-size: 20px;
+    text-transform:uppercase;
+}
+
+
+
+
+
+
+/**
+ FORMATO MENSAJE DE VALIDACIOND DE TABLAS VACIAS  
+  **/
+
+#noDato {
+    background-color: transparent;
+    
+    color           : #ff0000;
+    text-align      : center;
+}
+
+#siDato {
+    background-color: transparent;
+    color           : #FFFAFA;
+}
+
+/*ALIGNACIONTEXTO*/
+
+.center, #center {
+
+
+    text-align: center;
+}
+
+.justify, #justify {
+
+    text-align: justify;
+}
+
+.right, #right {
+
+    text-align: right;
+}
+
+.left, #left {
+
+    text-align: left;
+}
+
+.start, #start {
+    text-align: start;
+}
+
+.end, #end {
+    text-align: end;
+
+}
