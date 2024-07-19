@@ -824,7 +824,7 @@ if ($_POST) {
                                                 <table id="detalle" class="table-hover " style="width: 100%;">
                                                     <thead>
                                                         <tr class="text-center">
-                                                            <th style="display: none;">Estado</th>
+                                                            <th>Estado</th>
                                                             <th>Folio Nuevo</th>
                                                             <th class="text-center">Operaciónes</th>
                                                             <th>Fecha Embalado </th>
@@ -897,13 +897,13 @@ if ($_POST) {
                                                                 <?php 
                                                                 //echo 'dataaaa : '.$r['ESTADO_FOLIO'];
                                                                 switch($r['ESTADO_FOLIO']){
-                                                                    case 1: echo '<td style="background: #18d26b; color: white; display: none;">P. Completado</td>';
+                                                                    case 1: echo '<td style="background: #18d26b; color: white;">P. Completado</td>';
                                                                         break;
-                                                                    case 2: echo '<td style="background: #ffa800; color: white; display: none;">P. Incompleto</td>';
+                                                                    case 2: echo '<td style="background: #ffa800; color: white;">P. Incompleto</td>';
                                                                         break;
-                                                                    case 3: echo '<td style="background: #3085f5; color: white; display: none;">P. Muestra</td>';
+                                                                    case 3: echo '<td style="background: #3085f5; color: white;">P. Muestra</td>';
                                                                         break;
-                                                                    default: echo '<td style="background: #93b4d4; color: white; display: none;">No identificado</td>';
+                                                                    default: echo '<td style="background: #93b4d4; color: white;">No identificado</td>';
                                                                 }
                                                             ?>
                                                                     <td> <?php echo $r['FOLIO_NUEVO_DREPALETIZAJE']; ?> </td>

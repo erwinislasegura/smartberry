@@ -292,13 +292,12 @@ if (isset($id_dato) && isset($accion_dato) && isset($urlo_dato)) {
                                                 <label for="FOLIOMANUAL"> Folio Manual</label>
                                                 <?php }?>
 
-                                                <!--<label>Estado Folio</label><br>
+                                                <label>Estado Folio</label><br>
                                                 <select class="form-control select2" id="EFOLIO" name="EFOLIO" style="width: 100%;">
-                                                    <option value="0">- Seleccione una Opcion -</option>
                                                     <option value="1">Pallet Completo</option>
                                                     <option value="2">Pallet Incompleto</option>
                                                     <option value="3">Pallet de Muestra</option>
-                                                </select>-->
+                                                </select>
                                             </div>
                                         </div>
                                       
@@ -309,7 +308,7 @@ if (isset($id_dato) && isset($accion_dato) && isset($urlo_dato)) {
                                                 <table id="selecionExistencia" class="table-hover " style="width: 100%;">
                                                     <thead>
                                                         <tr class="text-center">
-                                                            <th style="display: none;">Estado</th>                                                                                                                               
+                                                            <th>Estado</th>                                                                                                                               
                                                             <th>Folio </th>
                                                             <th>Estado Calidad</th>
                                                             <th>Condición </th>

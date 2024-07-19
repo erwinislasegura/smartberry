@@ -169,8 +169,8 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                                                         <th>Folio Original</th>
                                                         <th>Folio Nuevo</th>
                                                         <th>Fecha Embalado </th>
-                                                        <!-- <th>Estado </th>
-                                                        <th>Estado Calidad</th> 
+                                                         <th>Estado </th>
+                                                        <!--<th>Estado Calidad</th> 
                                                         <th>Condición </th>
                                                         <th>Días</th> -->
                                                         <th>Código Estandar</th>
@@ -539,8 +539,8 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                                                                     </span>
                                                                 </td>
                                                                 <td><?php echo $r['EMBALADO']; ?></td>
-                                                                <!-- <td><?php /*echo $ESTADO; ?></td>
-                                                                <td><?php echo $COLOR; ?></td>
+                                                                 <td><?php echo $ESTADO; ?></td>
+                                                                <!--<td><?php /*echo $COLOR; ?></td>
                                                                 <td><?php echo $ESTADOSAG; ?></td>
                                                                 <td><?php echo $r['DIAS']; */?></td> -->
                                                                 <td><?php echo $CODIGOESTANDAR; ?></td>
