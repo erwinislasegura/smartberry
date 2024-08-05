@@ -195,7 +195,9 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                                                             <tr class="text-center">
                                                                 <td>                                                                   
                                                                     <span class="<?php echo $TRECHAZOCOLOR; ?>">
+                                                                    <a Onclick="abrirPestana('../../assest/documento/informeTarjasPT.php?parametro=<?php echo $r['FOLIO_AUXILIAR_EXIEXPORTACION']; ?>&&parametro1=<?php echo $r['ID_EMPRESA']; ?>&&parametro2=<?php echo $r['ID_PLANTA']; ?>&&tipo=3');"> 
                                                                         <?php echo $r['FOLIO_AUXILIAR_EXIEXPORTACION']; ?>
+                                                                    </a>
                                                                     </span>
                                                                 </td>
                                                                 <td><?php echo $CODIGOESTANDAR; ?></td>

@@ -2243,7 +2243,10 @@ class EXIEXPORTACION_ADO
                         SUM(KILOS_NETO_EXIEXPORTACION)AS KILOS_NETO,
                         SUM(KILOS_BRUTO_EXIEXPORTACION)AS KILOS_BRUTO,
                         SUM(KILOS_DESHIRATACION_EXIEXPORTACION)AS KILOS_DESHIDRATACION,
-                        (REFERENCIA)AS NUMERO_REFERENCIA FROM
+                        (REFERENCIA)AS NUMERO_REFERENCIA,
+                        ID_PLANTA,
+                         ID_EMPRESA
+                        FROM
                         fruta_exiexportacion 
                     WHERE
                     ID_EMPRESA = '" . $EMPRESA . "' 
