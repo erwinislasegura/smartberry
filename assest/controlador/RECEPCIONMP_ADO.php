@@ -520,7 +520,7 @@ class RECEPCIONMP_ADO
                                                 AND  ID_EMPRESA = '" . $EMPRESA . "' 
                                                 AND ID_PRODUCTOR = '" . $PRODUCTOR . "'
                                                 AND ID_TEMPORADA = '" . $TEMPORADA . "'
-                                            ;	");
+                                                AND FECHA_RECEPCION < CURRENT_DATE;	");
             $datos->execute();
             $resultado = $datos->fetchAll();
             $datos=null;
