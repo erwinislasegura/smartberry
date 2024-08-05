@@ -1270,13 +1270,14 @@ if (isset($_POST)) {
                                                                 <th>Envase/Estandar</th>
                                                                 <th>Variedad</th>
                                                                 <th>Cantidad Envase</th>
-                                                                <?php if ($TDESPACHO == "3" || $TDESPACHO == "6") { ?>
-                                                                    <th>Total Precio</th>
-                                                                <?php } ?>
                                                                 <th>Kilos Neto</th>
                                                                 <th>% Deshidratacion</th>
                                                                 <th>Kilos Deshidratacion</th>
                                                                 <th>Kilos Bruto</th>
+                                                                <?php if ($TDESPACHO == "3" || $TDESPACHO == "6") { ?>
+                                                                    <th>Total Precio</th>
+                                                                <?php } ?>
+                                                               
                                                                 <th>CSG</th>
                                                                 <th>Productor</th>
                                                                 <th>Embolsado</th>
@@ -1357,7 +1358,12 @@ if (isset($_POST)) {
                                                                         $NOMBRETEMBALAJE = "Sin Datos";
                                                                     }
                                                                     if ($r['PRECIO_PALLET']) {
-                                                                        $TOTALPRECIO = $r['PRECIO_PALLET'] * $r['CANTIDAD_ENVASE_EXIEXPORTACION'];
+                                                                        if ($TDESPACHO == "6") {
+                                                                            $TOTALPRECIO = $r['PRECIO_PALLET'] * $r['DESHIRATACION'];
+                                                                        }else{
+                                                                            $TOTALPRECIO = $r['PRECIO_PALLET'] * $r['CANTIDAD_ENVASE_EXIEXPORTACION'];
+                                                                        }
+                                                                        
                                                                     }
 
                                                                     ?>
@@ -1392,13 +1398,14 @@ if (isset($_POST)) {
                                                                         <td><?php echo $NOMBREESTANDAR; ?></td>
                                                                         <td><?php echo $NOMBREVARIEDAD; ?></td>
                                                                         <td><?php echo $r['ENVASE']; ?></td>
-                                                                        <?php if ($TDESPACHO == "3" || $TDESPACHO == "6") { ?>
-                                                                            <td><?php echo number_format($TOTALPRECIO, 2, ",", "."); ?></td>
-                                                                        <?php } ?>
                                                                         <td><?php echo $r['NETO']; ?></td>
                                                                         <td><?php echo $r['PORCENTAJE']; ?></td>
                                                                         <td><?php echo $r['DESHIRATACION']; ?></td>
                                                                         <td><?php echo $r['BRUTO']; ?></td>
+                                                                        <?php if ($TDESPACHO == "3" || $TDESPACHO == "6") { ?>
+                                                                            <td><?php echo number_format($TOTALPRECIO, 2, ",", "."); ?></td>
+                                                                        <?php } ?>
+                                                                        
                                                                         <td><?php echo $CSGPRODUCTOR; ?></td>
                                                                         <td><?php echo $NOMBREPRODUCTOR; ?></td>
                                                                         <td><?php echo $EMBOLSADO; ?></td>
