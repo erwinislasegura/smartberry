@@ -150,44 +150,62 @@ class MOCOMPRA_ADO {
     public function agregarMcompra(MOCOMPRA $MOCOMPRA){
         try{
             
-            
+           /* $query = "INSERT INTO material_mocompra ( 
+                NUMERO_MOCOMPRA,
+                NUMERO_OCOMPRA, 
+                NUMEROI_OCOMPRA, 
+                MOTIVO_MOCOMPRA, 
+                ID_OCOMPRA,
+                ID_EMPRESA, 
+                ID_PLANTA, 
+                ID_TEMPORADA, 
+                ID_USUARIOI, 
+                ID_USUARIOM, 
+                FECHA_INGRESO_MOCOMPRA, 
+                ESTADO_REGISTRO
+            ) VALUES
+('" . $MOCOMPRA->__GET('NUMERO_MOCOMPRA') . "', 
+'" . $MOCOMPRA->__GET('NUMERO_OCOMPRA') . "', 
+'" . $MOCOMPRA->__GET('NUMEROI_OCOMPRA') . "', 
+'" . $MOCOMPRA->__GET('MOTIVO_MOCOMPRA') . "', 
+'" . $MOCOMPRA->__GET('ID_OCOMPRA') . "', 
+'" . $MOCOMPRA->__GET('ID_EMPRESA') . "', 
+'" . $MOCOMPRA->__GET('ID_PLANTA') . "', 
+'" . $MOCOMPRA->__GET('ID_TEMPORADA') . "', 
+'" . $MOCOMPRA->__GET('ID_USUARIOI') . "', 
+'" . $MOCOMPRA->__GET('ID_USUARIOM') . "', 
+SYSDATE(), 
+1
+);";*/
             $query=
-            "INSERT INTO material_mocompra ( 
-                                                NUMERO_MOCOMPRA,
-                                                NUMERO_OCOMPRA, 
-                                                NUMEROI_OCOMPRA, 
-                                                MOTIVO_MOCOMPRA, 
-                                                ID_OCOMPRA,
-                                                ID_EMPRESA, 
-                                                ID_PLANTA, 
-                                                ID_TEMPORADA, 
-                                                ID_USUARIOI, 
-                                                ID_USUARIOM, 
-                                                FECHA_INGRESO_MOCOMPRA, 
-                                                ESTADO_REGISTRO
-                                            ) VALUES
-	       	( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE(), 1);";
-            $this->conexion->prepare($query)
-            ->execute(
-                array(
-                    
-                    $MOCOMPRA->__GET('NUMERO_MOCOMPRA'),
-                    $MOCOMPRA->__GET('NUMERO_OCOMPRA'),
-                    $MOCOMPRA->__GET('NUMEROI_OCOMPRA'),
-                    $MOCOMPRA->__GET('MOTIVO_MOCOMPRA'),
-                    $MOCOMPRA->__GET('ID_OCOMPRA'),
-                    $MOCOMPRA->__GET('ID_EMPRESA'),
-                    $MOCOMPRA->__GET('ID_PLANTA'),
-                    $MOCOMPRA->__GET('ID_TEMPORADA'),
-                    $MOCOMPRA->__GET('ID_USUARIOI'),
-                    $MOCOMPRA->__GET('ID_USUARIOM'),
-                    $MOCOMPRA->__GET('FECHA_INGRESO_MOCOMPRA'),
-                    $MOCOMPRA->__GET('ESTADO_REGISTRO')
-                    
-                    
-                )
+            "INSERT INTO material_mocompra (
+        NUMERO_MOCOMPRA,
+        NUMERO_OCOMPRA, 
+        NUMEROI_OCOMPRA, 
+        MOTIVO_MOCOMPRA, 
+        ID_OCOMPRA,
+        ID_EMPRESA, 
+        ID_PLANTA, 
+        ID_TEMPORADA, 
+        ID_USUARIOI, 
+        ID_USUARIOM, 
+        FECHA_INGRESO_MOCOMPRA, 
+        ESTADO_REGISTRO
+    ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE(), 1);";
+            //echo $query;
+            $this->conexion->prepare($query)->execute(array(
+                $MOCOMPRA->__GET('NUMERO_MOCOMPRA'),
+                $MOCOMPRA->__GET('NUMERO_OCOMPRA'),
+                $MOCOMPRA->__GET('NUMEROI_OCOMPRA'),
+                $MOCOMPRA->__GET('MOTIVO_MOCOMPRA'),
+                $MOCOMPRA->__GET('ID_OCOMPRA'),
+                $MOCOMPRA->__GET('ID_EMPRESA'),
+                $MOCOMPRA->__GET('ID_PLANTA'),
+                $MOCOMPRA->__GET('ID_TEMPORADA'),
+                $MOCOMPRA->__GET('ID_USUARIOI'),
+                $MOCOMPRA->__GET('ID_USUARIOM')
+            ));
                 
-                );
             
         }catch(Exception $e){
             die($e->getMessage());

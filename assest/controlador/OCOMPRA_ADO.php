@@ -407,6 +407,7 @@ class OCOMPRA_ADO {
                             ID_USUARIOM  = ? ,
                             ESTADO_OCOMPRA = 3
                     WHERE ID_OCOMPRA= ?;";
+                    //echo $query;
             $this->conexion->prepare($query)
             ->execute(
                     array(             

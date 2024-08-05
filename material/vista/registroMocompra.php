@@ -40,15 +40,32 @@ $ARRAYOCOMPRA = "";
 
 //DEFINIR ARREGLOS CON LOS DATOS OBTENIDOS DE LAS FUNCIONES DE LOS CONTROLADORES
 
+if (isset($_GET["id"])) {
+    $id_dato = $_GET["id"];
+}else{
+    $id_dato = "";
+}
 
+
+if (isset($_GET["a"])) {
+    $accion_dato = $_GET["a"];
+}else{
+    $accion_dato = "";
+}
+
+if (isset($_GET["urlo"])) {
+    $urlo_dato = $_GET["urlo"];
+}else{
+    $urlo_dato = "";
+}
 
 
 //OPERACION PARA OBTENER EL ID RECEPCION Y FOLIO BASE, SOLO SE OCUPA PARA CREAR UN REGISTRO NUEVO
-if (isset($_SESSION['parametro']) && isset($_SESSION['parametro1']) && isset($_SESSION['urlO'])) {
+if (isset($id_dato) && isset($accion_dato) && isset($urlo_dato)) {
     //ALMACENAR DATOS DE VARIABLES DE LA URL
-    $IDP = $_SESSION['parametro'];
-    $OPP = $_SESSION['parametro1'];
-    $URLP = $_SESSION['urlO'];
+    $IDP = $id_dato;
+    $OPP = $accion_dato;
+    $URLP = $urlo_dato;
 
     $ARRAYOCOMPRA = $OCOMPRA_ADO->verOcompra2($IDP);
     //OBTENCIONS DE LOS DATODS DE LA COLUMNAS DE LA FILA OBTENIDA
@@ -221,7 +238,7 @@ if (isset($_SESSION['parametro']) && isset($_SESSION['parametro1']) && isset($_S
 
                 $ARRAYOBTENERNUMERO = $MOCOMPRA_ADO->obtenerNumero($_REQUEST['IDP'], $_REQUEST['EMPRESA'],  $_REQUEST['PLANTA'], $_REQUEST['TEMPORADA']);
                 $NUMERO = $ARRAYOBTENERNUMERO[0]["NUMERO"] + 1;
-
+                echo 1;
                 //UTILIZACION METODOS SET DEL MODELO
                 //SETEO DE ATRIBUTOS DE LA CLASE, OBTENIDO EN EL FORMULARIO  
                 $MOCOMPRA->__SET('NUMERO_MOCOMPRA', $NUMERO);
@@ -235,18 +252,22 @@ if (isset($_SESSION['parametro']) && isset($_SESSION['parametro1']) && isset($_S
                 $MOCOMPRA->__SET('ID_USUARIOI', $IDUSUARIOS);
                 $MOCOMPRA->__SET('ID_USUARIOM', $IDUSUARIOS);
                 //LLAMADA AL METODO DE REGISTRO DEL CONTROLADOR
+                echo 2;
                 $MOCOMPRA_ADO->agregarMcompra($MOCOMPRA);
 
-                $AUSUARIO_ADO->agregarAusuario2("NULL",2,1,"".$_SESSION["NOMBRE_USUARIO"].", Registro de Motivo Rechazo Orden compra.","material_mocompra","NULL",$_SESSION["ID_USUARIO"],$_SESSION['ID_EMPRESA'], $_SESSION['ID_PLANTA'],$_SESSION['ID_TEMPORADA'] );  
-
+                //$AUSUARIO_ADO->agregarAusuario2("NULL",2,1,"".$_SESSION["NOMBRE_USUARIO"].", Registro de Motivo Rechazo Orden compra.","material_mocompra","NULL",$_SESSION["ID_USUARIO"],$_SESSION['ID_EMPRESA'], $_SESSION['ID_PLANTA'],$_SESSION['ID_TEMPORADA'] );  
+                echo 3;
                 $OCOMPRA->__SET('ID_OCOMPRA', $_REQUEST['IDP']);
                 //LLAMADA AL METODO DE EDITAR DEL CONTROLADOR
                 $OCOMPRA_ADO->abierto($OCOMPRA);
-
+                echo 4;
                 $OCOMPRA->__SET('ID_OCOMPRA', $_REQUEST['IDP']);
                 $OCOMPRA->__SET('ID_USUARIOM', $IDUSUARIOS);
                 //LLAMADA AL METODO DE EDITAR DEL CONTROLADOR
+                echo 5;
                 $OCOMPRA_ADO->rechazado($OCOMPRA);
+
+                echo 6;
 
                 $AUSUARIO_ADO->agregarAusuario2("NULL",2,2,"".$_SESSION["NOMBRE_USUARIO"].", Modificación de Orden Compra, se Rechazo.","material_ocompra", $_REQUEST['IDP'],$_SESSION["ID_USUARIO"],$_SESSION['ID_EMPRESA'], $_SESSION['ID_PLANTA'],$_SESSION['ID_TEMPORADA'] );  
 
@@ -261,7 +282,7 @@ if (isset($_SESSION['parametro']) && isset($_SESSION['parametro1']) && isset($_S
                         confirmButtonText:"Cerrar",
                         closeOnConfirm:false
                     }).then((result)=>{
-                        location.href = "'.$_REQUEST['URLP'].'.php";                            
+                        location.href = "'.$_REQUEST['URLP'].'.php?op&id='.$id_dato.'&a='.$accion_dato.'&urlo='.$urlo_dato.'";                            
                     })
                 </script>';
             }

@@ -346,10 +346,10 @@ include_once "../../assest/config/datosUrLP.php";
 
         }
         if (isset($_REQUEST['RECHAZARURL'])) {
-            $_SESSION["parametro"] = $_REQUEST['ID'];
-            $_SESSION["parametro1"] = "";    
-            $_SESSION["urlO"] = $_REQUEST['URLO'];
-            echo "<script type='text/javascript'> location.href ='". $_REQUEST['URLM'].".php?op';</script>";
+            $id_dato = $_REQUEST['ID'];
+            $accion_dato = "";    
+            $urlo_dato = $_REQUEST['URLO'];
+            echo "<script type='text/javascript'> location.href ='". $_REQUEST['URLM'].".php?op&id=".$id_dato."&a=".$accion_dato."&urlo=".$urlo_dato."';</script>";
         }
         if (isset($_REQUEST['COMPLETAURL'])) { 
             $OCOMPRA->__SET('ID_OCOMPRA', $_REQUEST['ID']);
