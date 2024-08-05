@@ -265,7 +265,7 @@ $ARRAYPLANTACAMBIAR = $PLANTA_ADO->listarPlantaPropiaCBX();
       <?php if($PEXPORTADORA=="1"){ ?>
         <li class="header">Modulo</li>    
         <?php if($PEMATERIALES=="1"){ ?>
-          <li class="treeview">
+          <!--<li class="treeview">
             <a href="#">
               <img src="../../api/cryptioadmin10/html/images/svg-icon/sidebar-menu/reports.svg" class="svg-icon" alt="">
               <span>Materiales</span>
@@ -287,9 +287,9 @@ $ARRAYPLANTACAMBIAR = $PLANTA_ADO->listarPlantaPropiaCBX();
               </li>
               <li><a href="listarConsumo.php">Consumo Materiales</i></a></li>
               <li><a href="listarConsumoProceso.php">Cons. Mat. Proceso</i></a></li>
-              <!-- <li><a href="listarConsumoFolio.php">Cons. Mat. Folio</i></a></li> -->
+               <li style="display:none"><a href="listarConsumoFolio.php">Cons. Mat. Folio</i></a></li> 
             </ul>
-          </li>            
+          </li>-->            
         <?php  } ?>    
         <?php if($PEEXPORTACION=="1"){ ?>
           <li class="treeview">
