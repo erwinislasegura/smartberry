@@ -153,7 +153,7 @@ include_once "../../assest/config/reporteUrl.php";
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                               <?php foreach ($ARRAYINVENTARIOCONSUMO as $r) : ?>
+                                               <?php /*foreach ($ARRAYINVENTARIOCONSUMO as $r) : ?>
                                                     <tr class="center">
                                                         <td> <?php echo $r['CODIGO']; ?> </td>
                                                         <td> <?php echo $r['PRODUCTO']; ?> </td>
@@ -173,7 +173,7 @@ include_once "../../assest/config/reporteUrl.php";
                                                         <td> <?php echo -$r['CONSUMO']; ?> </td>        
                                                         <td> <?php echo $r['TEMPORADA']; ?> </td>    
                                                     </tr>
-                                                <?php endforeach; ?>
+                                                <?php endforeach;*/ ?>
                                                 <?php foreach ($ARRAYINVENTARIOCONSUMODESPACHOPT as $r) : ?>
                                                     <tr class="center">
                                                         <td> <?php echo $r['CODIGO']; ?> </td>
