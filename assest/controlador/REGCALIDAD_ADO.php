@@ -46,7 +46,8 @@ class REGCALIDAD_ADO {
         try {
             $datos = $this->conexion->prepare("SELECT * FROM registro_calidad 
              LEFT JOIN fruta_exiexportacion  on fruta_exiexportacion.FOLIO_AUXILIAR_EXIEXPORTACION = registro_calidad.FOLIO 
-
+             LEFT JOIN fruta_productor on fruta_productor.id_productor = fruta_exiexportacion.id_productor 
+             LEFT JOIN estandar_eexportacion on estandar_eexportacion.ID_ESTANDAR = fruta_exiexportacion.ID_ESTANDAR 
              WHERE registro_calidad.ID_EMPRESA = ? AND registro_calidad.ESTADO=1 order by ID DESC;");
             $datos->execute([$empresa]);
             $resultado = $datos->fetchAll();
