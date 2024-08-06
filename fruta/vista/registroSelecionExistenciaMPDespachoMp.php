@@ -1,6 +1,6 @@
 <?php
 
-var_dump($_REQUEST);
+//var_dump($_REQUEST);
 
 include_once "../../assest/config/validarUsuarioFruta.php";
 
