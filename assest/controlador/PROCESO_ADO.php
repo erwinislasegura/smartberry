@@ -424,7 +424,7 @@ class PROCESO_ADO
                                                 WHERE   ESTADO_REGISTRO = 1 
                                                 AND  ID_EMPRESA = '" . $EMPRESA . "' 
                                                 AND ID_PRODUCTOR = '" . $PRODUCTOR . "'
-                                                AND ID_TEMPORADA = '" . $TEMPORADA . "' ;	");
+                                                AND ID_TEMPORADA = '" . $TEMPORADA . "'  ;	");
             $datos->execute();
             $resultado = $datos->fetchAll();
             $datos=null;
@@ -439,6 +439,39 @@ class PROCESO_ADO
         }
     }
 
+    public function listarProcesoEmpresaProductorTemporadaCBXEstadisticas($EMPRESA,$PRODUCTOR, $TEMPORADA)
+    {
+        try {
+
+            $datos = $this->conexion->prepare("SELECT * ,  
+                                                    IFNULL(KILOS_EXPORTACION_PROCESO,0) AS 'EXPORTACION'   ,                                                 
+                                                    IFNULL(KILOS_INDUSTRIAL_PROCESO,0) AS 'INDUSTRIAL'    ,                                                
+                                                    IFNULL(KILOS_INDUSTRIALSC_PROCESO,0) AS 'INDUSTRIALSC'    ,                                               
+                                                    IFNULL(KILOS_INDUSTRIALNC_PROCESO,0) AS 'INDUSTRIALNC'    ,                                                
+                                                    IFNULL(KILOS_NETO_PROCESO,0) AS 'NETO',                                        
+                                                    IFNULL(KILOS_NETO_ENTRADA,0) AS 'ENTRADA',
+                                                    FECHA_PROCESO AS 'FECHA', 
+                                                    DATE_FORMAT(INGRESO, '%Y-%m-%d') AS 'INGRESO', 
+                                                    DATE_FORMAT(MODIFICACION, '%Y-%m-%d') AS 'MODIFICACION'
+                                                FROM fruta_proceso                                                        
+                                                WHERE   ESTADO_REGISTRO = 1 
+                                                AND  ID_EMPRESA = '" . $EMPRESA . "' 
+                                                AND ID_PRODUCTOR = '" . $PRODUCTOR . "'
+                                                AND ID_TEMPORADA = '" . $TEMPORADA . "' AND FECHA_PROCESO < CURRENT_DATE AND ESTADO=0 ;	");
+            $datos->execute();
+            $resultado = $datos->fetchAll();
+            $datos=null;
+
+            //	print_r($resultado);
+            //	var_dump($resultado);
+
+
+            return $resultado;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    
     public function listarProcesoTemporadaCBX( $TEMPORADA)
     {
         try {
