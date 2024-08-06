@@ -170,6 +170,14 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                                                     <th>Folio Original</th>
                                                     <th>Folio Final</th>
                                                     <th>Tipo</th>
+
+                                                    <th>Cod. Productor</th>
+                                                    <th>Productor</th>
+                                                    <th>F. Embalaje</th>
+                                                    <th>Estandar</th>
+                                                    <th>Cod. Estandar</th>
+                                                    <th>Cajas</th>
+                                                    
                                                     <th>Baxlo Promedio</th>
                                                     <th>Peso 10 Frutos</th>
                                                     <th>Temperatura</th>
@@ -290,6 +298,15 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                                     default: tipo_descripcion = 'Desconocido';
                                 }
                                 html += '<td>' + tipo_descripcion + '</td>';
+
+                                html += '<td>' + registro.ID_PRODUCTOR + '</td>';
+                                html += '<td>' + registro.NOMBRE_PRODUCTOR + '</td>';
+                                html += '<td>' + registro.FECHA_EMBALADO_EXIEXPORTACION + '</td>';
+                                html += '<td>' + registro.ID_ESTANDAR + '</td>';
+                                html += '<td>' + registro.NOMBRE_ESTANDAR + '</td>';
+                                html += '<td>' + registro.CANTIDAD_ENVASE_EXIEXPORTACION + '</td>';
+
+
                                 html += '<td>' + registro.BAXLO_PROMEDIO + '</td>';
                                 html += '<td>' + registro.PESO_10_FRUTOS + '</td>';
                                 html += '<td>' + registro.TEMPERATURA + '</td>';

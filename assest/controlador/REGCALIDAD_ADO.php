@@ -44,11 +44,18 @@ class REGCALIDAD_ADO {
 
     public function listarResumenRegCalidad($empresa) {
         try {
-            $datos = $this->conexion->prepare("SELECT * FROM registro_calidad WHERE ID_EMPRESA = ? AND ESTADO=1 order by ID DESC;");
+            $datos = $this->conexion->prepare("SELECT * FROM registro_calidad 
+             LEFT JOIN fruta_exiexportacion  on fruta_exiexportacion.FOLIO_AUXILIAR_EXIEXPORTACION = registro_calidad.FOLIO 
+
+             WHERE registro_calidad.ID_EMPRESA = ? AND registro_calidad.ESTADO=1 order by ID DESC;");
             $datos->execute([$empresa]);
             $resultado = $datos->fetchAll();
             $datos = null;
             return $resultado;
+
+
+
+
         } catch(Exception $e) {
             die($e->getMessage());
         }
