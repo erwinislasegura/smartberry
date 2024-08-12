@@ -535,7 +535,7 @@ $html = $html . '
       <div class="address"><b>Nombre Envase 1:</b>  ' . $NOMBREENVASE1 . ' </div>
       <div class="address"><b>Cantidad Envase 1:</b>  ' . $CANTIDADENVASE1 . ' </div>
       <br/>
-      <div class="address"><b>Nombre Envase 2:</b>  ' . $NOMBREENVASE1 . ' </div>
+      <div class="address"><b>Nombre Envase 2:</b>  ' . $NOMBREENVASE2 . ' </div>
       <div class="address"><b>Cantidad Envase 2:</b>  ' . $CANTIDADENVASE2 . ' </div>
       
     </div>
@@ -582,7 +582,12 @@ $ASUNTO = "Informe";
 //API DE GENERACION DE PDF
 require_once '../../api/mpdf/mpdf/autoload.php';
 //$PDF = new \Mpdf\Mpdf();W
-$PDF = new \Mpdf\Mpdf(['format' => 'letter']);
+$PDF = new \Mpdf\Mpdf([
+  'format' => 'letter',
+  'mode' => 'utf-8',
+  'in_charset' => 'UTF-8',
+  'out_charset' => 'UTF-8'
+]);
 
 //CONFIGURACION FOOTER Y HEADER DEL PDF
 //CONFIGURACION FOOTER Y HEADER DEL PDF
@@ -634,6 +639,6 @@ $PDF->WriteHTML($stylesheet, 1);
 $PDF->WriteHTML($stylesheet2, 1);
 
 //GENERAR PDF
-$PDF->WriteHTML($html);
+$PDF->WriteHTML(utf8_encode($html));
 //METODO DE SALIDA
 $PDF->Output($NOMBREARCHIVOFINAL, \Mpdf\Output\Destination::INLINE);
