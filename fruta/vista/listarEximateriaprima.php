@@ -129,6 +129,7 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                                                         <th>Días</th>
                                                         <th>Código Estandar</th>
                                                         <th>Envase/Estandar</th>
+                                                        <th>Gasificación</th>
                                                         <th>CSG</th>
                                                         <th>Productor</th>
                                                         <!-- <th>Especies</th> -->
@@ -145,8 +146,8 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                                                         <th>Número Guía Recepción </th>
                                                         <!-- <th>Fecha Guía Recepción -->
                                                         <th>Tipo Manejo</th>
-                                                        <!-- <th>Tipo Tratamiento 1 </th>
-                                                        <th>Tipo Tratamiento 2 </th>
+                                                        
+                                                        <!--<th>Tipo Tratamiento 2 </th>
                                                         
                                                         <th>Ingreso</th>
                                                         <th>Modificación</th>
@@ -364,6 +365,7 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                                                             <td><?php echo $r['DIAS']; ?></td>
                                                             <td><?php echo $CODIGOESTANDAR; ?></td>
                                                             <td><?php echo $NOMBREESTANDAR; ?></td>
+                                                            <td><?php echo $NOMBRETTRATAMIENTO1; ?></td>
                                                             <td><?php echo $CSGPRODUCTOR; ?></td>
                                                             <td><?php echo $NOMBREPRODUCTOR; ?></td>
                                                             <!-- <td><?php echo $NOMBRESPECIES; ?></td> -->
@@ -380,7 +382,7 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                                                             <td><?php echo $NUMEROGUIARECEPCION; ?></td>
                                                             <!-- <td><?php echo $FECHAGUIARECEPCION; ?></td>       -->
                                                             <td><?php echo $NOMBRETMANEJO; ?></td>
-                                                            <!-- <td><?php echo $NOMBRETTRATAMIENTO1; ?></td>
+                                                            <!-- 
                                                             <td><?php echo $NOMBRETTRATAMIENTO2; ?></td>
                                                             
                                                             <td><?php echo $r['INGRESO']; ?></td>

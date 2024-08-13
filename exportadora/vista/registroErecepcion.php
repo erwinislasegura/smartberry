@@ -398,7 +398,7 @@ if (isset($id_dato) && isset($accion_dato)) {
                                                 </div> 
                                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
                                                     <div class="form-group">
-                                                        <label>Tratamiento 1</label>
+                                                        <label>Mostrar Gasificación</label>
                                                         <select class="form-control select2" id="TRATAMIENTO1" name="TRATAMIENTO1" style="width: 100%;" <?php echo $DISABLED; ?>>
                                                             <option></option>
                                                             <option value="0" <?php if ($TRATAMIENTO1 == "0") { echo "selected";  } ?>>No</option>

@@ -13,6 +13,8 @@ include_once '../../assest/controlador/CONDUCTOR_ADO.php';
 include_once '../../assest/controlador/TMANEJO_ADO.php';
 include_once '../../assest/controlador/TCALIBRE_ADO.php';
 include_once '../../assest/controlador/TEMBALAJE_ADO.php';
+include_once '../../assest/controlador/TTRATAMIENTO1_ADO.php';
+include_once '../../assest/controlador/TTRATAMIENTO2_ADO.php';
 
 include_once '../../assest/controlador/EEXPORTACION_ADO.php';
 include_once '../../assest/controlador/EXIEXPORTACION_ADO.php';
@@ -38,6 +40,8 @@ $PRODUCTOR_ADO = new PRODUCTOR_ADO();
 $TMANEJO_ADO = new TMANEJO_ADO();
 $TCALIBRE_ADO = new TCALIBRE_ADO();
 $TEMBALAJE_ADO =  new TEMBALAJE_ADO();
+$TTRATAMIENTO1_ADO =  new TTRATAMIENTO1_ADO();
+$TTRATAMIENTO2_ADO =  new TTRATAMIENTO2_ADO();
 
 $EEXPORTACION_ADO = new EEXPORTACION_ADO();
 $EXIEXPORTACION_ADO = new EXIEXPORTACION_ADO();
@@ -322,6 +326,13 @@ if ( $TEMPORADAS) {
                                                         } else {
                                                             $GASIFICADO = "Sin Datos";
                                                         }
+
+                                                        $ARRAYTRATAMIENTO1=$TTRATAMIENTO1_ADO->verTtratamiento($s['ID_TTRATAMIENTO1']);
+                                                        if($ARRAYTRATAMIENTO1){
+                                                            $NOMBRETTRATAMIENTO1 = $ARRAYTRATAMIENTO1[0]["NOMBRE_TTRATAMIENTO"];
+                                                        }else{
+                                                            $NOMBRETTRATAMIENTO1="Sin Datos";
+                                                        }
                                                         ?>
                                                         <tr class="text-center">
                                                             <td><?php echo $s['FOLIO_DRECEPCION']; ?></td>
@@ -346,7 +357,7 @@ if ( $TEMPORADAS) {
                                                             <td><?php echo "Sin Datos"; ?></td>
                                                             <td><?php echo "Sin Datos"; ?></td>
                                                             <td><?php echo "Sin Datos"; ?></td>
-                                                            <td><?php echo $GASIFICADO; ?></td>
+                                                            <td><?php echo $NOMBRETTRATAMIENTO1; ?></td>
                                                             <td><?php echo "Sin Datos"; ?></td>
                                                             <td><?php echo $NOMBRETRANSPORTE; ?></td>
                                                             <td><?php echo $NOMBRECONDUCTOR; ?></td>

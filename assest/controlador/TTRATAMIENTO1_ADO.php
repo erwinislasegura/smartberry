@@ -126,7 +126,7 @@ class TTRATAMIENTO1_ADO {
     //VER LA INFORMACION RELACIONADA EN BASE AL ID INGRESADO A LA FUNCION
     public function verTtratamiento($ID){
         try{
-            
+           
             $datos=$this->conexion->prepare("SELECT * FROM  fruta_tratamineto1  WHERE  ID_TTRATAMIENTO = '".$ID."';");
             $datos->execute();
             $resultado = $datos->fetchAll();

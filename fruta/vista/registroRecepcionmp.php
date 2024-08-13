@@ -1260,9 +1260,9 @@ if (isset($_POST)) {
                                                     <th>Kilo Neto </th>
                                                     <th>Kilo Promedio </th>
                                                     <th>Kilo Bruto </th>
-                                                    <th>Gasificacion</th>
+                                                    <!--<th>Gasificacion</th>-->
                                                     <th>Tipo Manejo </th>
-                                                    <th>Tipo Tratamiento 1 </th>
+                                                    <th>Gasificación </th>
                                                     <th>Tipo Tratamiento 2 </th>
                                                 </tr>
                                             </thead>
@@ -1353,7 +1353,7 @@ if (isset($_POST)) {
                                                             <td><?php echo $s['NETO']; ?></td>
                                                             <td><?php echo $s['PROMEDIO'] ?></td>
                                                             <td><?php echo $s['BRUTO']; ?></td>
-                                                            <td><?php echo $GASIFICADO; ?></td>
+                                                            <!--<td><?php echo $GASIFICADO; ?></td>-->
                                                             <td><?php echo $NOMBRETMANEJO; ?></td>
                                                             <td><?php echo $NOMBRETTRATAMIENTO1; ?></td>
                                                             <td><?php echo $NOMBRETTRATAMIENTO2; ?></td>

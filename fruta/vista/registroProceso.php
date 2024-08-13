@@ -1397,6 +1397,10 @@ if (isset($_POST)) {
         }
         //OPERACION CERRAR DE FILA
         if (isset($_REQUEST['CERRAR'])) {
+
+
+            //echo "<script>alert('".$_REQUEST['DIFERENCIAKILOSNETOEX'].'PRUEBAXX'."');</script>";
+    
             //UTILIZACION METODOS SET DEL MODELO
             $ARRAYEXIMATERIAPRIMATOMADO = $EXIMATERIAPRIMA_ADO->buscarPorProceso($_REQUEST['IDP']);
             $ARRAYDEXPORTACIONPORPROCESO = $DPEXPORTACION_ADO->buscarPorProceso($_REQUEST['IDP']);
@@ -1424,11 +1428,15 @@ if (isset($_POST)) {
                 $SINO = "0";
                 $MENSAJE = $MENSAJE;
             } 
-            if($DIFERENCIAKILOSNETOEXPO == 0){
+
+            $valorRedondeado = round(floatval($_REQUEST['DIFERENCIAKILOSNETOEX']));
+            if($valorRedondeado <> 0){
                 $SINO = "1";
                 $MENSAJE = $MENSAJE. " La diferencia de kilos debe ser igual 0.";  
             }
-            if($SINO == 1){
+
+            //echo "<script>alert('".$valorRedondeado.' re:'.$SINO."');</script>";
+            if($SINO == "1"){
                     echo '<script>
                         Swal.fire({
                             icon:"warning",

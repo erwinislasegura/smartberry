@@ -314,6 +314,13 @@ include_once "../../assest/config/datosUrLP.php";
                                                         } else {
                                                             $GASIFICADO = "Sin Datos";
                                                         }
+                                                       
+                                                        $ARRAYTRATAMIENTO1=$TTRATAMIENTO1_ADO->verTtratamiento($s['ID_TTRATAMIENTO1']);
+                                                        if($ARRAYTRATAMIENTO1){
+                                                            $NOMBRETTRATAMIENTO1 = $ARRAYTRATAMIENTO1[0]["NOMBRE_TTRATAMIENTO"];
+                                                        }else{
+                                                            $NOMBRETTRATAMIENTO1="Sin Datos";
+                                                        }
                                                         ?>
                                                         <tr class="text-center">
                                                             <td><?php echo $s['FOLIO_DRECEPCION']; ?></td>
@@ -334,7 +341,7 @@ include_once "../../assest/config/datosUrLP.php";
                                                             <td><?php echo $r['NUMERO_GUIA_RECEPCION']; ?></td>
                                                             <td><?php echo $r['FECHA_GUIA']; ?></td>
                                                             <td><?php echo $NOMBRETMANEJO; ?></td>
-                                                            <td><?php echo $GASIFICADO; ?></td>
+                                                            <td><?php echo $NOMBRETTRATAMIENTO1; ?></td>
                                                             <td><?php echo $NOMBRETRANSPORTE; ?></td>
                                                             <td><?php echo $NOMBRECONDUCTOR; ?></td>
                                                             <td><?php echo $r['PATENTE_CAMION']; ?></td>

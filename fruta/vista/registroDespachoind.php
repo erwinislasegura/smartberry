@@ -551,6 +551,7 @@ if (isset($_POST)) {
                     TDESPACHO = document.getElementById("TDESPACHO").selectedIndex;
                     TRANSPORTE = document.getElementById("TRANSPORTE").selectedIndex;
                     CONDUCTOR = document.getElementById("CONDUCTOR").selectedIndex;
+                    NOMBREENVASE1 = document.getElementById("NOMBREENVASE1").selectedIndex;
 
                     PATENTEVEHICULO = document.getElementById("PATENTEVEHICULO").value;
                     PATENTECARRO = document.getElementById("PATENTECARRO").value;
@@ -562,6 +563,8 @@ if (isset($_POST)) {
                     document.getElementById('val_conductor').innerHTML = "";
                     document.getElementById('val_patentevehiculo').innerHTML = "";
                     document.getElementById('val_patentecarro').innerHTML = "";
+                    document.getElementById('val_nombreenvase1').innerHTML = "";
+                
                     //  document.getElementById('val_observacion').innerHTML = "";
 
                     if (FECHADESPACHO == null || FECHADESPACHO.length == 0 || /^\s+$/.test(FECHADESPACHO)) {
@@ -572,7 +575,13 @@ if (isset($_POST)) {
                     }
                     document.form_reg_dato.FECHADESPACHO.style.borderColor = "#4AF575";
 
-
+                    if (NOMBREENVASE1 == null || NOMBREENVASE1 == 0) {
+                        document.form_reg_dato.NOMBREENVASE1.focus();
+                        document.form_reg_dato.NOMBREENVASE1.style.borderColor = "#FF0000";
+                        document.getElementById('val_nombreenvase1').innerHTML = "NO HA SELECIONADO ALTERNATIVA";
+                        return false
+                    }
+                    document.form_reg_dato.NOMBREENVASE1.style.borderColor = "#4AF575";
 
                     if (TDESPACHO == null || TDESPACHO == 0) {
                         document.form_reg_dato.TDESPACHO.focus();
@@ -581,6 +590,8 @@ if (isset($_POST)) {
                         return false
                     }
                     document.form_reg_dato.TDESPACHO.style.borderColor = "#4AF575";
+
+                    
 
 
                     if (TDESPACHO == 1) {
@@ -1080,16 +1091,16 @@ if (isset($_POST)) {
                                             <div class="form-group">
                                                 <label>Tipo Envase 1</label>
 
-                                                <input type="hidden" class="form-control" placeholder="NOMBREENVASE1" id="NOMBREENVASE1" name="NOMBREENVASE1" value="<?php echo $TDESPACHO; ?>" />
-                                                <select class="form-control select2" id="NOMBREENVASE1" name="NOMBREENVASE1" style="width: 100%;" onchange="this.form.submit()" <?php echo $DISABLED; ?> <?php echo $DISABLED3; ?>>
+                                                <input type="hidden" class="form-control" placeholder="NOMBREENVASE1" id="NOMBREENVASE1" name="NOMBREENVASE1" value="<?php echo $NOMBREENVASE1; ?>" />
+                                                <select class="form-control select2" id="NOMBREENVASE1" name="NOMBREENVASE1" style="width: 100%;"  <?php echo $DISABLED; ?> <?php echo $DISABLED3; ?>>
                                                     <option></option>
-                                                    <option value="1" <?php if ($TDESPACHO == "1") { echo "selected"; } ?>>Bandeja cosechera blanca</option>
-                                                    <option value="2" <?php if ($TDESPACHO == "2") { echo "selected"; } ?>>Bandeja cosechera verde</option>
-                                                    <option value="3" <?php if ($TDESPACHO == "3") { echo "selected"; } ?>>Bandeja Bulk</option>
-                                                    <option value="4" <?php if ($TDESPACHO == "4") { echo "selected"; } ?>>Bandeja esparraguera</option>
-                                                    <option value="5" <?php if ($TDESPACHO == "5") { echo "selected"; } ?>>Bandeja cosechera frutillera</option>
-                                                    <option value="6" <?php if ($TDESPACHO == "6") { echo "selected"; } ?>>Tote cerecero</option>
-                                                    <option value="7" <?php if ($TDESPACHO == "7") { echo "selected"; } ?>>Tote amarillo</option>
+                                                    <option value="1" <?php if ($NOMBREENVASE1 == "1") { echo "selected"; } ?>>Bandeja cosechera blanca</option>
+                                                    <option value="2" <?php if ($NOMBREENVASE1 == "2") { echo "selected"; } ?>>Bandeja cosechera verde</option>
+                                                    <option value="3" <?php if ($NOMBREENVASE1 == "3") { echo "selected"; } ?>>Bandeja Bulk</option>
+                                                    <option value="4" <?php if ($NOMBREENVASE1 == "4") { echo "selected"; } ?>>Bandeja esparraguera</option>
+                                                    <option value="5" <?php if ($NOMBREENVASE1 == "5") { echo "selected"; } ?>>Bandeja cosechera frutillera</option>
+                                                    <option value="6" <?php if ($NOMBREENVASE1 == "6") { echo "selected"; } ?>>Tote cerecero</option>
+                                                    <option value="7" <?php if ($NOMBREENVASE1 == "7") { echo "selected"; } ?>>Tote amarillo</option>
                                                 </select>
 
 
@@ -1109,16 +1120,16 @@ if (isset($_POST)) {
                                         <div class="col-xxl-2 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
                                             <div class="form-group">
                                                 <label>Tipo Envase 2</label>
-                                                <input type="hidden" class="form-control" placeholder="NOMBREENVASE2" id="NOMBREENVASE2" name="NOMBREENVASE2" value="<?php echo $TDESPACHO; ?>" />
-                                                <select class="form-control select2" id="NOMBREENVASE2" name="NOMBREENVASE2" style="width: 100%;" onchange="this.form.submit()" <?php echo $DISABLED; ?> <?php echo $DISABLED3; ?>>
+                                                <input type="hidden" class="form-control" placeholder="NOMBREENVASE2" id="NOMBREENVASE2" name="NOMBREENVASE2" value="<?php echo $NOMBREENVASE2; ?>" />
+                                                <select class="form-control select2" id="NOMBREENVASE2" name="NOMBREENVASE2" style="width: 100%;"  <?php echo $DISABLED; ?> <?php echo $DISABLED3; ?>>
                                                     <option></option>
-                                                    <option value="1" <?php if ($TDESPACHO == "1") { echo "selected"; } ?>>Bandeja cosechera blanca</option>
-                                                    <option value="2" <?php if ($TDESPACHO == "2") { echo "selected"; } ?>>Bandeja cosechera verde</option>
-                                                    <option value="3" <?php if ($TDESPACHO == "3") { echo "selected"; } ?>>Bandeja Bulk</option>
-                                                    <option value="4" <?php if ($TDESPACHO == "4") { echo "selected"; } ?>>Bandeja esparraguera</option>
-                                                    <option value="5" <?php if ($TDESPACHO == "5") { echo "selected"; } ?>>Bandeja cosechera frutillera</option>
-                                                    <option value="6" <?php if ($TDESPACHO == "6") { echo "selected"; } ?>>Tote cerecero</option>
-                                                    <option value="7" <?php if ($TDESPACHO == "7") { echo "selected"; } ?>>Tote amarillo</option>>
+                                                    <option value="1" <?php if ($NOMBREENVASE2 == "1") { echo "selected"; } ?>>Bandeja cosechera blanca</option>
+                                                    <option value="2" <?php if ($NOMBREENVASE2 == "2") { echo "selected"; } ?>>Bandeja cosechera verde</option>
+                                                    <option value="3" <?php if ($NOMBREENVASE2 == "3") { echo "selected"; } ?>>Bandeja Bulk</option>
+                                                    <option value="4" <?php if ($NOMBREENVASE2 == "4") { echo "selected"; } ?>>Bandeja esparraguera</option>
+                                                    <option value="5" <?php if ($NOMBREENVASE2 == "5") { echo "selected"; } ?>>Bandeja cosechera frutillera</option>
+                                                    <option value="6" <?php if ($NOMBREENVASE2 == "6") { echo "selected"; } ?>>Tote cerecero</option>
+                                                    <option value="7" <?php if ($NOMBREENVASE2 == "7") { echo "selected"; } ?>>Tote amarillo</option>>
                                                 </select>
                                                 <!--<input type="hidden" class="form-control" placeholder="Nombre del Envase" id="NOMBREENVASE2" name="NOMBREENVASE2" value="<?php echo $NOMBREENVASE2; ?>" />
                                                 <input type="text" class="form-control" placeholder="Nombre del Envase" id="NOMBREENVASE2" name="NOMBREENVASE2" value="<?php echo $NOMBREENVASE2; ?>" <?php echo $DISABLED; ?> <?php echo $DISABLED3; ?> />-->

@@ -607,13 +607,13 @@ if ($_POST) {
                     }
                     document.form_reg_dato.ESTANDAR.style.borderColor = "#4AF575";
 
-                    if (GASIFICADORECEPCION == null || GASIFICADORECEPCION == 0) {
+                    /*if (GASIFICADORECEPCION == null || GASIFICADORECEPCION == 0) {
                         document.form_reg_dato.GASIFICADORECEPCION.focus();
                         document.form_reg_dato.GASIFICADORECEPCION.style.borderColor = "#FF0000";
                         document.getElementById('val_gasificacion').innerHTML = "NO HA SELECIONADO ALTERNATIVA";
                         return false;
                     }
-                    document.form_reg_dato.GASIFICADORECEPCION.style.borderColor = "#4AF575";
+                    document.form_reg_dato.GASIFICADORECEPCION.style.borderColor = "#4AF575";*/
 
                     if (VESPECIES == null || VESPECIES == 0) {
                         document.form_reg_dato.VESPECIES.focus();
@@ -830,11 +830,33 @@ if ($_POST) {
                                                 <label id="val_estandar" class="validacion"> </label>
                                             </div>
                                         </div>
-                                        <div class="col-xxl-2 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 col-xs-6 ">
-                                            <div class="form-group">
+                                        <?php if ($TRATAMIENTO1 == "1") { ?>
+                                            <div class="col-xxl-2 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 col-xs-6">
+                                                <div class="form-group">
+                                                    <label>Gasificación</label>
+                                                    <input type="hidden" id="TTRATAMIENTO1E" name="TTRATAMIENTO1E" value="<?php echo $TTRATAMIENTO1; ?>" />
+                                                    <select class="form-control select2" id="TTRATAMIENTO1" name="TTRATAMIENTO1" style="width: 100%;"  <?php echo $DISABLED; ?> <?php echo $DISABLEDSTYLE; ?>>
+                                                        <option></option>
+                                                        <?php foreach ($ARRAYTTRATAMIENTO1 as $r) : ?>
+                                                            <?php if ($ARRAYTTRATAMIENTO1) {    ?>
+                                                                <option value="<?php echo $r['ID_TTRATAMIENTO']; ?>" <?php if ($TTRATAMIENTO1 == $r['ID_TTRATAMIENTO']) {  echo "selected";  } ?>>
+                                                                     <?php echo $r['NOMBRE_TTRATAMIENTO'] ?>
+                                                                </option>
+                                                            <?php } else { ?>
+                                                                <option>No Hay Datos Registrados</option>
+                                                            <?php } ?>
+                                                        <?php endforeach; ?>
+                                                    </select>                                                  
+                                                    <label id="val_ttratamiento1" class="validacion"> </label>
+                                                </div>
+                                            </div>
+                                        <?php }  ?>
+
+                                        <div class="col-xxl-2 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 col-xs-6" style="display: none;">
+                                            <div class="form-group" >
                                                 <label>Gasificacion</label>
                                                 <select class="form-control select2" id="GASIFICADORECEPCION" name="GASIFICADORECEPCION" style="width: 100%;" <?php echo $DISABLED; ?>>
-                                                    <option></option>
+                                                    <option value="0" selected></option>
                                                     <option value="0" <?php if ($GASIFICADORECEPCION == "0") { echo "selected"; } ?>>No</option>
                                                     <option value="1" <?php if ($GASIFICADORECEPCION == "1") { echo "selected";  } ?>> Si </option>
                                                 </select>
@@ -910,27 +932,7 @@ if ($_POST) {
                                                 <label id=" val_kilosneto" class="validacion"> </label>
                                             </div>
                                         </div>
-                                        <?php if ($TRATAMIENTO1 == "1") { ?>
-                                            <div class="col-xxl-2 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 col-xs-6">
-                                                <div class="form-group">
-                                                    <label>Tratamiento 1</label>
-                                                    <input type="hidden" id="TTRATAMIENTO1E" name="TTRATAMIENTO1E" value="<?php echo $TTRATAMIENTO1; ?>" />
-                                                    <select class="form-control select2" id="TTRATAMIENTO1" name="TTRATAMIENTO1" style="width: 100%;"  <?php echo $DISABLED; ?> <?php echo $DISABLEDSTYLE; ?>>
-                                                        <option></option>
-                                                        <?php foreach ($ARRAYTTRATAMIENTO1 as $r) : ?>
-                                                            <?php if ($ARRAYTTRATAMIENTO1) {    ?>
-                                                                <option value="<?php echo $r['ID_TTRATAMIENTO']; ?>" <?php if ($TTRATAMIENTO1 == $r['ID_TTRATAMIENTO']) {  echo "selected";  } ?>>
-                                                                     <?php echo $r['NOMBRE_TTRATAMIENTO'] ?>
-                                                                </option>
-                                                            <?php } else { ?>
-                                                                <option>No Hay Datos Registrados</option>
-                                                            <?php } ?>
-                                                        <?php endforeach; ?>
-                                                    </select>                                                  
-                                                    <label id="val_ttratamiento1" class="validacion"> </label>
-                                                </div>
-                                            </div>
-                                        <?php }  ?>
+                                        
                                         <?php if ($TRATAMIENTO2 == "1") { ?>
                                             <div class="col-xxl-2 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 col-xs-6">
                                                 <div class="form-group">
