@@ -570,6 +570,7 @@ if ($_POST) {
                     CANTIDADENVASE = document.getElementById("CANTIDADENVASE").value;
                     TCALIBRE = document.getElementById("TCALIBRE").selectedIndex;
                     TMANEJO = document.getElementById("TMANEJO").selectedIndex;
+                    EFOLIO = document.getElementById("EFOLIO").selectedIndex;
 
                     CATEGORIAESTANDAR = document.getElementById("CATEGORIAESTANDAR").value;
                     REFERENCIAESTANDAR = document.getElementById("REFERENCIAESTANDAR").value;                   
@@ -581,6 +582,7 @@ if ($_POST) {
                     document.getElementById('val_estandar').innerHTML = "";
                     document.getElementById('val_tcalibre').innerHTML = "";
                     document.getElementById('val_tmanejo').innerHTML = "";
+                    document.getElementById('val_estadofolio').innerHTML = "";
 
 
                     if (FOLIOMANUAL == true) {
@@ -629,6 +631,14 @@ if ($_POST) {
                         return false;
                     }
                     document.form_reg_dato.ESTANDAR.style.borderColor = "#4AF575";
+
+                    if (EFOLIO == null || EFOLIO == 0) {
+                        document.form_reg_dato.EFOLIO.focus();
+                        document.form_reg_dato.EFOLIO.style.borderColor = "#FF0000";
+                        document.getElementById('val_estadofolio').innerHTML = "NO HA SELECIONADO ALTERNATIVA";
+                        return false;
+                    }
+                    document.form_reg_dato.EFOLIO.style.borderColor = "#4AF575";
 
                     if (CANTIDADENVASE == null || CANTIDADENVASE.length == 0 || /^\s+$/.test(CANTIDADENVASE)) {
                         document.form_reg_dato.CANTIDADENVASE.focus();
@@ -878,11 +888,12 @@ if ($_POST) {
                                             <div class="form-group">
                                                 <label>Estado Folio *</label><br>
                                                 <select class="form-control select2" id="EFOLIO" name="EFOLIO" style="width: 100%;" <?php echo $DISABLED; ?>>
-                                                    
+                                                    <option value=""></option>
                                                     <option value="1">Pallet Completo</option>
                                                     <option value="2">Pallet Incompleto</option>
                                                     <option value="3">Pallet de Muestra</option>
                                                 </select>
+                                                <label id="val_estadofolio" class="validacion"> </label>
                                             </div>
                                         </div>                                        
                                         <?php if ($CATEGORIAESTANDAR == "1") { ?>
