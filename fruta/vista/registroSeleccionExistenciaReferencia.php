@@ -205,6 +205,7 @@ include_once "../../assest/config/validarDatosUrlD.php";
                                                         <tr class="text-center">
                                                         <th>Selección </th>
                                                             <th>Folio </th>
+                                                            <th>Estado Folio </th>
                                                             <th>Código Estandar </th>
                                                             <th>Envase/Estandar </th>
 
@@ -328,6 +329,7 @@ include_once "../../assest/config/validarDatosUrlD.php";
                                                                         <?php echo $r['FOLIO_AUXILIAR_EXIEXPORTACION']; ?>
                                                                     </span>
                                                                 </td>
+                                                                <td><?php echo $r['DESCRIPCION_ESTADO']; ?></td>
                                                                 <td><?php echo $CODIGOESTANDAR; ?></td>
                                                                 <td><?php echo $NOMBREESTANDAR; ?></td>
 

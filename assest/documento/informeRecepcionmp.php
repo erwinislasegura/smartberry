@@ -461,7 +461,7 @@ $html = $html . '
           <div class="address">Transporte:  ' . $TRANSPORTE . ' </div>
           <div class="address">Conductor: ' . $CONDUCTOR . '</div>
           <div class="address">Patente Camion: ' . $PATENTECAMION . '</div>
-          <div class="address">Patente Carro: ' . $PATENTE . '</div>
+          <div class="address">Patente Carro: ' . $PATENTECARRO . '</div>
         </div>
         
         <div id="client">
@@ -561,6 +561,6 @@ $PDF->WriteHTML($stylesheet, 1);
 $PDF->WriteHTML($stylesheet2, 1);
 
 //GENERAR PDF
-$PDF->WriteHTML($html);
+$PDF->WriteHTML(utf8_encode($html));
 //METODO DE SALIDA
 $PDF->Output($NOMBREARCHIVOFINAL, \Mpdf\Output\Destination::INLINE);
