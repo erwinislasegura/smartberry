@@ -380,7 +380,7 @@ $html .= '
                 ';
 if ($TDESPACHO == "3") {
   $html .= '
-                      <th colspan="12" class="center">SELECCIÓN </th>
+                      <th colspan="13" class="center">SELECCIÓN </th>
                       ';
 } else {
   $html .= '
@@ -586,6 +586,6 @@ $PDF->WriteHTML($stylesheet, 1);
 $PDF->WriteHTML($stylesheet2, 1);
 
 //GENERAR PDF
-$PDF->WriteHTML(utf8_encode($html));
+$PDF->WriteHTML($html);
 //METODO DE SALIDA
 $PDF->Output($NOMBREARCHIVOFINAL, \Mpdf\Output\Destination::INLINE);
