@@ -380,11 +380,11 @@ $html .= '
                 ';
 if ($TDESPACHO == "3") {
   $html .= '
-                      <th colspan="13" class="center">SELECCIÓN </th>
+                      <th colspan="12" class="center">SELECCIÓN </th>
                       ';
 } else {
   $html .= '
-                      <th colspan="10" class="center">SELECCIÓN </th>
+                      <th colspan="12" class="center">SELECCIÓN </th>
                       ';
 }
 $html .= '

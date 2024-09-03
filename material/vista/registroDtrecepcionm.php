@@ -40,6 +40,7 @@ $NUMEROFOLIO = "";
 $FOLIOINVENTARIO = "";
 $DESCRIPCION = "";
 $CANTIDAD = 0;
+$FOLIOANTERIOR = "";
 $VALORUNITARIO = 0;
 
 $ALIASDINAMICO = "";
@@ -224,8 +225,10 @@ if (
         $ARRAYTARJA = $TARJAM_ADO->verTarja($IDOP);
         foreach ($ARRAYTARJA as $r) :
             $NUMEROFOLIO = "" . $r['FOLIO_TARJA'];
+            $FOLIOANTERIOR = "" . $r['FOLIOANTERIOR'];
             $CANTIDADC = "" . $r['CANITDAD_CONTENEDOR'];
             $CANTIDAD = "" . $r['CANTIDAD_TARJA'];
+            $FOLIOANTERIOR = "" . $r['FOLIOANTERIOR'];
             $PRODUCTO = "" . $r['ID_PRODUCTO'];
             $ARRAYVERPRODUCTO = $PRODUCTO_ADO->verProducto($PRODUCTO);
             if ($ARRAYVERPRODUCTO) {
@@ -251,9 +254,11 @@ if (
         $ARRAYTARJA = $TARJAM_ADO->verTarja($IDOP);
         foreach ($ARRAYTARJA as $r) :
             $NUMEROFOLIO = "" . $r['FOLIO_TARJA'];
+            $FOLIOANTERIOR = "" . $r['FOLIOANTERIOR'];
             $CANTIDADC = "" . $r['CANITDAD_CONTENEDOR'];
             $CANTIDAD = "" . $r['CANTIDAD_TARJA'];
             $PRODUCTO = "" . $r['ID_PRODUCTO'];
+            $FOLIOANTERIOR = "" . $r['FOLIOANTERIOR'];
             $ARRAYVERPRODUCTO = $PRODUCTO_ADO->verProducto($PRODUCTO);
             if ($ARRAYVERPRODUCTO) {
                 $PRODUCTOV = $ARRAYVERPRODUCTO[0]['CODIGO_PRODUCTO'] . " " . $ARRAYVERPRODUCTO[0]['NOMBRE_PRODUCTO'];
@@ -276,9 +281,11 @@ if (
         $ARRAYTARJA = $TARJAM_ADO->verTarja($IDOP);
         foreach ($ARRAYTARJA as $r) :
             $NUMEROFOLIO = "" . $r['FOLIO_TARJA'];
+            $FOLIOANTERIOR = "" . $r['FOLIOANTERIOR'];
             $CANTIDADC = "" . $r['CANITDAD_CONTENEDOR'];
             $CANTIDAD = "" . $r['CANTIDAD_TARJA'];
             $PRODUCTO = "" . $r['ID_PRODUCTO'];
+            $FOLIOANTERIOR = "" . $r['FOLIOANTERIOR'];
             $ARRAYVERPRODUCTO = $PRODUCTO_ADO->verProducto($PRODUCTO);
             if ($ARRAYVERPRODUCTO) {
                 $PRODUCTOV = $ARRAYVERPRODUCTO[0]['CODIGO_PRODUCTO'] . " " . $ARRAYVERPRODUCTO[0]['NOMBRE_PRODUCTO'];
@@ -302,9 +309,11 @@ if (
         $ARRAYTARJA = $TARJAM_ADO->verTarja($IDOP);
         foreach ($ARRAYTARJA as $r) :
             $NUMEROFOLIO = "" . $r['FOLIO_TARJA'];
+            $FOLIOANTERIOR = "" . $r['FOLIOANTERIOR'];
             $CANTIDADC = "" . $r['CANITDAD_CONTENEDOR'];
             $CANTIDAD = "" . $r['CANTIDAD_TARJA'];
             $PRODUCTO = "" . $r['ID_PRODUCTO'];
+            $FOLIOANTERIOR = "" . $r['FOLIOANTERIOR'];
             $ARRAYVERPRODUCTO = $PRODUCTO_ADO->verProducto($PRODUCTO);
             if ($ARRAYVERPRODUCTO) {
                 $PRODUCTOV = $ARRAYVERPRODUCTO[0]['CODIGO_PRODUCTO'] . " " . $ARRAYVERPRODUCTO[0]['NOMBRE_PRODUCTO'];
@@ -323,6 +332,7 @@ if (
 if (isset($_POST)) {
     if (isset($_REQUEST['CANTIDAD'])) {
         $CANTIDAD = "" . $_REQUEST['CANTIDAD'];
+
     }
 }
 
@@ -539,6 +549,15 @@ if (isset($_POST)) {
                                                 <label id="val_cantidad" class="validacion"> </label>
                                             </div>
                                         </div>
+
+                                        <div class="col-xxl-3 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label>Folio Anterior</label>
+                                                <input type="hidden" class="form-control" placeholder="FOLIOANTERIORE" id="FOLIOANTERIORE" name="FOLIOANTERIORE" value="<?php echo $FOLIOANTERIOR; ?>" />
+                                                <input type="number" class="form-control" placeholder="Folio Anterior" id="FOLIOANTERIOR" name="FOLIOANTERIOR" value="<?php echo $FOLIOANTERIOR; ?>" <?php echo $DISABLED; ?> />
+                                                <label id="val_cantidad" class="validacion"> </label>
+                                            </div>
+                                        </div>
                                     </div>
                                     <label id="val_drecepcion" class="validacion center"><?php echo $MENSAJE; ?> </label>
                                 </div>
@@ -626,6 +645,7 @@ if (isset($_POST)) {
                     $TARJAM->__SET('ID_FOLIO', $FOLIO);
                     $TARJAM->__SET('ID_RECEPCION', $_REQUEST['IDP']);
                     $TARJAM->__SET('ID_DRECEPCION', $_REQUEST['IDD']);
+                    $TARJAM->__SET('FOLIOANTERIOR', $_REQUEST['FOLIOANTERIOR']);
                     //LLAMADA AL METODO DE REGISTRO DEL CONTROLADOR
                     $TARJAM_ADO->agregarTarjaDrecepcion($TARJAM);
 
@@ -727,6 +747,7 @@ if (isset($_POST)) {
                 $TARJAM->__SET('ID_RECEPCION', $_REQUEST['IDP']);
                 $TARJAM->__SET('ID_DRECEPCION', $_REQUEST['IDD']);
                 $TARJAM->__SET('ID_TARJA', $_REQUEST['IDT']);
+                $TARJAM->__SET('FOLIOANTERIOR', $_REQUEST['FOLIOANTERIOR']);
                 //LLAMADA AL METODO DE REGISTRO DEL CONTROLADOR
                 $TARJAM_ADO->actualizarTarjaDrecepcion($TARJAM);
 

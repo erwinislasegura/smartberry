@@ -561,6 +561,6 @@ $PDF->WriteHTML($stylesheet, 1);
 $PDF->WriteHTML($stylesheet2, 1);
 
 //GENERAR PDF
-$PDF->WriteHTML(utf8_encode($html));
+$PDF->WriteHTML($html);
 //METODO DE SALIDA
 $PDF->Output($NOMBREARCHIVOFINAL, \Mpdf\Output\Destination::INLINE);
