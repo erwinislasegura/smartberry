@@ -586,6 +586,9 @@ class PROCESO_ADO
 				(SELECT SUM(fruta_exiindustrial.KILOS_NETO_EXIINDUSTRIAL) FROM fruta_exiindustrial 
 				JOIN estandar_eindustrial on estandar_eindustrial.ID_ESTANDAR = fruta_exiindustrial.ID_ESTANDAR 
 				where ID_PROCESO = fruta_proceso.ID_PROCESO AND AGRUPACION='3' AND fruta_exiindustrial.ESTADO_REGISTRO=1)AS 'DESECHO_INFO',
+                (SELECT SUM(fruta_exiindustrial.KILOS_NETO_EXIINDUSTRIAL) FROM fruta_exiindustrial 
+				JOIN estandar_eindustrial on estandar_eindustrial.ID_ESTANDAR = fruta_exiindustrial.ID_ESTANDAR 
+				where ID_PROCESO = fruta_proceso.ID_PROCESO AND AGRUPACION='4' AND fruta_exiindustrial.ESTADO_REGISTRO=1)AS 'SUMA_DIFERENCIA_PROCESO',
 				(SELECT SUM(fruta_exiindustrial.KILOS_NETO_EXIINDUSTRIAL) FROM fruta_exiindustrial 
 				JOIN estandar_eindustrial on estandar_eindustrial.ID_ESTANDAR = fruta_exiindustrial.ID_ESTANDAR 
 				where ID_PROCESO = fruta_proceso.ID_PROCESO AND (AGRUPACION='1' OR AGRUPACION='2' OR AGRUPACION='3') AND fruta_exiindustrial.ESTADO_REGISTRO=1)AS 'SUMA_INDUSTRIAL_INFO' 

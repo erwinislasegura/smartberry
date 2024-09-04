@@ -73,6 +73,7 @@ $NUMERODOCUMENTO = "";
 $TRECEPCION = "";
 $PATENTECAMION = "";
 $PATENTECARRO = "";
+$RESPONSABLE = "";
 $OCOMPRA = "";
 $OBSERVACION = "";
 
@@ -267,6 +268,7 @@ if (isset($id_dato) && isset($accion_dato)) {
             $NUMERODOCUMENTO = "" . $r['NUMERO_DOCUMENTO_RECEPCION'];
             $PATENTECAMION = "" . $r['PATENTE_CAMION'];
             $PATENTECARRO = "" . $r['PATENTE_CARRO'];
+            $RESPONSABLE = "" . $r['RESPONSABLE'];
             $OBSERVACION = "" . $r['OBSERVACIONES_RECEPCION'];
             $TRECEPCION = "" . $r['TRECEPCION'];
             if ($TRECEPCION == "1") {
@@ -318,6 +320,7 @@ if (isset($id_dato) && isset($accion_dato)) {
             $NUMERODOCUMENTO = "" . $r['NUMERO_DOCUMENTO_RECEPCION'];
             $PATENTECAMION = "" . $r['PATENTE_CAMION'];
             $PATENTECARRO = "" . $r['PATENTE_CARRO'];
+            $RESPONSABLE = "" . $r['RESPONSABLE'];
             $OBSERVACION = "" . $r['OBSERVACIONES_RECEPCION'];
             $TRECEPCION = "" . $r['TRECEPCION'];
             if ($TRECEPCION == "1") {
@@ -370,6 +373,7 @@ if (isset($id_dato) && isset($accion_dato)) {
             $NUMERODOCUMENTO = "" . $r['NUMERO_DOCUMENTO_RECEPCION'];
             $PATENTECAMION = "" . $r['PATENTE_CAMION'];
             $PATENTECARRO = "" . $r['PATENTE_CARRO'];
+            $RESPONSABLE = "" . $r['RESPONSABLE'];
             $OBSERVACION = "" . $r['OBSERVACIONES_RECEPCION'];
             $TRECEPCION = "" . $r['TRECEPCION'];
             if ($TRECEPCION == "1") {
@@ -447,6 +451,10 @@ if (isset($_POST)) {
     }
     if (isset($_REQUEST['PATENTECARRO'])) {
         $PATENTECARRO = "" . $_REQUEST['PATENTECARRO'];
+    }
+
+    if (isset($_REQUEST['RESPONSABLE'])) {
+        $RESPONSABLE = "" . $_REQUEST['RESPONSABLE'];
     }
     if (isset($_REQUEST['OBSERVACION'])) {
         $OBSERVACION = "" . $_REQUEST['OBSERVACION'];
@@ -779,6 +787,7 @@ if (isset($_POST)) {
                                                     <option value="2" <?php if ($TRECEPCION == "2") { echo "selected"; } ?>> Desde Productor </option>
                                                     <option value="3" <?php if ($TRECEPCION == "3") { echo "selected"; } ?>> Planta Externa </option>
                                                     <option value="4" <?php if ($TRECEPCION == "4") { echo "selected"; } ?>> Inventario Inicial</option>
+                                                    <option value="5" <?php if ($TRECEPCION == "5") { echo "selected"; } ?>> Desde Packing</option>
                                                 </select>
                                                 <label id="val_trecepcion" class="validacion"> </label>
                                             </div>
@@ -945,6 +954,9 @@ if (isset($_POST)) {
                                                 <label id="val_bodega" class="validacion"> </label>
                                             </div>
                                         </div>
+
+                                        <?php if ($TRECEPCION != "5") { ?>
+
                                         <div class="col-xxl-3 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
                                             <label>Tipo Documento</label>
                                             <input type="hidden" class="form-control" placeholder="TDOCUMENTOE" id="TDOCUMENTOE" name="TDOCUMENTOE" value="<?php echo $TDOCUMENTO; ?>" />
@@ -962,6 +974,7 @@ if (isset($_POST)) {
                                             </select>
                                             <label id="val_tdocumento" class="validacion"> </label>
                                         </div>
+
                                         <div class="col-xxl-2 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
                                             <div class="form-group">
                                                 <label>Número Documento</label>
@@ -970,6 +983,8 @@ if (isset($_POST)) {
                                                 <label id="val_numerod" class="validacion"> </label>
                                             </div>
                                         </div>
+
+
                                         <div class="col-xxl-3 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
                                             <div class="form-group">
                                                 <label>Transporte</label>
@@ -989,6 +1004,8 @@ if (isset($_POST)) {
                                                 <label id="val_transporte" class="validacion"> </label>
                                             </div>
                                         </div>
+
+
                                         <div class="col-xxl-1 col-xl-1 col-lg-2 col-md-2 col-sm-3 col-3 col-xs-3">
                                             <div class="form-group">
                                                 <br>
@@ -997,6 +1014,8 @@ if (isset($_POST)) {
                                                 </button>
                                             </div>
                                         </div>
+
+
                                         <div class="col-xxl-3 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
                                             <div class="form-group">
                                                 <label>Conductor</label>
@@ -1017,6 +1036,8 @@ if (isset($_POST)) {
                                                 <label id="val_conductor" class="validacion"> </label>
                                             </div>
                                         </div>
+
+
                                         <div class="col-xxl-1 col-xl-1 col-lg-2 col-md-2 col-sm-3 col-3 col-xs-3">
                                             <div class="form-group">
                                                 <br>
@@ -1025,6 +1046,8 @@ if (isset($_POST)) {
                                                 </button>
                                             </div>
                                         </div>
+
+
                                         <div class="col-xxl-2 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
                                             <div class="form-group">
                                                 <label>Patente Camión</label>
@@ -1033,6 +1056,8 @@ if (isset($_POST)) {
                                                 <label id="val_patentecamion" class="validacion"> </label>
                                             </div>
                                         </div>
+
+
                                         <div class="col-xxl-2 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
                                             <div class="form-group">
                                                 <label>Patente Carro</label>
@@ -1041,13 +1066,29 @@ if (isset($_POST)) {
                                                 <label id="val_patentecarro" class="validacion"> </label>
                                             </div>
                                         </div>
+
+
+                                        <?php } ?>
+
+                                        <?php if($TRECEPCION == "5"){?>
+                                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label>Responsable</label>
+                                                <input type="hidden" class="form-control" placeholder="RESPONSABLEE" id="RESPONSABLEE" name="RESPONSABLEE" value="<?php echo $RESPONSABLE; ?>" />
+                                                <input type="text" class="form-control"  placeholder="Responsable" id="RESPONSABLE" name="RESPONSABLE" value="<?php echo $RESPONSABLE; ?>" <?php echo $DISABLEDFOLIO; ?> <?php echo $DISABLED; ?> <?php echo $DISABLED3; ?> />
+                                                <label id="val_patentecarro" class="validacion"> </label>
+                                            </div>
+                                           
+                                        </div>
+                                        <?php }?>
                                     </div>
+                                   
                                     <div class="row">
                                         <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col-xs-12">
                                             <div class="form-group">
                                                 <label>Notas Generales </label>
                                                 <input type="hidden" class="form-control" placeholder="Observaciónes" id="OBSERVACIONE" name="OBSERVACIONE" value="<?php echo $OBSERVACION; ?>" />
-                                                <textarea class="form-control" rows="1" placeholder="Ingrese Nota, Observaciones u Otro" id="OBSERVACION" name="OBSERVACION" <?php echo $DISABLEDFOLIO; ?> <?php echo $DISABLED2; ?> ><?php echo $OBSERVACION; ?></textarea>
+                                                <textarea class="form-control" rows="5" placeholder="Ingrese Nota, Observaciones u Otro" id="OBSERVACION" name="OBSERVACION" <?php echo $DISABLEDFOLIO; ?> <?php echo $DISABLED2; ?> ><?php echo $OBSERVACION; ?></textarea>
                                                 <label id="val_observacion" class="validacion"> </label>
                                             </div>
                                         </div>
@@ -1358,6 +1399,7 @@ if (isset($_POST)) {
                 $RECEPCIONM->__SET('ID_CONDUCTOR', $_REQUEST['CONDUCTOR']);
                 $RECEPCIONM->__SET('ID_USUARIOI', $IDUSUARIOS);
                 $RECEPCIONM->__SET('ID_USUARIOM', $IDUSUARIOS);
+                $RECEPCIONM->__SET('RESPONSABLE', $_REQUEST['RESPONSABLE']);
                 //LLAMADA AL METODO DE REGISTRO DEL CONTROLADOR
                 $RECEPCIONM_ADO->agregarRecepcion($RECEPCIONM);
 
@@ -1436,6 +1478,7 @@ if (isset($_POST)) {
                 $RECEPCIONM->__SET('ID_CONDUCTOR', $_REQUEST['CONDUCTORE']);
                 $RECEPCIONM->__SET('ID_USUARIOM', $IDUSUARIOS);
                 $RECEPCIONM->__SET('ID_RECEPCION', $_REQUEST['IDP']);
+                $RECEPCIONM->__SET('RESPONSABLE', $_REQUEST['RESPONSABLEE']);
                 //LLAMADA AL METODO DE REGISTRO DEL CONTROLADOR
                 $RECEPCIONM_ADO->actualizarRecepcion($RECEPCIONM);
 

@@ -168,9 +168,10 @@ class TARJAM_ADO
                                                      INGRESO ,
                                                      MODIFICACION ,     
                                                      ESTADO ,
-                                                     ESTADO_REGISTRO 
+                                                     ESTADO_REGISTRO,
+                                                     FOLIOANTERIOR 
                                                 ) VALUES
-	       	( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,  SYSDATE() , SYSDATE(),  1, 1);";
+	       	( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,  SYSDATE() , SYSDATE(),  1, 1,?);";
             $this->conexion->prepare($query)
                 ->execute(
                     array(
@@ -185,7 +186,8 @@ class TARJAM_ADO
                         $TARJAM->__GET('ID_TCONTENEDOR'),
                         $TARJAM->__GET('ID_TUMEDIDA'),
                         $TARJAM->__GET('ID_FOLIO'),
-                        $TARJAM->__GET('ID_DRECEPCION')
+                        $TARJAM->__GET('ID_DRECEPCION'),
+                        $TARJAM->__GET('FOLIOANTERIOR')
                     )
 
                 );
@@ -227,7 +229,8 @@ class TARJAM_ADO
              ID_TCONTENEDOR = ?,
              ID_TUMEDIDA = ?  ,
              ID_FOLIO = ?  ,
-             ID_DRECEPCION = ?
+             ID_DRECEPCION = ?,
+             FOLIOANTERIOR = ?
 		WHERE  ID_TARJA = ?;";
             $this->conexion->prepare($query)
                 ->execute(
@@ -241,7 +244,8 @@ class TARJAM_ADO
                         $TARJAM->__GET('ID_TUMEDIDA'),
                         $TARJAM->__GET('ID_FOLIO'),
                         $TARJAM->__GET('ID_DRECEPCION'),
-                        $TARJAM->__GET('ID_TARJA')
+                        $TARJAM->__GET('ID_TARJA'),
+                        $TARJAM->__GET('FOLIOANTERIOR')
                     )
 
                 );

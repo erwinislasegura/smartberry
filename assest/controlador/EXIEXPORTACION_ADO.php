@@ -3792,9 +3792,16 @@ class EXIEXPORTACION_ADO
                                                         FORMAT(IFNULL(KILOS_DESHIRATACION_EXIEXPORTACION,0),2,'de_DE') AS 'DESHIRATACION',
                                                         FORMAT(IFNULL(PDESHIDRATACION_EXIEXPORTACION,0),2,'de_DE') AS 'PORCENTAJE',
                                                         FORMAT(IFNULL(KILOS_BRUTO_EXIEXPORTACION,0),2,'de_DE') AS 'BRUTO',
-                                                        IF(STOCK = '0','Sin Datos',STOCK ) AS 'STOCKR' 
+                                                        IF(STOCK = '0','Sin Datos',STOCK ) AS 'STOCKR',
+                                                        ESTADO_FOLIO,
+                                                        CASE 
+                                                        WHEN ESTADO_FOLIO = 1 THEN 'Pallet Completo'
+                                                        WHEN ESTADO_FOLIO = 2 THEN 'Pallet Incompleto'
+                                                        ELSE 'No Definido'
+                                                        END AS DESCRIPCION_ESTADO 
                                                 FROM fruta_exiexportacion 
                                                 WHERE  ESTADO = 2  
+                                                AND ESTADO_FOLIO = 1
                                                     AND ID_EMPRESA = '" . $EMPRESA . "'
                                                     AND ID_PLANTA = '" . $PLANTA . "'
                                                     AND ID_TEMPORADA = '" . $TEMPORADA . "'                                                      

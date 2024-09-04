@@ -151,7 +151,8 @@ include_once "../../assest/config/datosUrLP.php";
                                                     <th>Kg. IQF</th>
                                                     <th>Kg. Merma</th>
                                                     <th>Kg. Desecho</th>
-                                                    <th>Kg. Industrial</th>
+                                                    <th>Kg. Dif. en Proceso</th>
+                                                    <th>Total Industrial</th>
                                                     <th>Kg. Diferencia</th>
                                                     <th>% Exportación</th>
                                                     <th>% Deshitación</th>
@@ -303,8 +304,9 @@ include_once "../../assest/config/datosUrLP.php";
                                                         <td><?php echo $r['IQF_INFO']; ?></td>
                                                         <td><?php echo $r['MERMA_INFO']; ?></td>
                                                         <td><?php echo $r['DESECHO_INFO']; ?></td>
+                                                        <td><?php echo $r['SUMA_DIFERENCIA_PROCESO']; ?></td> 
                                                         <td><?php echo $r['SUMA_INDUSTRIAL_INFO']; ?></td> 
-                                                        <td><?php echo number_format( $r['ENTRADA']-$r['EXPORTACION']-$r['INDUSTRIAL'],2,".",""); ?></td>                                                        
+                                                        <td><?php echo number_format( $r['ENTRADA']-$r['EXPORTACION']-$r['SUMA_INDUSTRIAL_INFO']-$r['SUMA_DIFERENCIA_PROCESO'],2,".",""); ?></td>                                                        
                                                         <td><?php echo $r['PDEXPORTACION_PROCESO']; ?></td>
                                                         <td><?php echo $r['PDEXPORTACIONCD_PROCESO']-$r['PDEXPORTACION_PROCESO']; ?></td>
                                                         <td><?php echo $r['PDINDUSTRIAL_PROCESO']; ?></td>

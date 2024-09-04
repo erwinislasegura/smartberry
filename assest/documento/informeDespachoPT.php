@@ -196,6 +196,18 @@ if($ARRAYDESPACHO){
       $DESTINO = "";
     }
   } 
+
+  if ($TDESPACHO == "6") {
+    $TDESPACHON = "Despacho Industrial";
+    $NUMEROGUIA = $ARRAYDESPACHO[0]['NUMERO_GUIA_DESPACHO'];
+    $NUMEROSELLO = $ARRAYDESPACHO[0]['NUMERO_SELLO_DESPACHO'];
+    $ARRAYPLANTA3= $PLANTA_ADO->verPlanta($ARRAYDESPACHO[0]['ID_PLANTA3']);
+    if ($ARRAYPLANTA3) {
+      $DESTINO = $ARRAYPLANTA3[0]['NOMBRE_PLANTA'];
+    } else {
+      $DESTINO = "";
+    }
+  } 
   
   
   $ARRAYTRANSPORTE = $TRANSPORTE_ADO->verTransporte($ARRAYDESPACHO[0]['ID_TRANSPORTE']);
@@ -372,7 +384,7 @@ if ($TDESPACHO == "3") {
                       ';
 } else {
   $html .= '
-                      <th colspan="10" class="center">SELECCIÓN </th>
+                      <th colspan="12" class="center">SELECCIÓN </th>
                       ';
 }
 $html .= '
@@ -388,6 +400,7 @@ $html .= '
                     <th class="color center">Calibre</th>
                     <th class="color center">Cant. Envase</th>
                     <th class="color center">Kilos Neto</th>
+                     <th class="color center">Kilos Deshidratación</th>
 ';
 if ($TDESPACHO == "3") {
   $html .= '
@@ -426,6 +439,7 @@ foreach ($ARRAYEXISTENCIATOMADA as $r) :
             <td class=" center">' . $CALIBRE . '</td>
             <td class=" center">' . $r['ENVASE'] . '</td>
             <td class=" center">' . $r['NETO'] . '</td>
+            <td class=" center">' . $r['DESHIRATACION'] . '</td>
             ';
   if ($TDESPACHO == "3") {
     $html .= '
@@ -449,6 +463,8 @@ $html = $html . '
             <th class="color right">Sub Total</th>
             <th class="color center">' . $TOTALENVASE . '</th>
             <th class="color center">' . $TOTALNETO . '</th>
+            <th class="color center">&nbsp;</th>
+            
             ';
 if ($TDESPACHO == "3") {
   $html .= '

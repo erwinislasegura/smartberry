@@ -530,7 +530,7 @@ if ($_POST) {
                     if (ESTANDAR == null || ESTANDAR == 0) {
                         document.form_reg_dato.ESTANDAR.focus();
                         document.form_reg_dato.ESTANDAR.style.borderColor = "#FF0000";
-                        document.getElementById('val_estandar').innerHTML = "NO HA SELECIONADO ALTERNATIVA";
+                        document.getElementById('val_estandar').innerHTML = "NO HA SELECCIONADO ALTERNATIVA";
                         repuesta = 1;
                     } else {
                         repuesta = 0;
@@ -627,7 +627,7 @@ if ($_POST) {
                     if (ESTANDAR == null || ESTANDAR == 0) {
                         document.form_reg_dato.ESTANDAR.focus();
                         document.form_reg_dato.ESTANDAR.style.borderColor = "#FF0000";
-                        document.getElementById('val_estandar').innerHTML = "NO HA SELECIONADO ALTERNATIVA";
+                        document.getElementById('val_estandar').innerHTML = "NO HA SELECCIONADO ALTERNATIVA";
                         return false;
                     }
                     document.form_reg_dato.ESTANDAR.style.borderColor = "#4AF575";
@@ -635,7 +635,7 @@ if ($_POST) {
                     if (EFOLIO == null || EFOLIO == 0) {
                         document.form_reg_dato.EFOLIO.focus();
                         document.form_reg_dato.EFOLIO.style.borderColor = "#FF0000";
-                        document.getElementById('val_estadofolio').innerHTML = "NO HA SELECIONADO ALTERNATIVA";
+                        document.getElementById('val_estadofolio').innerHTML = "NO HA SELECCIONADO ALTERNATIVA";
                         return false;
                     }
                     document.form_reg_dato.EFOLIO.style.borderColor = "#4AF575";
@@ -659,7 +659,7 @@ if ($_POST) {
                     if (TCALIBRE == null || TCALIBRE == 0) {
                         document.form_reg_dato.TCALIBRE.focus();
                         document.form_reg_dato.TCALIBRE.style.borderColor = "#FF0000";
-                        document.getElementById('val_tcalibre').innerHTML = "NO HA SELECIONADO ALTERNATIVA";
+                        document.getElementById('val_tcalibre').innerHTML = "NO HA SELECCIONADO ALTERNATIVA";
                         return false;
                     }
                     document.form_reg_dato.TCALIBRE.style.borderColor = "#4AF575";
@@ -667,7 +667,7 @@ if ($_POST) {
                     if (TMANEJO == null || TMANEJO == 0) {
                         document.form_reg_dato.TMANEJO.focus();
                         document.form_reg_dato.TMANEJO.style.borderColor = "#FF0000";
-                        document.getElementById('val_tmanejo').innerHTML = "NO HA SELECIONADO ALTERNATIVA";
+                        document.getElementById('val_tmanejo').innerHTML = "NO HA SELECCIONADO ALTERNATIVA";
                         return false;
                     }
                     document.form_reg_dato.TMANEJO.style.borderColor = "#4AF575";
@@ -681,7 +681,7 @@ if ($_POST) {
                         if (TCATEGORIA == null || TCATEGORIA == 0) {
                             document.form_reg_dato.TCATEGORIA.focus();
                             document.form_reg_dato.TCATEGORIA.style.borderColor = "#FF0000";
-                            document.getElementById('val_tcategoria').innerHTML = "NO HA SELECIONADO ALTERNATIVA";
+                            document.getElementById('val_tcategoria').innerHTML = "NO HA SELECCIONADO ALTERNATIVA";
                             return false;
                         }
                         document.form_reg_dato.TCATEGORIA.style.borderColor = "#4AF575";
@@ -695,7 +695,7 @@ if ($_POST) {
                         if (ICARGA == null || ICARGA == 0) {
                             document.form_reg_dato.ICARGA.focus();
                             document.form_reg_dato.ICARGA.style.borderColor = "#FF0000";
-                            document.getElementById('val_icarga').innerHTML = "NO HA SELECIONADO ALTERNATIVA";
+                            document.getElementById('val_icarga').innerHTML = "NO HA SELECCIONADO ALTERNATIVA";
                             return false
                         }
                         document.form_reg_dato.ICARGA.style.borderColor = "#4AF575";
@@ -891,7 +891,7 @@ if ($_POST) {
                                                     <option value=""></option>
                                                     <option value="1">Pallet Completo</option>
                                                     <option value="2">Pallet Incompleto</option>
-                                                    <option value="3">Pallet de Muestra</option>
+                                                    <!--<option value="3">Pallet de Muestra</option>-->
                                                 </select>
                                                 <label id="val_estadofolio" class="validacion"> </label>
                                             </div>

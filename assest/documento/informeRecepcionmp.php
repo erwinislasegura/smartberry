@@ -461,7 +461,7 @@ $html = $html . '
           <div class="address">Transporte:  ' . $TRANSPORTE . ' </div>
           <div class="address">Conductor: ' . $CONDUCTOR . '</div>
           <div class="address">Patente Camion: ' . $PATENTECAMION . '</div>
-          <div class="address">Patente Carro: ' . $PATENTE . '</div>
+          <div class="address">Patente Carro: ' . $PATENTECARRO . '</div>
         </div>
         
         <div id="client">

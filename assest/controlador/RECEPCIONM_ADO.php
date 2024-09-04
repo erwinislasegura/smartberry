@@ -214,8 +214,9 @@ class RECEPCIONM_ADO {
                                                  MODIFICACION ,
                                                  TOTAL_CANTIDAD_RECEPCION ,
                                                  ESTADO ,
-                                                 ESTADO_REGISTRO ) VALUES
-	       	( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE() , SYSDATE(), 0,  1, 1);";
+                                                 ESTADO_REGISTRO,
+                                                 RESPONSABLE ) VALUES
+	       	( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE() , SYSDATE(), 0,  1, 1,?);";
             $this->conexion->prepare($query)
             ->execute(
                 array(                 
@@ -239,7 +240,8 @@ class RECEPCIONM_ADO {
                     $RECEPCIONM->__GET('ID_PLANTA2')  ,       
                     $RECEPCIONM->__GET('ID_PRODUCTOR')   ,       
                     $RECEPCIONM->__GET('ID_USUARIOI') ,       
-                    $RECEPCIONM->__GET('ID_USUARIOM')      
+                    $RECEPCIONM->__GET('ID_USUARIOM') ,
+                    $RECEPCIONM->__GET('RESPONSABLE')       
                 )
                 
                 );
@@ -294,7 +296,8 @@ class RECEPCIONM_ADO {
              ID_OCOMPRA = ?,
              ID_PLANTA2 = ?,
              ID_PRODUCTOR = ?,
-             ID_USUARIOM  = ?  
+             ID_USUARIOM  = ? ,
+             RESPONSABLE  = ?   
 		WHERE  ID_RECEPCION = ?;";
             $this->conexion->prepare($query)
             ->execute(
@@ -316,7 +319,8 @@ class RECEPCIONM_ADO {
                     $RECEPCIONM->__GET('ID_PLANTA2')  ,       
                     $RECEPCIONM->__GET('ID_PRODUCTOR')   ,    
                     $RECEPCIONM->__GET('ID_USUARIOM')   ,
-                    $RECEPCIONM->__GET('ID_RECEPCION')
+                    $RECEPCIONM->__GET('ID_RECEPCION'),
+                    $RECEPCIONM->__GET('RESPONSABLE')
                     
                 )
                 
