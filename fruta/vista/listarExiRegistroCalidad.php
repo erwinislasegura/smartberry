@@ -168,6 +168,7 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                                                     <tr class="text-center">
                                                         <th>Folio Original</th>
                                                         <th>Folio Final</th>
+                                                        <th>N° Registros</th>
                                                         <th>Registro de Calidad</th>
                                                         <th>Código Estándar</th>
                                                         <th>Estándar</th>
@@ -219,6 +220,12 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                                                                 <td>                                                                   
                                                                     <span class="<?php echo $TRECHAZOCOLOR; ?>">
                                                                         <?php echo $r['FOLIO_AUXILIAR_EXIEXPORTACION']; ?>
+                                                                    </span>
+                                                                </td>
+
+                                                                <td>                                                                   
+                                                                    <span class="<?php echo $TRECHAZOCOLOR; ?>">
+                                                                        <?php echo $r['NUMERO_REGISTROS']; ?>
                                                                     </span>
                                                                 </td>
                                                                 

@@ -193,6 +193,13 @@ include_once "../../assest/config/datosUrLP.php";
                                                     <th>CSG/CSP Despacho</th>
                                                     <th>Destino Despacho</th>
                                                     <th>Kilos Neto</th>
+                                                    <th>Bandeja cosechera blanca</th>
+                                                    <th>Bandeja cosechera verde</th>
+                                                    <th>Bandeja Bulk</th>
+                                                    <th>Bandeja esparraguera</th>
+                                                    <th>Bandeja cosechera frutillera</th>
+                                                    <th>Tote cerecero</th>
+                                                    <th>Tote amarillo</th>
                                                     <th>Transporte </th>
                                                     <th>Nombre Conductor </th>
                                                     <th>Patente Camión </th>
@@ -372,6 +379,13 @@ include_once "../../assest/config/datosUrLP.php";
                                                         <td><?php echo $CSGCSPDESTINO; ?></td>
                                                         <td><?php echo $DESTINO; ?></td>
                                                         <td><?php echo $r['NETO']; ?></td>
+                                                        <td><?php echo $r['CANTIDADENVASE1']; ?></td>
+                                                        <td><?php echo $r['CANTIDADENVASE2']; ?></td>
+                                                        <td><?php echo $r['CANTIDADENVASE3']; ?></td>
+                                                        <td><?php echo $r['CANTIDADENVASE4']; ?></td>
+                                                        <td><?php echo $r['CANTIDADENVASE5']; ?></td>
+                                                        <td><?php echo $r['CANTIDADENVASE6']; ?></td>
+                                                        <td><?php echo $r['CANTIDADENVASE7']; ?></td>
                                                         <td><?php echo $NOMBRETRANSPORTE; ?></td>
                                                         <td><?php echo $NOMBRECONDUCTOR; ?></td>
                                                         <td><?php echo $r['PATENTE_CAMION']; ?></td>

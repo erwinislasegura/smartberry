@@ -67,10 +67,15 @@ $FECHADESPACHO = "";
 $NUMEROGUIADESPACHO = "";
 $PATENTECARRO = "";
 $PATENTEVEHICULO = "";
-$NOMBREENVASE1 = "";
-$NOMBREENVASE2 = "";
+
 $CANTIDADENVASE1 = "";
 $CANTIDADENVASE2 = "";
+$CANTIDADENVASE3 = "";
+$CANTIDADENVASE4 = "";
+$CANTIDADENVASE5 = "";
+$CANTIDADENVASE6 = "";
+$CANTIDADENVASE7 = "";
+
 $OBSERVACIONDESPACHO = "";
 $NUMEROSELLODESPACHO = "";
 $REGALO = "";
@@ -244,10 +249,15 @@ if (isset($id_dato) && isset($accion_dato)) {
             $PATENTECARRO = "" . $r['PATENTE_CARRO'];
             $OBSERVACIONDESPACHO = "" . $r['OBSERVACION_DESPACHO'];
 
-            $NOMBREENVASE1 = "" . $r['NOMBREENVASE1'];
-            $NOMBREENVASE2 = "" . $r['NOMBREENVASE2'];
+
             $CANTIDADENVASE1 = "" . $r['CANTIDADENVASE1'];
             $CANTIDADENVASE2 = "" . $r['CANTIDADENVASE2'];
+            $CANTIDADENVASE3 = "" . $r['CANTIDADENVASE3'];
+            $CANTIDADENVASE4 = "" . $r['CANTIDADENVASE4'];
+            $CANTIDADENVASE5 = "" . $r['CANTIDADENVASE5'];
+            $CANTIDADENVASE6 = "" . $r['CANTIDADENVASE6'];
+            $CANTIDADENVASE7 = "" . $r['CANTIDADENVASE7'];
+
 
             $CONDUCTOR = "" . $r['ID_CONDUCTOR'];
             $TRANSPORTE = "" . $r['ID_TRANSPORTE'];
@@ -304,10 +314,13 @@ if (isset($id_dato) && isset($accion_dato)) {
             $PATENTECARRO = "" . $r['PATENTE_CARRO'];
             $OBSERVACIONDESPACHO = "" . $r['OBSERVACION_DESPACHO'];
 
-            $NOMBREENVASE1 = "" . $r['NOMBREENVASE1'];
-            $NOMBREENVASE2 = "" . $r['NOMBREENVASE2'];
             $CANTIDADENVASE1 = "" . $r['CANTIDADENVASE1'];
             $CANTIDADENVASE2 = "" . $r['CANTIDADENVASE2'];
+            $CANTIDADENVASE3 = "" . $r['CANTIDADENVASE3'];
+            $CANTIDADENVASE4 = "" . $r['CANTIDADENVASE4'];
+            $CANTIDADENVASE5 = "" . $r['CANTIDADENVASE5'];
+            $CANTIDADENVASE6 = "" . $r['CANTIDADENVASE6'];
+            $CANTIDADENVASE7 = "" . $r['CANTIDADENVASE7'];
 
 
             $CONDUCTOR = "" . $r['ID_CONDUCTOR'];
@@ -365,10 +378,13 @@ if (isset($id_dato) && isset($accion_dato)) {
             $PATENTECARRO = "" . $r['PATENTE_CARRO'];
             $OBSERVACIONDESPACHO = "" . $r['OBSERVACION_DESPACHO'];
 
-            $NOMBREENVASE1 = "" . $r['NOMBREENVASE1'];
-            $NOMBREENVASE2 = "" . $r['NOMBREENVASE2'];
             $CANTIDADENVASE1 = "" . $r['CANTIDADENVASE1'];
             $CANTIDADENVASE2 = "" . $r['CANTIDADENVASE2'];
+            $CANTIDADENVASE3 = "" . $r['CANTIDADENVASE3'];
+            $CANTIDADENVASE4 = "" . $r['CANTIDADENVASE4'];
+            $CANTIDADENVASE5 = "" . $r['CANTIDADENVASE5'];
+            $CANTIDADENVASE6 = "" . $r['CANTIDADENVASE6'];
+            $CANTIDADENVASE7 = "" . $r['CANTIDADENVASE7'];
 
 
             $CONDUCTOR = "" . $r['ID_CONDUCTOR'];
@@ -438,15 +454,6 @@ if (isset($_POST)) {
         $OBSERVACIONDESPACHOMP = "" . $_REQUEST['OBSERVACIONDESPACHOMP'];
     }
 
-    if (isset($_REQUEST['NOMBREENVASE1'])) {
-
-        $NOMBREENVASE1 = "" . $_REQUEST['NOMBREENVASE1'];
-    }
-
-    if (isset($_REQUEST['NOMBREENVASE2'])) {
-
-        $NOMBREENVASE2 = "" . $_REQUEST['NOMBREENVASE2'];
-    }
 
     if (isset($_REQUEST['CANTIDADENVASE1'])) {
 
@@ -456,6 +463,31 @@ if (isset($_POST)) {
     if (isset($_REQUEST['CANTIDADENVASE2'])) {
 
         $CANTIDADENVASE2 = "" . $_REQUEST['CANTIDADENVASE2'];
+    }
+
+    if (isset($_REQUEST['CANTIDADENVASE3'])) {
+
+        $CANTIDADENVASE3 = "" . $_REQUEST['CANTIDADENVASE3'];
+    }
+
+    if (isset($_REQUEST['CANTIDADENVASE4'])) {
+
+        $CANTIDADENVASE4 = "" . $_REQUEST['CANTIDADENVASE4'];
+    }
+
+    if (isset($_REQUEST['CANTIDADENVASE5'])) {
+
+        $CANTIDADENVASE5 = "" . $_REQUEST['CANTIDADENVASE5'];
+    }
+
+    if (isset($_REQUEST['CANTIDADENVASE6'])) {
+
+        $CANTIDADENVASE6 = "" . $_REQUEST['CANTIDADENVASE6'];
+    }
+
+    if (isset($_REQUEST['CANTIDADENVASE7'])) {
+
+        $CANTIDADENVASE7 = "" . $_REQUEST['CANTIDADENVASE7'];
     }
 
     if (isset($_REQUEST['NUMEROSELLODESPACHO'])) {
@@ -551,7 +583,15 @@ if (isset($_POST)) {
                     TDESPACHO = document.getElementById("TDESPACHO").selectedIndex;
                     TRANSPORTE = document.getElementById("TRANSPORTE").selectedIndex;
                     CONDUCTOR = document.getElementById("CONDUCTOR").selectedIndex;
-                    NOMBREENVASE1 = document.getElementById("NOMBREENVASE1").selectedIndex;
+
+
+                    CANTIDADENVASE1 = document.getElementById("CANTIDADENVASE1").value;
+                    CANTIDADENVASE2 = document.getElementById("CANTIDADENVASE2").value;
+                    CANTIDADENVASE3 = document.getElementById("CANTIDADENVASE3").value;
+                    CANTIDADENVASE4 = document.getElementById("CANTIDADENVASE4").value;
+                    CANTIDADENVASE5 = document.getElementById("CANTIDADENVASE5").value;
+                    CANTIDADENVASE6 = document.getElementById("CANTIDADENVASE6").value;
+                    CANTIDADENVASE7 = document.getElementById("CANTIDADENVASE7").value;
 
                     PATENTEVEHICULO = document.getElementById("PATENTEVEHICULO").value;
                     PATENTECARRO = document.getElementById("PATENTECARRO").value;
@@ -563,7 +603,14 @@ if (isset($_POST)) {
                     document.getElementById('val_conductor').innerHTML = "";
                     document.getElementById('val_patentevehiculo').innerHTML = "";
                     document.getElementById('val_patentecarro').innerHTML = "";
-                    document.getElementById('val_nombreenvase1').innerHTML = "";
+                    
+                    document.getElementById('val_cantidaddeenvase1').innerHTML = "";
+                    document.getElementById('val_cantidaddeenvase2').innerHTML = "";
+                    document.getElementById('val_cantidaddeenvase3').innerHTML = "";
+                    document.getElementById('val_cantidaddeenvase4').innerHTML = "";
+                    document.getElementById('val_cantidaddeenvase5').innerHTML = "";
+                    document.getElementById('val_cantidaddeenvase6').innerHTML = "";
+                    document.getElementById('val_cantidaddeenvase7').innerHTML = "";
                 
                     //  document.getElementById('val_observacion').innerHTML = "";
 
@@ -575,13 +622,66 @@ if (isset($_POST)) {
                     }
                     document.form_reg_dato.FECHADESPACHO.style.borderColor = "#4AF575";
 
-                    if (NOMBREENVASE1 == null || NOMBREENVASE1 == 0) {
-                        document.form_reg_dato.NOMBREENVASE1.focus();
-                        document.form_reg_dato.NOMBREENVASE1.style.borderColor = "#FF0000";
-                        document.getElementById('val_nombreenvase1').innerHTML = "NO HA SELECIONADO ALTERNATIVA";
+                    if (CANTIDADENVASE1 == null) {
+                        document.form_reg_dato.CANTIDADENVASE1.focus();
+                        document.form_reg_dato.CANTIDADENVASE1.style.borderColor = "#FF0000";
+                        document.getElementById('val_cantidaddeenvase1').innerHTML = "NO HA SELECIONADO ALTERNATIVA";
                         return false
                     }
-                    document.form_reg_dato.NOMBREENVASE1.style.borderColor = "#4AF575";
+                    document.form_reg_dato.CANTIDADENVASE1.style.borderColor = "#4AF575";
+
+                    if (CANTIDADENVASE2 == null) {
+                        document.form_reg_dato.CANTIDADENVASE2.focus();
+                        document.form_reg_dato.CANTIDADENVASE2.style.borderColor = "#FF0000";
+                        document.getElementById('val_cantidaddeenvase2').innerHTML = "NO HA SELECIONADO ALTERNATIVA";
+                        return false
+                    }
+                    document.form_reg_dato.CANTIDADENVASE2.style.borderColor = "#4AF575";
+
+                    if (CANTIDADENVASE3 == null) {
+                        document.form_reg_dato.CANTIDADENVASE3.focus();
+                        document.form_reg_dato.CANTIDADENVASE3.style.borderColor = "#FF0000";
+                        document.getElementById('val_cantidaddeenvase3').innerHTML = "NO HA SELECIONADO ALTERNATIVA";
+                        return false
+                    }
+                    document.form_reg_dato.CANTIDADENVASE3.style.borderColor = "#4AF575";
+
+
+                    
+
+
+                    if (CANTIDADENVASE4 == null) {
+                        document.form_reg_dato.CANTIDADENVASE4.focus();
+                        document.form_reg_dato.CANTIDADENVASE4.style.borderColor = "#FF0000";
+                        document.getElementById('val_cantidaddeenvase4').innerHTML = "NO HA SELECIONADO ALTERNATIVA";
+                        return false
+                    }
+                    document.form_reg_dato.CANTIDADENVASE4.style.borderColor = "#4AF575";
+
+
+                    if (CANTIDADENVASE5 == null) {
+                        document.form_reg_dato.CANTIDADENVASE5.focus();
+                        document.form_reg_dato.CANTIDADENVASE5.style.borderColor = "#FF0000";
+                        document.getElementById('val_cantidaddeenvase5').innerHTML = "NO HA SELECIONADO ALTERNATIVA";
+                        return false
+                    }
+                    document.form_reg_dato.CANTIDADENVASE5.style.borderColor = "#4AF575";
+
+                    if (CANTIDADENVASE6 == null) {
+                        document.form_reg_dato.CANTIDADENVASE6.focus();
+                        document.form_reg_dato.CANTIDADENVASE6.style.borderColor = "#FF0000";
+                        document.getElementById('val_cantidaddeenvase6').innerHTML = "NO HA SELECIONADO ALTERNATIVA";
+                        return false
+                    }
+                    document.form_reg_dato.CANTIDADENVASE6.style.borderColor = "#4AF575";
+
+                    if (CANTIDADENVASE7 == null) {
+                        document.form_reg_dato.CANTIDADENVASE7.focus();
+                        document.form_reg_dato.CANTIDADENVASE7.style.borderColor = "#FF0000";
+                        document.getElementById('val_cantidaddeenvase7').innerHTML = "NO HA SELECIONADO ALTERNATIVA";
+                        return false
+                    }
+                    document.form_reg_dato.CANTIDADENVASE7.style.borderColor = "#4AF575";
 
                     if (TDESPACHO == null || TDESPACHO == 0) {
                         document.form_reg_dato.TDESPACHO.focus();
@@ -1087,63 +1187,65 @@ if (isset($_POST)) {
                                         <?php } ?>
                                     </div>
                                     <div class="row">
+                 
                                         <div class="col-xxl-2 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
                                             <div class="form-group">
-                                                <label>Tipo Envase 1</label>
-
-                                                <input type="hidden" class="form-control" placeholder="NOMBREENVASE1" id="NOMBREENVASE1" name="NOMBREENVASE1" value="<?php echo $NOMBREENVASE1; ?>" />
-                                                <select class="form-control select2" id="NOMBREENVASE1" name="NOMBREENVASE1" style="width: 100%;"  <?php echo $DISABLED; ?> <?php echo $DISABLED3; ?>>
-                                                    <option></option>
-                                                    <option value="1" <?php if ($NOMBREENVASE1 == "1") { echo "selected"; } ?>>Bandeja cosechera blanca</option>
-                                                    <option value="2" <?php if ($NOMBREENVASE1 == "2") { echo "selected"; } ?>>Bandeja cosechera verde</option>
-                                                    <option value="3" <?php if ($NOMBREENVASE1 == "3") { echo "selected"; } ?>>Bandeja Bulk</option>
-                                                    <option value="4" <?php if ($NOMBREENVASE1 == "4") { echo "selected"; } ?>>Bandeja esparraguera</option>
-                                                    <option value="5" <?php if ($NOMBREENVASE1 == "5") { echo "selected"; } ?>>Bandeja cosechera frutillera</option>
-                                                    <option value="6" <?php if ($NOMBREENVASE1 == "6") { echo "selected"; } ?>>Tote cerecero</option>
-                                                    <option value="7" <?php if ($NOMBREENVASE1 == "7") { echo "selected"; } ?>>Tote amarillo</option>
-                                                </select>
-
-
-                                                <!--<input type="hidden" class="form-control" placeholder="Nombre del Envase" id="NOMBREENVASE1" name="NOMBREENVASE1" value="<?php echo $NOMBREENVASE1; ?>" />
-                                                <input type="text" class="form-control" placeholder="Nombre del Envase" id="NOMBREENVASE1" name="NOMBREENVASE1" value="<?php echo $NOMBREENVASE1; ?>" <?php echo $DISABLED; ?> <?php echo $DISABLED3; ?> />-->
-                                                <label id="val_nombreenvase1" class="validacion"> </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-xxl-2 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
-                                            <div class="form-group">
-                                                <label>Cantidad Envases</label>
+                                                <label>Bandeja cosechera blanca</label>
                                                 <input type="hidden" class="form-control" placeholder="Cantidad de Envases" id="CANTIDADENVASE1" name="CANTIDADENVASE1" value="<?php echo $CANTIDADENVASE1; ?>" />
                                                 <input type="text" class="form-control" placeholder="Cantidad de Envases" id="CANTIDADENVASE1" name="CANTIDADENVASE1" value="<?php echo $CANTIDADENVASE1; ?>" <?php echo $DISABLED; ?> <?php echo $DISABLED3; ?> />
-                                                <label id="val_patentecarro" class="validacion"> </label>
+                                                <label id="val_cantidaddeenvase1" class="validacion"> </label>
                                             </div>
                                         </div>
                                         <div class="col-xxl-2 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
                                             <div class="form-group">
-                                                <label>Tipo Envase 2</label>
-                                                <input type="hidden" class="form-control" placeholder="NOMBREENVASE2" id="NOMBREENVASE2" name="NOMBREENVASE2" value="<?php echo $NOMBREENVASE2; ?>" />
-                                                <select class="form-control select2" id="NOMBREENVASE2" name="NOMBREENVASE2" style="width: 100%;"  <?php echo $DISABLED; ?> <?php echo $DISABLED3; ?>>
-                                                    <option></option>
-                                                    <option value="1" <?php if ($NOMBREENVASE2 == "1") { echo "selected"; } ?>>Bandeja cosechera blanca</option>
-                                                    <option value="2" <?php if ($NOMBREENVASE2 == "2") { echo "selected"; } ?>>Bandeja cosechera verde</option>
-                                                    <option value="3" <?php if ($NOMBREENVASE2 == "3") { echo "selected"; } ?>>Bandeja Bulk</option>
-                                                    <option value="4" <?php if ($NOMBREENVASE2 == "4") { echo "selected"; } ?>>Bandeja esparraguera</option>
-                                                    <option value="5" <?php if ($NOMBREENVASE2 == "5") { echo "selected"; } ?>>Bandeja cosechera frutillera</option>
-                                                    <option value="6" <?php if ($NOMBREENVASE2 == "6") { echo "selected"; } ?>>Tote cerecero</option>
-                                                    <option value="7" <?php if ($NOMBREENVASE2 == "7") { echo "selected"; } ?>>Tote amarillo</option>>
-                                                </select>
-                                                <!--<input type="hidden" class="form-control" placeholder="Nombre del Envase" id="NOMBREENVASE2" name="NOMBREENVASE2" value="<?php echo $NOMBREENVASE2; ?>" />
-                                                <input type="text" class="form-control" placeholder="Nombre del Envase" id="NOMBREENVASE2" name="NOMBREENVASE2" value="<?php echo $NOMBREENVASE2; ?>" <?php echo $DISABLED; ?> <?php echo $DISABLED3; ?> />-->
-                                                <label id="val_nombreenvase2" class="validacion"> </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-xxl-2 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
-                                            <div class="form-group">
-                                                <label>Cantidad Envases</label>
+                                                <label>Bandeja cosechera verde</label>
                                                 <input type="hidden" class="form-control" placeholder="Cantidad de Envases" id="CANTIDADENVASE2" name="CANTIDADENVASE2" value="<?php echo $CANTIDADENVASE2; ?>" />
                                                 <input type="text" class="form-control" placeholder="Cantidad de Envases" id="CANTIDADENVASE2" name="CANTIDADENVASE2" value="<?php echo $CANTIDADENVASE2; ?>" <?php echo $DISABLED; ?> <?php echo $DISABLED3; ?> />
-                                                <label id="val_patentecarro" class="validacion"> </label>
+                                                <label id="val_cantidaddeenvase2" class="validacion"> </label>
                                             </div>
                                         </div>
+                                        <div class="col-xxl-2 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label>Bandeja Bulk</label>
+                                                <input type="hidden" class="form-control" placeholder="Cantidad de Envases" id="CANTIDADENVASE3" name="CANTIDADENVASE3" value="<?php echo $CANTIDADENVASE3; ?>" />
+                                                <input type="text" class="form-control" placeholder="Cantidad de Envases" id="CANTIDADENVASE3" name="CANTIDADENVASE3" value="<?php echo $CANTIDADENVASE3; ?>" <?php echo $DISABLED; ?> <?php echo $DISABLED3; ?> />
+                                                <label id="val_cantidaddeenvase3" class="validacion"> </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-2 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label>Bandeja esparraguera</label>
+                                                <input type="hidden" class="form-control" placeholder="Cantidad de Envases" id="CANTIDADENVASE4" name="CANTIDADENVASE4" value="<?php echo $CANTIDADENVASE4; ?>" />
+                                                <input type="text" class="form-control" placeholder="Cantidad de Envases" id="CANTIDADENVASE4" name="CANTIDADENVASE4" value="<?php echo $CANTIDADENVASE4; ?>" <?php echo $DISABLED; ?> <?php echo $DISABLED3; ?> />
+                                                <label id="val_cantidaddeenvase4" class="validacion"> </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-2 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label>Bandeja cosechera frutillera</label>
+                                                <input type="hidden" class="form-control" placeholder="Cantidad de Envases" id="CANTIDADENVASE5" name="CANTIDADENVASE5" value="<?php echo $CANTIDADENVASE5; ?>" />
+                                                <input type="text" class="form-control" placeholder="Cantidad de Envases" id="CANTIDADENVASE5" name="CANTIDADENVASE5" value="<?php echo $CANTIDADENVASE5; ?>" <?php echo $DISABLED; ?> <?php echo $DISABLED3; ?> />
+                                                <label id="val_cantidaddeenvase5" class="validacion"> </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-2 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label>Tote cerecero</label>
+                                                <input type="hidden" class="form-control" placeholder="Cantidad de Envases" id="CANTIDADENVASE6" name="CANTIDADENVASE6" value="<?php echo $CANTIDADENVASE6; ?>" />
+                                                <input type="text" class="form-control" placeholder="Cantidad de Envases" id="CANTIDADENVASE6" name="CANTIDADENVASE6" value="<?php echo $CANTIDADENVASE6; ?>" <?php echo $DISABLED; ?> <?php echo $DISABLED3; ?> />
+                                                <label id="val_cantidaddeenvase6" class="validacion"> </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-2 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label>Tote amarillo</label>
+                                                <input type="hidden" class="form-control" placeholder="Cantidad de Envases" id="CANTIDADENVASE7" name="CANTIDADENVASE7" value="<?php echo $CANTIDADENVASE7; ?>" />
+                                                <input type="text" class="form-control" placeholder="Cantidad de Envases" id="CANTIDADENVASE7" name="CANTIDADENVASE7" value="<?php echo $CANTIDADENVASE7; ?>" <?php echo $DISABLED; ?> <?php echo $DISABLED3; ?> />
+                                                <label id="val_cantidaddeenvase7" class="validacion"> </label>
+                                            </div>
+                                        </div>
+                                       
+                                       
                                     </div>
 
                                    
@@ -1385,10 +1487,13 @@ if (isset($_POST)) {
                 $DESPACHOIND->__SET('PATENTE_CARRO', $_REQUEST['PATENTECARRO']);
                 $DESPACHOIND->__SET('OBSERVACION_DESPACHO', $_REQUEST['OBSERVACIONDESPACHO']);
 
-                $DESPACHOIND->__SET('NOMBREENVASE1', $_REQUEST['NOMBREENVASE1']);
-                $DESPACHOIND->__SET('NOMBREENVASE2', $_REQUEST['NOMBREENVASE2']);
                 $DESPACHOIND->__SET('CANTIDADENVASE1', $_REQUEST['CANTIDADENVASE1']);
                 $DESPACHOIND->__SET('CANTIDADENVASE2', $_REQUEST['CANTIDADENVASE2']);
+                $DESPACHOIND->__SET('CANTIDADENVASE3', $_REQUEST['CANTIDADENVASE3']);
+                $DESPACHOIND->__SET('CANTIDADENVASE4', $_REQUEST['CANTIDADENVASE4']);
+                $DESPACHOIND->__SET('CANTIDADENVASE5', $_REQUEST['CANTIDADENVASE5']);
+                $DESPACHOIND->__SET('CANTIDADENVASE6', $_REQUEST['CANTIDADENVASE6']);
+                $DESPACHOIND->__SET('CANTIDADENVASE7', $_REQUEST['CANTIDADENVASE7']);
 
                 $DESPACHOIND->__SET('ID_CONDUCTOR', $_REQUEST['CONDUCTOR']);
                 $DESPACHOIND->__SET('ID_TRANSPORTE', $_REQUEST['TRANSPORTE']);
@@ -1457,10 +1562,13 @@ if (isset($_POST)) {
                 $DESPACHOIND->__SET('PATENTE_CARRO', $_REQUEST['PATENTECARROE']);
                 $DESPACHOIND->__SET('OBSERVACION_DESPACHO', $_REQUEST['OBSERVACIONDESPACHO']);
 
-                $DESPACHOIND->__SET('NOMBREENVASE1', $_REQUEST['NOMBREENVASE1']);
-                $DESPACHOIND->__SET('NOMBREENVASE2', $_REQUEST['NOMBREENVASE2']);
                 $DESPACHOIND->__SET('CANTIDADENVASE1', $_REQUEST['CANTIDADENVASE1']);
                 $DESPACHOIND->__SET('CANTIDADENVASE2', $_REQUEST['CANTIDADENVASE2']);
+                $DESPACHOIND->__SET('CANTIDADENVASE3', $_REQUEST['CANTIDADENVASE3']);
+                $DESPACHOIND->__SET('CANTIDADENVASE4', $_REQUEST['CANTIDADENVASE4']);
+                $DESPACHOIND->__SET('CANTIDADENVASE5', $_REQUEST['CANTIDADENVASE5']);
+                $DESPACHOIND->__SET('CANTIDADENVASE6', $_REQUEST['CANTIDADENVASE6']);
+                $DESPACHOIND->__SET('CANTIDADENVASE7', $_REQUEST['CANTIDADENVASE7']);
 
                 $DESPACHOIND->__SET('ID_CONDUCTOR', $_REQUEST['CONDUCTORE']);
                 $DESPACHOIND->__SET('ID_TRANSPORTE', $_REQUEST['TRANSPORTEE']);
@@ -1575,10 +1683,13 @@ if (isset($_POST)) {
                     $DESPACHOIND->__SET('PATENTE_CARRO', $_REQUEST['PATENTECARROE']);
                     $DESPACHOIND->__SET('OBSERVACION_DESPACHO', $_REQUEST['OBSERVACIONDESPACHO']);
 
-                    $DESPACHOIND->__SET('NOMBREENVASE1', $_REQUEST['NOMBREENVASE1']);
-                    $DESPACHOIND->__SET('NOMBREENVASE2', $_REQUEST['NOMBREENVASE2']);
                     $DESPACHOIND->__SET('CANTIDADENVASE1', $_REQUEST['CANTIDADENVASE1']);
                     $DESPACHOIND->__SET('CANTIDADENVASE2', $_REQUEST['CANTIDADENVASE2']);
+                    $DESPACHOIND->__SET('CANTIDADENVASE3', $_REQUEST['CANTIDADENVASE3']);
+                    $DESPACHOIND->__SET('CANTIDADENVASE4', $_REQUEST['CANTIDADENVASE4']);
+                    $DESPACHOIND->__SET('CANTIDADENVASE5', $_REQUEST['CANTIDADENVASE5']);
+                    $DESPACHOIND->__SET('CANTIDADENVASE6', $_REQUEST['CANTIDADENVASE6']);
+                    $DESPACHOIND->__SET('CANTIDADENVASE7', $_REQUEST['CANTIDADENVASE7']);
 
                     $DESPACHOIND->__SET('ID_CONDUCTOR', $_REQUEST['CONDUCTORE']);
                     $DESPACHOIND->__SET('ID_TRANSPORTE', $_REQUEST['TRANSPORTEE']);
