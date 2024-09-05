@@ -125,10 +125,13 @@ if($ARRAYDESPACHO){
   $TOTALPRECIO = $ARRAYDESPACHOTOTAL[0]['PRECIO'];
   
 
-  $NOMBREENVASE1 = $ARRAYDESPACHO[0]['NOMBREENVASE1'];
-  $NOMBREENVASE2 = $ARRAYDESPACHO[0]['NOMBREENVASE2'];
   $CANTIDADENVASE1 = $ARRAYDESPACHO[0]['CANTIDADENVASE1'];
   $CANTIDADENVASE2 = $ARRAYDESPACHO[0]['CANTIDADENVASE2'];
+  $CANTIDADENVASE3 = $ARRAYDESPACHO[0]['CANTIDADENVASE3'];
+  $CANTIDADENVASE4 = $ARRAYDESPACHO[0]['CANTIDADENVASE4'];
+  $CANTIDADENVASE5 = $ARRAYDESPACHO[0]['CANTIDADENVASE5'];
+  $CANTIDADENVASE6 = $ARRAYDESPACHO[0]['CANTIDADENVASE6'];
+  $CANTIDADENVASE7 = $ARRAYDESPACHO[0]['CANTIDADENVASE7'];
   
   
   $NUMERO = $ARRAYDESPACHO[0]['NUMERO_DESPACHO'];
@@ -532,11 +535,16 @@ $html = $html . '
       <br/>
       <div class="address"><b>Informacion De Envases</b></div>
       <br/>
-      <div class="address"><b>Nombre Envase 1:</b>  ' . $NOMBREENVASE1 . ' </div>
-      <div class="address"><b>Cantidad Envase 1:</b>  ' . $CANTIDADENVASE1 . ' </div>
+      <div class="address"><b>Bandeja cosechera blanca:</b>  ' . $CANTIDADENVASE1 . ' </div>
+      <div class="address"><b>Bandeja cosechera verde:</b>  ' . $CANTIDADENVASE2 . ' </div>
       <br/>
-      <div class="address"><b>Nombre Envase 2:</b>  ' . $NOMBREENVASE2 . ' </div>
-      <div class="address"><b>Cantidad Envase 2:</b>  ' . $CANTIDADENVASE2 . ' </div>
+      <div class="address"><b>Bandeja Bulk:</b>  ' . $CANTIDADENVASE3 . ' </div>
+      <div class="address"><b>Bandeja esparraguera:</b>  ' . $CANTIDADENVASE4 . ' </div>
+      <br/>
+      <div class="address"><b>Bandeja cosechera frutillera:</b>  ' . $CANTIDADENVASE5 . ' </div>
+      <div class="address"><b>Tote cerecero:</b>  ' . $CANTIDADENVASE6 . ' </div>
+      <br/>
+      <div class="address"><b>Tote amarillo:</b>  ' . $CANTIDADENVASE7 . ' </div>
       
     </div>
 
