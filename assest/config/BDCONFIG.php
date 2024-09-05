@@ -8,21 +8,30 @@ class BDCONFIG {
 
     public function __construct()
     {
-        $this->HOST="45.236.164.112";
+        $this->HOST = "45.236.164.112";
         $this->USER = "visiondc_berrie";
-        $this->PASS="Berrie.2024";
-        $this->DBNAME="visiondc_berrie";
-
+        $this->PASS = "Berrie.2024";
+        $this->DBNAME = "visiondc_berrie";
     }
-    public function __GET($k){ return $this->$k; }
-    public function __SET($k, $v){ return $this->$k = $v; }
 
+    public function __GET($k) {
+        return $this->$k;
+    }
 
-    static public function conectar(){
-        // $link = new PDO("mysql:host=localhost;dbname=cartas","forge","fgIg28u3smG0TXCUU5nd");
-        $link = new PDO("mysql:host=localhost;dbname=mscode_smartberrie","root","MikeGuazaky0212");
-        $link->exec("set names utf8");
-        $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        return $link;
+    public function __SET($k, $v) {
+        $this->$k = $v;
+    }
+
+    public function conectar() {
+        try {
+            $link = new PDO("mysql:host={$this->HOST};dbname={$this->DBNAME}", $this->USER, $this->PASS);
+            $link->exec("set names utf8");
+            $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $link;
+        } catch (PDOException $e) {
+            // Maneja el error de conexión aquí, si es necesario
+            echo 'Error de conexión: ' . $e->getMessage();
+            return null;
+        }
     }
 }
