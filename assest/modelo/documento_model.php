@@ -1,10 +1,11 @@
 <?php 
-
+include_once '../../assest/config/BDCONFIG.php';
 class DocumentoModel {
     private $db;
 
     public function __construct() {
-        $this->db = BDCONFIG::conectar();  // Conectar a la base de datos
+        $dbConfig = new BDCONFIG();  // Conectar a la base de datos
+        $this->db = $dbConfig->conectar();
     }
 
     public function getDocumentosByProductor($productorId) {

@@ -9,7 +9,7 @@ class ProductorModel {
     }
 
     public function getAllProductores() {
-        $query = "SELECT * FROM fruta_productor";
+        $query = "SELECT *, (SELECT COUNT(id_documento) FROM tb_documento WHERE estado_documento = 1 AND productor_documento = id_productor)AS NUMERO_DOCUMENTOS FROM fruta_productor";
         $result =  $this->db->query($query)->fetchAll(PDO::FETCH_OBJ);
         return $result;
     }
@@ -22,8 +22,8 @@ class ProductorModel {
     }
 
     public function saveDocumento($data) {
-        $query = "INSERT INTO tb_documento (productor_documento, estado_documento, nombre_documento, create_documento) 
-                  VALUES (:productor_documento, 1, :nombre_documento, NOW())";
+        $query = "INSERT INTO tb_documento (productor_documento, archivo_documento, vigencia_documento, estado_documento, nombre_documento, create_documento) 
+                  VALUES (:productor_documento, :archivo_documento, :vigencia_documento, 1, :nombre_documento, NOW())";
         $stmt = $this->db->prepare($query);
         $stmt->execute($data);
     }

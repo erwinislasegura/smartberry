@@ -9,9 +9,9 @@ include_once '../../assest/controlador/productor_controller.php';
 
 //INCIALIZAR LAS VARIBLES
 //INICIALIZAR CONTROLADOR
-
+$id = base64_decode($_REQUEST['id']);
 $productorController = new ProductorController();
-$productores = $productorController->index();
+$documentos = $productorController->viewDocumentos($id);
 
 
 
@@ -22,7 +22,7 @@ $productores = $productorController->index();
 <html lang="es">
 
 <head>
-    <title>Agrupado PT Registros de Calidad</title>
+    <title>Lista Documentos</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="">
@@ -62,7 +62,7 @@ $productores = $productorController->index();
                     <div class="content-header">
                         <div class="d-flex align-items-center">
                             <div class="mr-auto">
-                                <h3 class="page-title">Listado de Productores</h3>
+                                <h3 class="page-title">Lista Documentos</h3>
                                 <div class="d-inline-block align-items-center">
                                     <nav>
                                         <ol class="breadcrumb">
@@ -70,7 +70,7 @@ $productores = $productorController->index();
                                             <li class="breadcrumb-item" aria-current="page">Módulo</li>
                                             <li class="breadcrumb-item" aria-current="page">Registro de Calidad</li>
                                             <li class="breadcrumb-item" aria-current="page">Documentos</li>
-                                            <li class="breadcrumb-item active" aria-current="page"> <a href="#">Documentos de Productores</a>
+                                            <li class="breadcrumb-item active" aria-current="page"> <a href="#">Lista Documentos</a>
                                             </li>
                                         </ol>
                                     </nav>
@@ -83,48 +83,34 @@ $productores = $productorController->index();
                     <section class="content">
                         <div class="box">
                             <div class="box-body">
-                                <a href="./addDocumentoProductor.php" type="button" class="btn btn-success">Agregar Documento</a>
-                            <br/>
-                            <br/>
+                            <button type="button" class="btn  btn-primary  " data-toggle="tooltip" title="Volver" name="CANCELAR" value="CANCELAR" Onclick="javascript:history.back()">
+                                            <i class="ti-back-left "></i> Volver
+                                        </button>
+                                        <br/>
+                                        <br/>
                                 <div class="row">
                                     <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col-xs-12">
                                         <div class="table-responsive">
-                                            <table id="tabla-productor" class="table-hover" style="width: 100%;">
+                                            <table id="existenciaptagrupado" class="table-hover" style="width: 100%;">
                                                 <thead>
                                                     <tr>
-                                                        <th>Acciones</th>
-                                                        <th>ID</th>
-                                                        <th>Código</th>
-                                                        <th>RUN</th>
+                                                        <th>Archivo</th>
                                                         <th>Nombre</th>
-                                                        <th>Dirección</th>
-                                                        <th>Email</th>
-                                                        <th>Teléfono</th>
+                                                        <th>Vigencia</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="bodyRegistroCalidad">
                                          
-                                                <?php if (!empty($productores)): ?>
-                                                    <?php foreach ($productores as $productor): ?>
+                                                <?php if (!empty($documentos)): ?>
+                                                    <?php foreach ($documentos as $documento): ?>
                                                         <tr>
                                                             <td>
-                                                                <a href="./listaDocumento.php?id=<?php echo base64_encode($productor->ID_PRODUCTOR); ?>" type="button" class="btn btn-<?php 
-                                                                if($productor->NUMERO_DOCUMENTOS > 0){
-                                                                    echo 'info';
-                                                                }else{
-                                                                    echo 'secondary';
-                                                                }
-                                                                ?>">
-					                                                Documentación (<?php echo htmlspecialchars($productor->NUMERO_DOCUMENTOS); ?>)
+                                                                <a href="../../data/data_productor/<?php echo $documento->archivo_documento; ?>" target="_blank" class="btn btn-info">
+                                                                <i class="ti-file"></i>
                                                                 </a>
                                                             </td>
-                                                            <td><?php echo htmlspecialchars($productor->ID_PRODUCTOR); ?></td>
-                                                            <td><?php echo htmlspecialchars($productor->NUMERO_PRODUCTOR); ?></td>
-                                                            <td><?php echo htmlspecialchars($productor->RUT_PRODUCTOR.'-'.$productor->DV_PRODUCTOR); ?></td>
-                                                            <td><?php echo htmlspecialchars($productor->NOMBRE_PRODUCTOR); ?></td>
-                                                            <td><?php echo htmlspecialchars($productor->DIRECCION_PRODUCTOR); ?></td>
-                                                            <td><?php echo htmlspecialchars($productor->EMAIL_PRODUCTOR); ?></td>
-                                                            <td><?php echo htmlspecialchars($productor->TELEFONO_PRODUCTOR); ?></td>
+                                                            <td><?php echo htmlspecialchars($documento->nombre_documento); ?></td>
+                                                            <td><?php echo $documento->vigencia_documento; ?></td>
                                                         </tr>
                                                     <?php endforeach; ?>
                                                 <?php else: ?>
@@ -158,35 +144,7 @@ $productores = $productorController->index();
         <?php include_once "../../assest/config/urlBase.php"; ?>
         <script>
         
-        $('#tabla-productor').DataTable({
-        ordering: false, // Desactiva la ordenación
-        paging: true,    // Mantiene la paginación si es necesaria
-        searching: true,  // Mantiene la búsqueda si es necesaria
-        language: {
-            "sProcessing":     "Procesando...",
-            "sLengthMenu":     "Mostrar _MENU_ registros",
-            "sZeroRecords":    "No se encontraron resultados",
-            "sEmptyTable":     "Ningún dato disponible en esta tabla",
-            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
-            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-            "sInfoPostFix":    "",
-            "sSearch":         "Buscar:",
-            "sUrl":            "",
-            "sInfoThousands":  ",",
-            "sLoadingRecords": "Cargando...",
-            "oPaginate": {
-                "sFirst":    "Primero",
-                "sLast":     "Último",
-                "sNext":     "Siguiente",
-                "sPrevious": "Anterior"
-            },
-            "oAria": {
-                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-            }
-        }
-    });
+
         </script>
 
 
