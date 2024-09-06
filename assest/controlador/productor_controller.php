@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once '../../assest/modelo/productor_model.php';
 include_once '../../assest/modelo/documento_model.php';
 
@@ -15,8 +15,8 @@ class ProductorController {
 
     // Detectar la acción enviada por AJAX
 
-    public function index() {
-        $productores = $this->productorModel->getAllProductores();
+    public function index($ID_EMPRESA) {
+        $productores = $this->productorModel->getAllProductores($ID_EMPRESA);
        return $productores;
     }
 

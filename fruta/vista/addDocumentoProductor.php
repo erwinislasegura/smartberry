@@ -3,8 +3,13 @@
 
     include_once '../../assest/controlador/productor_controller.php';
 
+
+    $ID_EMPRESA = $_SESSION['ID_EMPRESA'];
     $productorController = new ProductorController();
-    $productores = $productorController->index();
+
+
+
+    $productores = $productorController->index($ID_EMPRESA);
 
 ?>
 

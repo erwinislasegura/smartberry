@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once "../../assest/config/validarUsuarioFruta.php";
 
 //LLAMADA ARCHIVOS NECESARIOS PARA LAS OPERACIONES
@@ -9,9 +9,10 @@ include_once '../../assest/controlador/productor_controller.php';
 
 //INCIALIZAR LAS VARIBLES
 //INICIALIZAR CONTROLADOR
+$ID_EMPRESA = $_SESSION['ID_EMPRESA'];
 
 $productorController = new ProductorController();
-$productores = $productorController->index();
+$productores = $productorController->index($ID_EMPRESA);
 
 
 
@@ -22,7 +23,7 @@ $productores = $productorController->index();
 <html lang="es">
 
 <head>
-    <title>Agrupado PT Registros de Calidad</title>
+    <title>Agrupado PT Registros de Calidad </title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="">

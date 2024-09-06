@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include_once '../../assest/config/BDCONFIG.php';
 class ProductorModel {
     private $db;
@@ -8,8 +9,9 @@ class ProductorModel {
         $this->db = $dbConfig->conectar();  // Conectar a la base de datos usando el método de instancia
     }
 
-    public function getAllProductores() {
-        $query = "SELECT *, (SELECT COUNT(id_documento) FROM tb_documento WHERE estado_documento = 1 AND productor_documento = id_productor)AS NUMERO_DOCUMENTOS FROM fruta_productor";
+    public function getAllProductores($ID_EMPRESA) {
+        $query = "SELECT *, (SELECT COUNT(id_documento) FROM tb_documento WHERE estado_documento = 1 AND productor_documento = id_productor)AS NUMERO_DOCUMENTOS FROM fruta_productor WHERE ID_EMPRESA='".$ID_EMPRESA."'";
+
         $result =  $this->db->query($query)->fetchAll(PDO::FETCH_OBJ);
         return $result;
     }
