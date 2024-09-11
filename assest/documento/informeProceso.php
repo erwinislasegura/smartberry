@@ -363,7 +363,7 @@ $html = '
         </div>
 
         <div id="client">
-          <div class="address"><b>Tipo Proceso: </b>' . $TIPOPROCESO . '</div>
+         
           <div class="address"><b>Estado Proceso: </b> ' . $ESTADO . ' </div>
           <div class="address"><b>CSG: </b>' . $CSGPRODUCTOR . '</div>
           <div class="address"><b>Nombre Productor: </b>' . $NOMBREPRODUCTOR . '</div>

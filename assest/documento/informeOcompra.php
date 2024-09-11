@@ -315,7 +315,7 @@ $html = $html . '
             <th class="color left">Unidad Medida</th>
             <th class="color center">Cantidad</th>
             <th class="color center">Valor Unitario</th>
-            <th class="color center">Valor Total</th>
+            <th class="color center">Valor Neto</th>
           </tr>
         </thead>
          <tbody>

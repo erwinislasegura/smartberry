@@ -141,7 +141,7 @@ $ARRAYEMPRESAPRODUCTOR=$EMPRESAPRODUCTOR_ADO->buscarEmpresaProductorPorUsuarioCB
                                                     <th>Estado</th>
                                                     <th class="text-center">Operaciónes</th>
                                                     <th>Fecha Proceso</th>
-                                                    <th>Tipo Proceso</th>
+                                                    
                                                     <th>Turno </th>
                                                     <th>CSG Productor</th>
                                                     <th>Nombre Productor</th>
@@ -165,6 +165,7 @@ $ARRAYEMPRESAPRODUCTOR=$EMPRESAPRODUCTOR_ADO->buscarEmpresaProductorPorUsuarioCB
                                                     <th>Empresa</th>
                                                     <th>Planta</th>
                                                     <th>Temporada</th>
+                                                    <th>Tipo Proceso</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -259,7 +260,7 @@ $ARRAYEMPRESAPRODUCTOR=$EMPRESAPRODUCTOR_ADO->buscarEmpresaProductorPorUsuarioCB
                                                                 </span>
                                                             </td>
                                                             <td><?php echo $r['FECHA']; ?></td>
-                                                            <td><?php echo $TPROCESO; ?></td>
+                                                            
                                                             <td><?php echo $TURNO; ?> </td>
                                                             <td><?php echo $CSGPRODUCTOR; ?></td>
                                                             <td><?php echo $NOMBREPRODUCTOR; ?></td>
@@ -283,6 +284,7 @@ $ARRAYEMPRESAPRODUCTOR=$EMPRESAPRODUCTOR_ADO->buscarEmpresaProductorPorUsuarioCB
                                                             <td><?php echo $NOMBREEMPRESA; ?></td>
                                                             <td><?php echo $NOMBREPLANTA; ?></td>
                                                             <td><?php echo $NOMBRETEMPORADA; ?></td>
+                                                            <td><?php echo $TPROCESO; ?></td>
                                                         </tr>
                                                     <?php endforeach; ?>
                                             <?php endforeach; ?>
