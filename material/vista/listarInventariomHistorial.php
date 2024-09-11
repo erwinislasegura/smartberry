@@ -414,7 +414,7 @@ include_once "../../assest/config/datosUrl.php";
                                                     }
                                                     ?>
                                                     <tr class="center">
-                                                        <td> <?php echo $r['FOLIO_INVENTARIO']; ?> </td>
+                                                        <td><a href="../../assest/documento/informeTarjasRecepcion.php?parametro=<?php echo $r['ID_INVENTARIO']; ?>" target="_blank"> <?php echo $r['FOLIO_INVENTARIO']; ?> </a></td>
                                                         <td><?php echo $ESTADO; ?></td>
                                                         <td><?php echo $CODIGOPRODUCTO; ?></td>
                                                         <td><?php echo $NOMBREPRODUCTO; ?></td>

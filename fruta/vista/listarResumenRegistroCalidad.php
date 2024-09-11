@@ -163,7 +163,7 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                                 <div class="row">
                                     <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col-xs-12">
                                         <div class="table-responsive">
-                                            <table id="existenciaptagrupado" class="table-hover" style="width: 100%;">
+                                            <table id="tabla-resumen-calidad" class="table-hover" style="width: 100%;">
                                                 <thead>
                                                     <tr class="text-center">
                                                     <th>Fecha/Hora</th>
@@ -250,6 +250,300 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
     </div>
     <!- LLAMADA URL DE ARCHIVOS DE DISEÑO Y JQUERY E OTROS -!>
         <?php include_once "../../assest/config/urlBase.php"; ?>
+
+        <script>
+        
+        $(document).ready(function() {
+            $('#tabla-resumen-calidad').DataTable({
+                ordering: false,
+                paging: true,
+                searching: true,
+                "language": {
+                "processing": "Procesando...",
+                "lengthMenu": "Mostrar _MENU_ registros",
+                "zeroRecords": "No se encontraron resultados",
+                "emptyTable": "Ningún dato disponible en esta tabla",
+                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "search": "Buscar:",
+                "infoThousands": ",",
+                "loadingRecords": "Cargando...",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                },
+                "aria": {
+                    "sortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sortDescending": ": Activar para ordenar la columna de manera descendente"
+                },
+                "buttons": {
+                    "copy": "Copiar",
+                    "colvis": "Visibilidad",
+                    "collection": "Colección",
+                    "colvisRestore": "Restaurar visibilidad",
+                    "copyKeys": "Presione ctrl o u2318 + C para copiar los datos de la tabla al portapapeles del sistema. <br \/> <br \/> Para cancelar, haga clic en este mensaje o presione escape.",
+                    "copySuccess": {
+                        "1": "Copiada 1 fila al portapapeles",
+                        "_": "Copiadas %d fila al portapapeles"
+                    },
+                    "copyTitle": "Copiar al portapapeles",
+                    "csv": "CSV",
+                    "excel": "Excel",
+                    "pageLength": {
+                        "-1": "Mostrar todas las filas",
+                        "_": "Mostrar %d filas"
+                    },
+                    "pdf": "PDF",
+                    "print": "Imprimir"
+                },
+                "autoFill": {
+                    "cancel": "Cancelar",
+                    "fill": "Rellene todas las celdas con <i>%d<\/i>",
+                    "fillHorizontal": "Rellenar celdas horizontalmente",
+                    "fillVertical": "Rellenar celdas verticalmentemente"
+                },
+                "decimal": ",",
+                "searchBuilder": {
+                    "add": "Añadir Filtro",
+                    "button": {
+                        "0": "Filtros",
+                        "_": "Filtros(%d)"
+                    },
+                    "clearAll": "Borrar todo",
+                    "condition": "Condición",
+                    'delete': 'Quitar',
+                    'deleteTitle': 'Titulo Quitar',
+                    "conditions": {
+                        "date": {
+                            "after": "Despues",
+                            "before": "Antes",
+                            "between": "Entre",
+                            "empty": "Vacío",
+                            "equals": "Igual a",
+                            "notBetween": "No entre",
+                            "notEmpty": "No Vacio",
+                            "not": "Diferente de"
+                        },
+                        "number": {
+                            "between": "Entre",
+                            "empty": "Vacio",
+                            "equals": "Igual a",
+                            "gt": "Mayor a",
+                            "gte": "Mayor o igual a",
+                            "lt": "Menor que",
+                            "lte": "Menor o igual que",
+                            "notBetween": "No entre",
+                            "notEmpty": "No vacío",
+                            "not": "Diferente de"
+                        },
+                        "string": {
+                            "contains": "Contiene",
+                            "empty": "Vacío",
+                            "endsWith": "Termina en",
+                            "equals": "Igual a",
+                            "notEmpty": "No Vacio",
+                            "startsWith": "Empieza con",
+                            "not": "Diferente de",
+                            "notContains": "No Contiene",
+                            "notStarts": "No empieza con",
+                            "notEnds": "No termina con"
+                        },
+                        "array": {
+                            "not": "Diferente de",
+                            "equals": "Igual",
+                            "empty": "Vacío",
+                            "contains": "Contiene",
+                            "notEmpty": "No Vacío",
+                            "without": "Sin"
+                        }
+                    },
+                    "data": "Filtrar Por",
+                    "deleteTitle": "Eliminar regla de filtrado",
+                    "leftTitle": "Criterios anulados",
+                    "logicAnd": "Y",
+                    "logicOr": "O",
+                    "rightTitle": "Criterios de sangría",
+                    "title": {
+                        "0": "Filtros",
+                        "_": "Filtros (%d)"
+                    },
+                    "value": "Valor"
+                },
+                "searchPanes": {
+                    "clearMessage": "Borrar todo",
+                    "collapse": {
+                        "0": "Paneles de búsqueda",
+                        "_": "Paneles de búsqueda (%d)"
+                    },
+                    "count": "{total}",
+                    "countFiltered": "{shown} ({total})",
+                    "emptyPanes": "Sin paneles de búsqueda",
+                    "loadMessage": "Cargando paneles de búsqueda",
+                    "title": "Filtros Activos - %d",
+                    "showMessage": "Mostrar Todo",
+                    "collapseMessage": "Colapsar Todo"
+                },
+                "select": {
+                    "cells": {
+                        "1": "1 celda seleccionada",
+                        "_": "%d celdas seleccionadas"
+                    },
+                    "columns": {
+                        "1": "1 columna seleccionada",
+                        "_": "%d columnas seleccionadas"
+                    },
+                    "rows": {
+                        "1": "1 fila seleccionada",
+                        "_": "%d filas seleccionadas"
+                    }
+                },
+                "thousands": ".",
+                "datetime": {
+                    "previous": "Anterior",
+                    "next": "Proximo",
+                    "hours": "Horas",
+                    "minutes": "Minutos",
+                    "seconds": "Segundos",
+                    "unknown": "-",
+                    "amPm": [
+                        "AM",
+                        "PM"
+                    ],
+                    "months": {
+                        "0": "Enero",
+                        "1": "Febrero",
+                        "10": "Noviembre",
+                        "11": "Diciembre",
+                        "2": "Marzo",
+                        "3": "Abril",
+                        "4": "Mayo",
+                        "5": "Junio",
+                        "6": "Julio",
+                        "7": "Agosto",
+                        "8": "Septiembre",
+                        "9": "Octubre"
+                    },
+                    "weekdays": [
+                        "Dom",
+                        "Lun",
+                        "Mar",
+                        "Mie",
+                        "Jue",
+                        "Vie",
+                        "Sab"
+                    ]
+                },
+                "editor": {
+                    "close": "Cerrar",
+                    "create": {
+                        "button": "Nuevo",
+                        "title": "Crear Nuevo Registro",
+                        "submit": "Crear"
+                    },
+                    "edit": {
+                        "button": "Editar",
+                        "title": "Editar Registro",
+                        "submit": "Actualizar"
+                    },
+                    "remove": {
+                        "button": "Eliminar",
+                        "title": "Eliminar Registro",
+                        "submit": "Eliminar",
+                        "confirm": {
+                            "_": "¿Está seguro que desea eliminar %d filas?",
+                            "1": "¿Está seguro que desea eliminar 1 fila?"
+                        }
+                    },
+                    "error": {
+                        "system": "Ha ocurrido un error en el sistema (<a target=\"\\\" rel=\"\\ nofollow\" href=\"\\\">Más información&lt;\\\/a&gt;).<\/a>"
+                    },
+                    "multi": {
+                        "title": "Múltiples Valores",
+                        "info": "Los elementos seleccionados contienen diferentes valores para este registro. Para editar y establecer todos los elementos de este registro con el mismo valor, hacer click o tap aquí, de lo contrario conservarán sus valores individuales.",
+                        "restore": "Deshacer Cambios",
+                        "noMulti": "Este registro puede ser editado individualmente, pero no como parte de un grupo."
+                    }
+                },
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ registros"
+            },
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'pdfHtml5',
+                        text: 'Exportar PDF',
+                        title: 'Agrupado PT Registros de Calidad',
+                        orientation: 'landscape',
+                        customize: function (doc) {
+                            doc.defaultStyle.fontSize = 8;
+                            doc.styles.tableHeader.fontSize = 8;
+
+                            doc.footer = function(currentPage, pageCount) {
+                                return {
+                                    columns: [
+                                        {
+                                            text: 'Pie de página personalizado - Página ' + currentPage + ' de ' + pageCount,
+                                            alignment: 'center',
+                                            fontSize: 8,
+                                            margin: [0, 10, 0, 0]
+                                        }
+                                    ]
+                                };
+                            };
+                        },
+                        exportOptions: {
+                            columns: [1, 2, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 , 19, 20, 21, 22]  // Exporta solo las columnas visibles
+                        }
+                    },
+                    'searchBuilder'
+                ],
+                searchBuilder: {
+                    add: 'Añadir Filtro',
+                    button: {
+                        '0': 'Filtros',
+                        _: 'Filtros (%d)'
+                    },
+                    clearAll: 'Borrar Todo',
+                    conditions: {
+                        string: {
+                            contains: 'Contiene',
+                            empty: 'Vacío',
+                            endsWith: 'Termina con',
+                            equals: 'Es igual a',
+                            startsWith: 'Empieza con'
+                        },
+                        number: {
+                            between: 'Entre',
+                            empty: 'Vacío',
+                            equals: 'Es igual a',
+                            gt: 'Mayor que',
+                            gte: 'Mayor o igual a',
+                            lt: 'Menor que',
+                            lte: 'Menor o igual a'
+                        },
+                        date: {
+                            after: 'Después de',
+                            before: 'Antes de',
+                            between: 'Entre',
+                            empty: 'Vacío',
+                            equals: 'Es igual a'
+                        },
+                        array: {
+                            contains: 'Contiene',
+                            empty: 'Vacío',
+                            equals: 'Es igual a',
+                            not: 'No es igual a'
+                        }
+                    },
+                    logic: {
+                        and: 'Y',
+                        or: 'O'
+                    }
+                }
+            });
+        });
+        </script>
         <script>
             // const Toast = Swal.mixin({
             //     toast: true,
@@ -262,6 +556,8 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
             //     title: "Informacion importante",
             //     html: "<label>Las <b>Existencia</b> que tienen la letra de color <b>Rojo</b> tiene mas de 7 dias desde su ingreso.</label>"
             // })
+
+            
 
 
             var formData = new FormData();

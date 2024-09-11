@@ -163,7 +163,7 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                                 <div class="row">
                                     <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col-xs-12">
                                         <div class="table-responsive">
-                                            <table id="existenciaptagrupado" class="table-hover" style="width: 100%;">
+                                            <table id="tabla-registro-calidad"class="table-hover" style="width: 100%;">
                                                 <thead>
                                                     <tr class="text-center">
                                                         <th>Folio Original</th>
@@ -268,39 +268,7 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                                     </div>
                                 </div>
                             </div>    
-                            <div class="box-footer">
-                                <div class="btn-toolbar mb-3" role="toolbar" aria-label="Datos generales">
-                                    <div class="form-row align-items-center" role="group" aria-label="Datos">
-                                        <div class="col-auto">
-                                            <div class="input-group mb-2">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">Total Envase</div>
-                                                    <button class="btn   btn-default" id="TOTALENVASEVAGRUPADO" name="TOTALENVASEVAGRUPADO" >                                                           
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div><!-- 
-                                        <div class="col-auto">
-                                            <div class="input-group mb-2">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">Total Neto</div>
-                                                    <button class="btn   btn-default" id="TOTALNETOV" name="TOTALNETOV" >                                                           
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="input-group mb-2">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">Total Bruto</div>
-                                                    <button class="btn   btn-default" id="TOTALBRUTOV" name="TOTALBRUTOV" >                                                           
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div> -->
-                                    </div>
-                                </div>
-                            </div> 
+                  
                         </div>
                         <!-- /.box -->
                     </section>
@@ -464,7 +432,7 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
             <div class="row" style="height: 300px; overflow: scroll;">
                 <div class="col-md-12">
                     <div class="table-responsive">
-                        <table class="table-hover dataTable" style="width: 100%;">
+                        <table class="table-hover dataTable" style="width: 100%;" >
                             <thead>
                                 <tr class="text-center">
                                     <th>Fecha/Hora</th>
@@ -508,7 +476,61 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
     </div>
     <!- LLAMADA URL DE ARCHIVOS DE DISEÑO Y JQUERY E OTROS -!>
         <?php include_once "../../assest/config/urlBase.php"; ?>
+
         <script>
+        
+        $('#tabla-registro-calidad').DataTable({
+        ordering: false, // Desactiva la ordenación
+        paging: true,    // Mantiene la paginación si es necesaria
+        searching: true,  // Mantiene la búsqueda si es necesaria
+        language: {
+            "sProcessing":     "Procesando...",
+            "sLengthMenu":     "Mostrar _MENU_ registros",
+            "sZeroRecords":    "No se encontraron resultados",
+            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Último",
+                "sNext":     "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+        },
+        dom: 'Bfrtip',  // Define el layout para incluir los botones
+    buttons: [
+        {
+            extend: 'pdfHtml5',
+            text: 'Exportar PDF',
+            title: 'Registros de Calidad',
+            customize: function (doc) {
+                // Ajustar el tamaño de la fuente en todo el PDF
+                doc.defaultStyle.fontSize = 8;  // Reduce el tamaño de la fuente
+                doc.styles.tableHeader.fontSize = 8;  // Tamaño de la fuente para los encabezados
+
+                // Si la tabla tiene muchas columnas, puedes reducir los anchos de las columnas
+                // También puedes usar porcentajes o valores como 'auto' si es necesario.
+            },
+            exportOptions: {
+                columns: ':visible'  // Exporta solo las columnas visibles
+            }
+        }
+    ]
+    });
+        </script>
+        <script>
+
+            
             // const Toast = Swal.mixin({
             //     toast: true,
             //     position: 'top',

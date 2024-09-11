@@ -105,7 +105,7 @@ class TCONTENEDOR_ADO
     {
         try {
 
-            $datos = $this->conexion->prepare("SELECT * FROM  MATERIAL_TCONTENEDOR  WHERE  ID_TCONTENEDOR = '" . $ID . "';");
+            $datos = $this->conexion->prepare("SELECT * FROM  material_tcontenedor  WHERE  ID_TCONTENEDOR = '" . $ID . "';");
             $datos->execute();
             $resultado = $datos->fetchAll();
             $datos=null;
