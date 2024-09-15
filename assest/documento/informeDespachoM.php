@@ -279,7 +279,7 @@ $html = '
       </div>
       <div id="company">
         <h2 class="name">Soc. Agrícola El Álamo Ltda.</h2>
-        <div>Camino a Antuco, Kilómetro N°13</div>
+        <div>Fundo El Álamo</div>
         <div>Los Ángeles, Chile.</div>
         <div><a href="mailto:ti@fvolcan.com">ti@fvolcan.cl</a></div>
       </div>
