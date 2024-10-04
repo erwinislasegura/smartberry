@@ -90,7 +90,7 @@ $ARRAYVERPTUSUARIO="";
 
 <!-- nuevo body  -->
     <body class="hold-transition sidebar-collapse sidebar-mini login-page">
-        <div class="login-box">
+        <!--<div class="login-box">
             <div class="login-logo">
                 <img src="../../assest/img/volcan-foods-logo-original.png" alt="" height="50px">
             </div>
@@ -128,7 +128,72 @@ $ARRAYVERPTUSUARIO="";
                     </form>
                 </div>
             </div>
+        </div>-->
+
+
+        <div class="login-box">
+        <div class="login-logo">
+            <img src="../../assest/img/volcan-foods-logo-original.png" alt="" height="50px">
         </div>
+        <div class="card border-0">
+            <div class="card-header bg-info text-white text-center text-uppercase">
+                <img src="../../assest/img/favicon.png" alt="" height="20px">
+                Inicio de sesión <strong id="title_section"></strong>
+            </div>
+            <div class="card-body login-card-body">
+                <!-- Tabs para seleccionar el tipo de login -->
+                <ul class="nav nav-tabs" id="loginTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="fruta-tab" data-toggle="tab" href="#fruta" role="tab" aria-controls="fruta" aria-selected="true" style="color: black;">Fruta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="materiales-tab" data-toggle="tab" href="#materiales" role="tab" aria-controls="materiales" aria-selected="false" style="color: black;">Materiales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="exportadora-tab" data-toggle="tab" href="#exportadora" role="tab" aria-controls="exportadora" aria-selected="false" style="color: black;">Exportadora</a>
+                    </li>
+                </ul>
+
+                <!-- Contenido de cada tab -->
+                <div class="tab-content" id="loginTabContent">
+
+
+                    <!-- Login Fruta -->
+                    <div class="tab-pane fade show active" id="fruta" role="tabpanel" aria-labelledby="fruta-tab" style="border: solid 1px rgba(0,0,0,0.1); padding: 10px;">
+                        <form class="form" role="form" method="post" name="form_reg_dato">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="NOMBRE USUARIO" id="NOMBRE" name="NOMBRE" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-user"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="password" class="form-control" placeholder="CONTRASE&Ntilde;A" id="CONTRASENA" name="CONTRASENA" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-lock"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="btn-group col-12 d-flex">
+                                        <a href="../../" class="btn btn-danger w-100">VOLVER</a>
+                                        <button type="submit" class="btn btn-success w-100" id="ENTRAR" name="ENTRAR">ENTRAR</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
