@@ -161,7 +161,7 @@ $ARRAYEMPRESAPRODUCTOR=$EMPRESAPRODUCTOR_ADO->buscarEmpresaProductorPorUsuarioCB
                                                     <th>Origen Recepcion</th>
                                                     <th>Numero Guia </th>
                                                     <th>Fecha Guia </th>
-                                                    <th>Total Kilos Guia</th>
+                                                    <th>Total Envases Guia</th>
                                                     <th>Cantidad Envase</th>
                                                     <th>Total Kilos Neto</th>
                                                     <th>Total Kilos Bruto</th>

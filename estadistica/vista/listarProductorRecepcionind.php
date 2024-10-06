@@ -160,7 +160,7 @@ include_once "../../assest/config/datosUrLP.php";
                                                     <th>CSG/CSP Recepción</th>
                                                     <th>Origen Recepcion</th>
                                                     <th>Fecha Guia </th>
-                                                    <th>Total Kilos Guia</th>
+                                                    <th>Total Envases Guia</th>
                                                     <th>Cantidad Envase</th>
                                                     <th>Total Kilos Neto</th>
                                                     <th>Total Kilos Bruto</th>
