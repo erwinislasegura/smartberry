@@ -161,12 +161,12 @@ if (isset($_SESSION["NOMBRE_USUARIO"])) {
     
 } else {
     session_destroy();
-    header('Location: iniciarSession.php');
+    header('Location: ../../');
 }
 if (isset($_REQUEST['CERRARS'])) {
     $AUSUARIO_ADO->agregarAusuario2('NULL',3,0,"".$_SESSION["NOMBRE_USUARIO"].", Cierre Sesion","usuario_usuario",$_SESSION["ID_USUARIO"],$_SESSION["ID_USUARIO"],'NULL','NULL',$_SESSION['ID_TEMPORADA'] );
     session_destroy();
-    header('Location: iniciarSession.php');
+    header('Location: ../../');
 }
 if (isset($_REQUEST['CAMBIARE'])) {
     $_SESSION["ID_EMPRESA"] = $_REQUEST['EMPRESACAMBIAR'];
