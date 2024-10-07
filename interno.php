@@ -27,37 +27,40 @@
                     <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-5 col-sm-12 col-12 col-xs-12">
                         <div class="bg-white-10 rounded5">
                             <div class="content-top-agile p-10 pb-0">
-                                <h2 class="text-white">SELECCION SISTEMAS</h2>
+                                <h2 class="text-white">SISTEMAS INTERNOS</h2>
                             </div>
                             <div class="p-30">
                                 <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col-xs-12">
                                     <div class="form-group">
-                                        <a href="fruta">
+                                        <a href="./fruta/">
                                             <button type="button" class="btn bg-gradient-primary btn-block" id="ENTRAR" name="ENTRAR">Fruta</button>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col-xs-12">
                                     <div class="form-group">
-                                        <a href="material">
+                                        <a href="./material/">
                                             <button type="button" class="btn bg-gradient-secondary btn-block " id="ENTRAR" name="ENTRAR">Materiales</button>
                                         </a>
                                     </div>
                                 </div>
+
                                 <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col-xs-12">
                                     <div class="form-group">
-                                        <a href="exportadora">
-                                            <button type="button" class="btn bg-gradient-info btn-block " id="ENTRAR" name="ENTRAR">Exportadora</button>
+                                        <a href="./exportadora/">
+                                            <button type="button" class="btn bg-gradient-secondary btn-block " id="ENTRAR" name="ENTRAR">Exportadora</button>
                                         </a>
                                     </div>
                                 </div>
+
                                 <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col-xs-12">
                                     <div class="form-group">
-                                        <a href="estadistica">
-                                            <button type="button" class="btn bg-gradient-info btn-block " id="ENTRAR" name="ENTRAR">Estadisticas</button>
+                                        <a href="./estadistica/">
+                                            <button type="button" class="btn bg-gradient-secondary btn-block " id="ENTRAR" name="ENTRAR">Estadísticas</button>
                                         </a>
                                     </div>
                                 </div>
+
                                 <!--
                                 <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col-xs-12">
                                     <div class="form-group">

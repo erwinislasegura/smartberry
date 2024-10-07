@@ -148,14 +148,7 @@ if($_POST){
                         <div class="input-group mb-3" id="input">
                             <label id="label" for="TEMPORADA">Selecionar Temporada</label>
                             <select class="form-control" id="TEMPORADA" name="TEMPORADA" style="width: 100%;" required>
-                                <option></option>
-                                <?php foreach ($ARRAYTEMPORADA as $r) : ?>
-                                    <?php if ($ARRAYTEMPORADA) {    ?>
-                                        <option value="<?php echo $r['ID_TEMPORADA']; ?>" <?php if ($TEMPORADA == $r['ID_TEMPORADA']) { echo "selected"; } ?>> <?php echo $r['NOMBRE_TEMPORADA'] ?> </option>
-                                    <?php } else { ?>
-                                        <option>No Hay Datos Registrados </option>
-                                    <?php } ?>
-                                <?php endforeach; ?>
+                                <option value="4" selected> 2024-2025 </option>
                             </select>
                         </div>
                         <label id="val_select_temporada" class="validacion"> <?php echo  $MENSAJE; ?></label>
