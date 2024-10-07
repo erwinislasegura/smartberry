@@ -94,22 +94,7 @@ if($_POST){
 
         
         <!- FUNCIONES BASES -!>
-            <script type="text/javascript">
-                function validacion() {
-                    TEMPORADA = document.getElementById("TEMPORADA").selectedIndex;
-                    document.getElementById('val_select_temporada').innerHTML = "";
 
-           
-                    if (TEMPORADA == null || TEMPORADA == 0) {
-                        document.form_reg_dato.TEMPORADA.focus();
-                        document.form_reg_dato.TEMPORADA.style.borderColor = "#FF0000";
-                        document.getElementById('val_select_temporada').innerHTML = "NO HA SELECCIONADO  NINGUNA ALTERNATIVA";
-                        return false;
-                    }
-                    document.form_reg_dato.TEMPORADA.style.borderColor = "#4AF575";
-
-                }
-            </script>
     </head>
 <!-- fin nuevo head -->
 
@@ -147,11 +132,11 @@ if($_POST){
                         </div>                        
                         <div class="input-group mb-3" id="input">
                             <label id="label" for="TEMPORADA">Selecionar Temporada</label>
-                            <select class="form-control" id="TEMPORADA" name="TEMPORADA" style="width: 100%;" required>
+                            <select class="form-control" id="TEMPORADA" name="TEMPORADA" style="width: 100%;">
                                 <option value="4" selected> 2024-2025 </option>
                             </select>
                         </div>
-                        <label id="val_select_temporada" class="validacion"> <?php echo  $MENSAJE; ?></label>
+
                         <div class="row">
                             <div class="col-12">
                                 <div class="btn-group col-12 d-flex">
