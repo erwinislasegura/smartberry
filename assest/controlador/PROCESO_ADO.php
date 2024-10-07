@@ -453,7 +453,7 @@ class PROCESO_ADO
                                                     FECHA_PROCESO AS 'FECHA', 
                                                     DATE_FORMAT(INGRESO, '%Y-%m-%d') AS 'INGRESO', 
                                                     DATE_FORMAT(MODIFICACION, '%Y-%m-%d') AS 'MODIFICACION'
-                                                FROM fruta_proceso                                                        
+                                                FROM fruta_proceso                                                      
                                                 WHERE   ESTADO_REGISTRO = 1 
                                                 AND  ID_EMPRESA = '" . $EMPRESA . "' 
                                                 AND ID_PRODUCTOR = '" . $PRODUCTOR . "'
@@ -485,8 +485,14 @@ class PROCESO_ADO
                                                     IFNULL(KILOS_NETO_ENTRADA,0) AS 'ENTRADA',
                                                     FECHA_PROCESO AS 'FECHA', 
                                                     DATE_FORMAT(INGRESO, '%Y-%m-%d') AS 'INGRESO', 
-                                                    DATE_FORMAT(MODIFICACION, '%Y-%m-%d') AS 'MODIFICACION'
-                                                FROM fruta_proceso                                                        
+                                                    DATE_FORMAT(MODIFICACION, '%Y-%m-%d') AS 'MODIFICACION',
+                                                    (select SUM(FINDM.KILOS_NETO_EXIINDUSTRIAL) from fruta_exiindustrial FINDM
+                                                    LEFT JOIN estandar_eindustrial ESM ON FINDM.ID_ESTANDAR = ESM.ID_ESTANDAR
+                                                    WHERE FINDM.ID_PROCESO=FPRO.ID_PROCESO AND ESM.AGRUPACION=2 AND ESM.COBRO = 0)AS MERMA, 
+                                                    (select SUM(FINDD.KILOS_NETO_EXIINDUSTRIAL) from fruta_exiindustrial FINDD
+                                                    LEFT JOIN estandar_eindustrial ESD ON FINDD.ID_ESTANDAR = ESD.ID_ESTANDAR
+                                                    WHERE FINDD.ID_PROCESO=FPRO.ID_PROCESO AND ESD.AGRUPACION=3 AND ESD.COBRO = 0)AS DESECHO 
+                                                FROM fruta_proceso FPRO                                                       
                                                 WHERE   ESTADO_REGISTRO = 1 
                                                 AND  ID_TEMPORADA = '" . $TEMPORADA . "' ;	");
             $datos->execute();
