@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once '../../assest/modelo/productor_model.php';
 include_once '../../assest/modelo/documento_model.php';
 

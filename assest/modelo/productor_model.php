@@ -1,5 +1,4 @@
 <?php 
-session_start();
 include_once '../../assest/config/BDCONFIG.php';
 class ProductorModel {
     private $db;
