@@ -509,6 +509,64 @@ class PROCESO_ADO
         }
     }
 
+    public function listarProcesoTemporadaCBXEst( $TEMPORADA, $ESPECIE)
+    {
+        try {
+            //revisar urgente
+           /* echo "SELECT * ,  
+                                                    IFNULL(KILOS_EXPORTACION_PROCESO,0) AS 'EXPORTACION'   ,                                                 
+                                                    IFNULL(KILOS_INDUSTRIAL_PROCESO,0) AS 'INDUSTRIAL'    ,                                                
+                                                    IFNULL(KILOS_INDUSTRIALSC_PROCESO,0) AS 'INDUSTRIALSC'    ,                                               
+                                                    IFNULL(KILOS_INDUSTRIALNC_PROCESO,0) AS 'INDUSTRIALNC'    ,                                                
+                                                    IFNULL(KILOS_NETO_PROCESO,0) AS 'NETO',                                        
+                                                    IFNULL(KILOS_NETO_ENTRADA,0) AS 'ENTRADA',
+                                                    FECHA_PROCESO AS 'FECHA', 
+                                                    DATE_FORMAT(INGRESO, '%Y-%m-%d') AS 'INGRESO', 
+                                                    DATE_FORMAT(MODIFICACION, '%Y-%m-%d') AS 'MODIFICACION',
+                                                    (select SUM(FINDM.KILOS_NETO_EXIINDUSTRIAL) from fruta_exiindustrial FINDM
+                                                    LEFT JOIN estandar_eindustrial ESM ON FINDM.ID_ESTANDAR = ESM.ID_ESTANDAR
+                                                    WHERE FINDM.ID_PROCESO=FPRO.ID_PROCESO AND ESM.AGRUPACION=2 AND ESM.COBRO = 0)AS MERMA, 
+                                                    (select SUM(FINDD.KILOS_NETO_EXIINDUSTRIAL) from fruta_exiindustrial FINDD
+                                                    LEFT JOIN estandar_eindustrial ESD ON FINDD.ID_ESTANDAR = ESD.ID_ESTANDAR
+                                                    WHERE FINDD.ID_PROCESO=FPRO.ID_PROCESO AND ESD.AGRUPACION=3 AND ESD.COBRO = 0)AS DESECHO 
+                                                FROM fruta_proceso FPRO                                                       
+                                                WHERE   ESTADO_REGISTRO = 1 
+                                                LEFT JOIN fruta_vespecies VES ON 	FPRO.ID_VESPECIES = VES.ID_ESPECIES 
+                                                AND  ID_TEMPORADA = '" . $TEMPORADA . "' AND VES.ID_ESPECIES = '" . $ESPECIE . "' ;	";*/
+            $datos = $this->conexion->prepare("SELECT * ,  
+                                                    IFNULL(KILOS_EXPORTACION_PROCESO,0) AS 'EXPORTACION'   ,                                                 
+                                                    IFNULL(KILOS_INDUSTRIAL_PROCESO,0) AS 'INDUSTRIAL'    ,                                                
+                                                    IFNULL(KILOS_INDUSTRIALSC_PROCESO,0) AS 'INDUSTRIALSC'    ,                                               
+                                                    IFNULL(KILOS_INDUSTRIALNC_PROCESO,0) AS 'INDUSTRIALNC'    ,                                                
+                                                    IFNULL(KILOS_NETO_PROCESO,0) AS 'NETO',                                        
+                                                    IFNULL(KILOS_NETO_ENTRADA,0) AS 'ENTRADA',
+                                                    FECHA_PROCESO AS 'FECHA', 
+                                                    DATE_FORMAT(INGRESO, '%Y-%m-%d') AS 'INGRESO', 
+                                                    DATE_FORMAT(MODIFICACION, '%Y-%m-%d') AS 'MODIFICACION',
+                                                    (select SUM(FINDM.KILOS_NETO_EXIINDUSTRIAL) from fruta_exiindustrial FINDM
+                                                    LEFT JOIN estandar_eindustrial ESM ON FINDM.ID_ESTANDAR = ESM.ID_ESTANDAR
+                                                    WHERE FINDM.ID_PROCESO=FPRO.ID_PROCESO AND ESM.AGRUPACION=2 AND ESM.COBRO = 0)AS MERMA, 
+                                                    (select SUM(FINDD.KILOS_NETO_EXIINDUSTRIAL) from fruta_exiindustrial FINDD
+                                                    LEFT JOIN estandar_eindustrial ESD ON FINDD.ID_ESTANDAR = ESD.ID_ESTANDAR
+                                                    WHERE FINDD.ID_PROCESO=FPRO.ID_PROCESO AND ESD.AGRUPACION=3 AND ESD.COBRO = 0)AS DESECHO 
+                                                FROM fruta_proceso FPRO                                                       
+                                                WHERE   ESTADO_REGISTRO = 1 
+                                                LEFT JOIN fruta_vespecies VES ON 	FPRO.ID_VESPECIES = VES.ID_ESPECIES 
+                                                AND  ID_TEMPORADA = '" . $TEMPORADA . "' AND VES.ID_ESPECIES = '" . $ESPECIE . "' ;	");
+            $datos->execute();
+            $resultado = $datos->fetchAll();
+            $datos=null;
+
+            //	print_r($resultado);
+            //	var_dump($resultado);
+
+
+            return $resultado;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
     public function listarProcesoCerradoEmpresaPlantaTemporadaCBX($EMPRESA, $PLANTA, $TEMPORADA)
     {
         try {

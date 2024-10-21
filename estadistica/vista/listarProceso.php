@@ -55,7 +55,7 @@ $ARRAYEXISMATERIPRIMAPROCESO = "";
 
 
 if ( $TEMPORADAS) {
-    $ARRAYPROCESO = $PROCESO_ADO->listarProcesoTemporadaCBX( $TEMPORADAS);
+    $ARRAYPROCESO = $PROCESO_ADO->listarProcesoTemporadaCBXEst( $TEMPORADAS, $ESPECIE);
 }
 //include_once "../../assest/config/validarDatosUrl.php";
 //include_once "../../assest/config/datosUrLP.php";

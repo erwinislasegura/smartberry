@@ -1,5 +1,4 @@
 <?php
-
 require_once '../../api/vendor/autoload.php';
 $detect = new Mobile_Detect;
 // Any mobile device (phones or tablets).
@@ -129,11 +128,21 @@ if($_POST){
                                     <span class="fas fa-user"></span>
                                 </div>
                             </div>
-                        </div>                        
+                        </div>  
+
+                        <div class="input-group mb-3" id="input">
+                            <label id="label" for="ESPECIE">Selecionar Especie</label>
+                            <select class="form-control" id="ESPECIE" name="ESPECIE" style="width: 100%;">
+                                <option value="0"> Seleccione una opción </option>
+                                <option value="1"> Arandanos </option>
+                                <option value="3"> Esparragos </option>
+                            </select>
+                        </div>
+                                              
                         <div class="input-group mb-3" id="input">
                             <label id="label" for="TEMPORADA">Selecionar Temporada</label>
                             <select class="form-control" id="TEMPORADA" name="TEMPORADA" style="width: 100%;">
-                                <option value="4" selected> 2024-2025 </option>
+                                <option value="1" selected> 2024-2025 </option>
                             </select>
                         </div>
 
@@ -169,6 +178,7 @@ if($_POST){
             } else {
                 $NOMBRE = $_REQUEST['NOMBRE'];
                 $CONTRASENA = $_REQUEST['CONTRASENA'];
+                
                 $ARRAYINICIOSESSION = $USUARIO_ADO->iniciarSession($NOMBRE, $CONTRASENA);
                 if (empty($ARRAYINICIOSESSION) ||  sizeof($ARRAYINICIOSESSION) == 0) {
                     $ARRAYINICIOSESSIONINTENTOS=$USUARIO_ADO->iniciarSessionNIntentos($NOMBRE);
@@ -240,7 +250,8 @@ if($_POST){
                             $_SESSION["ID_USUARIO"] = $ARRAYINICIOSESSION[0]['ID_USUARIO'];
                             $_SESSION["NOMBRE_USUARIO"] = $ARRAYINICIOSESSION[0]['NOMBRE_USUARIO'];
                             $_SESSION["TIPO_USUARIO"] = $ARRAYINICIOSESSION[0]['ID_TUSUARIO'];
-                            $_SESSION["ID_TEMPORADA"] = $_REQUEST['TEMPORADA'];   
+                            $_SESSION["ID_TEMPORADA"] = $_REQUEST['TEMPORADA'];  
+                            $_SESSION["ID_ESPECIE"] = $_REQUEST['ESPECIE'];   
                             
                             $USUARIO->__SET('ID_USUARIO', $ARRAYINICIOSESSION[0]['ID_USUARIO']);
                             $USUARIO_ADO->NintentoZero($USUARIO);   

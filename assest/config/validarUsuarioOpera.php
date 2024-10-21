@@ -83,7 +83,8 @@
         }
         
         if (isset($_SESSION["ID_TEMPORADA"])) {
-            $TEMPORADAS  = $_SESSION["ID_TEMPORADA"];   
+            $TEMPORADAS  = $_SESSION["ID_TEMPORADA"];  
+            $ESPECIE  = $_SESSION["ID_ESPECIE"];   
             if($TEMPORADAS==""){
                 echo "<script type='text/javascript'> location.href ='iniciarSessionSeleccion.php';</script>";
             }
