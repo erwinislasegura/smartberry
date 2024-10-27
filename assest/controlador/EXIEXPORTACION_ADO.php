@@ -1942,6 +1942,39 @@ class EXIEXPORTACION_ADO
             die($e->getMessage());
         }
     }
+
+    public function listarExiexportacionAgrupadoPorFolioTemporadaDisponibleEst($TEMPORADA, $ESPECIE)
+    {
+        try {
+
+            $datos = $this->conexion->prepare("SELECT
+                                                    FOLIO_AUXILIAR_EXIEXPORTACION,                                               
+                                                    IFNULL(CANTIDAD_ENVASE_EXIEXPORTACION,0) AS 'ENVASE', 
+                                                    IFNULL(KILOS_NETO_EXIEXPORTACION,0)AS 'NETO',
+                                                    IFNULL(KILOS_DESHIRATACION_EXIEXPORTACION,0) AS 'DESHIRATACION',
+                                                    IFNULL(KILOS_BRUTO_EXIEXPORTACION,0)AS 'BRUTO'
+                                                FROM fruta_exiexportacion FEXEXP
+
+                                            LEFT JOIN fruta_vespecies VES ON FEXEXP.ID_VESPECIES = VES.ID_VESPECIES
+                                                WHERE 
+                                                        FEXEXP.ID_TEMPORADA = '" . $TEMPORADA . "'  
+                                                        AND FEXEXP.ESTADO_REGISTRO = 1
+                                                        AND FEXEXP.ESTADO = 2 AND VES.ID_ESPECIES = '" . $ESPECIE . "'                                              
+                                                GROUP BY FOLIO_AUXILIAR_EXIEXPORTACION
+                                          ;");
+            $datos->execute();
+            $resultado = $datos->fetchAll();
+            $datos=null;
+
+            //	print_r($resultado);
+            //	var_dump($resultado);
+
+
+            return $resultado;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
     public function listarExiexportacionAgrupadoPorFolioEmpresaTemporadaDisponible($EMPRESA,  $TEMPORADA)
     {
         try {

@@ -55,7 +55,7 @@ $ARRAYDESPACHO2="";
 
 
 if ( $TEMPORADAS) {
-    $ARRAYEXIMATERIAPRIMA = $EXIMATERIAPRIMA_ADO->listarEximateriaprimaTemporadaDisponible(  $TEMPORADAS);
+    $ARRAYEXIMATERIAPRIMA = $EXIMATERIAPRIMA_ADO->listarEximateriaprimaTemporadaDisponibleEst(  $TEMPORADAS, $ESPECIE);
 }
 
 

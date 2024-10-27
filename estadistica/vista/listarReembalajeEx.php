@@ -50,7 +50,7 @@ $ARRAYTOTALREEMBALAJE = "";
 //DEFINIR ARREGLOS CON LOS DATOS OBTENIDOS DE LAS FUNCIONES DE LOS CONTROLADORES
 
 if ( $TEMPORADAS) {
-    $ARRAYREEMBALAJE = $REEMBALAJE_ADO->listarReembalajeTemporadaCBX( $TEMPORADAS);
+    $ARRAYREEMBALAJE = $REEMBALAJE_ADO->listarReembalajeTemporadaCBXEst( $TEMPORADAS, $ESPECIE);
 }
 include_once "../../assest/config/validarDatosUrl.php";
 include_once "../../assest/config/datosUrLP.php";

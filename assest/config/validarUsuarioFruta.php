@@ -1,5 +1,6 @@
 <?php 
-    //session_start();
+    error_reporting();
+    session_start();
     $NOMBREUSUARIOS = "";
     $IDUSUARIOS="";
     $TUSUARIO = "";

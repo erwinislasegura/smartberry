@@ -611,6 +611,46 @@ WHERE ID_RECEPCION= '" . $ID . "';";*/
             die($e->getMessage());
         }
     }
+
+    public function listarRecepcionTemporadaCBXEst( $TEMPORADA, $ESPECIE)
+    {
+        try {
+
+            $datos = $this->conexion->prepare("SELECT *  ,
+                                                    FECHA_GUIA_RECEPCION AS 'FECHA_GUIA',
+                                                    FECHA_RECEPCION AS 'FECHA',
+                                                    WEEK(FECHA_RECEPCION,3) AS 'SEMANA', 
+                                                    WEEK(FECHA_GUIA_RECEPCION,3) AS 'SEMANAGUIA',                                                     
+                                                    WEEKOFYEAR(FECHA_RECEPCION) AS 'SEMANAISO', 
+                                                    WEEKOFYEAR(FECHA_GUIA_RECEPCION) AS 'SEMANAGUIAISO', 
+                                                    DATE_FORMAT(FRECPT.INGRESO, '%Y-%m-%d') AS 'INGRESO',
+                                                    DATE_FORMAT(FRECPT.MODIFICACION, '%Y-%m-%d') AS 'MODIFICACION',
+                                                    IFNULL(CANTIDAD_ENVASE_RECEPCION,0)  AS 'ENVASE',
+                                                    IFNULL(KILOS_NETO_RECEPCION,0) AS 'NETO',
+                                                    IFNULL(KILOS_BRUTO_RECEPCION,0)  AS 'BRUTO',
+                                                    IFNULL(TOTAL_KILOS_GUIA_RECEPCION,0) AS 'GUIA'
+                                            FROM fruta_recepcionpt FRECPT
+																						LEFT JOIN fruta_drecepcionpt FDRECPT ON FRECPT.ID_RECEPCION = FDRECPT.ID_RECEPCION
+																						
+
+                                            LEFT JOIN fruta_vespecies VES ON FDRECPT.ID_VESPECIES = VES.ID_VESPECIES
+                                            WHERE FRECPT.ESTADO_REGISTRO = 1                
+                                            AND FRECPT.ID_TEMPORADA = '" . $TEMPORADA . "' AND VES.ID_ESPECIES = '" . $ESPECIE . "'   
+                                            ;	");
+            $datos->execute();
+            $resultado = $datos->fetchAll();
+            $datos=null;
+
+            //	print_r($resultado);
+            //	var_dump($resultado);
+
+
+            return $resultado;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
     public function listarRecepcionEmpresaTemporadaCBX($EMPRESA, $TEMPORADA)
     {
         try {

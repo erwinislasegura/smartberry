@@ -618,6 +618,38 @@ class DESPACHOPT_ADO
             die($e->getMessage());
         }
     }
+
+    public function listarDespachoptTemporadaCBXEst(  $TEMPORADA, $ESPECIE)
+    {
+        try {
+
+            $datos = $this->conexion->prepare("SELECT * ,
+                                                    FDESPT.FECHA_DESPACHO AS 'FECHA',
+                                                    WEEK(FDESPT.FECHA_DESPACHO,3) AS 'SEMANA',
+                                                    WEEKOFYEAR(FDESPT.FECHA_DESPACHO) AS 'SEMANAISO',  
+                                                    DATE_FORMAT(FDESPT.INGRESO, '%Y-%m-%d') AS 'INGRESO',
+                                                    DATE_FORMAT(FDESPT.MODIFICACION, '%Y-%m-%d') AS 'MODIFICACION',
+                                                    IFNULL(CANTIDAD_ENVASE_DESPACHO,0) AS 'ENVASE',   
+                                                    IFNULL(KILOS_NETO_DESPACHO,0) AS 'NETO',  
+                                                    IFNULL(KILOS_BRUTO_DESPACHO,0)  AS 'BRUTO' 
+                                        FROM fruta_despachopt  FDESPT
+																						LEFT JOIN fruta_exiexportacion FEXEX ON FDESPT.ID_DESPACHO = FEXEX.ID_DESPACHO
+                                            LEFT JOIN fruta_vespecies VES ON FEXEX.ID_VESPECIES = VES.ID_VESPECIES                                                                         
+                                        WHERE FDESPT.ESTADO_REGISTRO = 1            
+                                        AND FDESPT.ID_TEMPORADA = '" . $TEMPORADA . "'  AND VES.ID_ESPECIES = '" . $ESPECIE . "';	");
+            $datos->execute();
+            $resultado = $datos->fetchAll();
+            $datos=null;
+
+            //	print_r($resultado);
+            //	var_dump($resultado);
+
+
+            return $resultado;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
     public function listarDespachoptEmpresaTemporadaCBX($EMPRESA,  $TEMPORADA)
     {
         try {

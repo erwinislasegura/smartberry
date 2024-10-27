@@ -555,6 +555,37 @@ class DESPACHOIND_ADO
             die($e->getMessage());
         }
     }
+
+    public function listarDespachompTemporadaCBXEst(  $TEMPORADA, $ESPECIE)
+    {
+        try {
+
+            $datos = $this->conexion->prepare("SELECT *,
+                                                    FDESIND.FECHA_DESPACHO AS 'FECHA',  
+                                                    WEEK(FDESIND.FECHA_DESPACHO,3) AS 'SEMANA',
+                                                    WEEKOFYEAR(FDESIND.FECHA_DESPACHO) AS 'SEMANAISO',    
+                                                    DATE_FORMAT(FDESIND.INGRESO, '%Y-%m-%d') AS 'INGRESO',
+                                                    DATE_FORMAT(FDESIND.MODIFICACION, '%Y-%m-%d') AS 'MODIFICACION' ,
+                                                    IFNULL(KILOS_NETO_DESPACHO,0)  AS 'NETO'
+                                        FROM fruta_despachoind FDESIND
+																						LEFT JOIN fruta_exiindustrial FEXIND ON FDESIND.ID_DESPACHO = FEXIND.ID_DESPACHO
+                                            LEFT JOIN fruta_vespecies VES ON FEXIND.ID_VESPECIES = VES.ID_VESPECIES                                                                         
+                                        WHERE  FDESIND.ESTADO_REGISTRO = 1 
+                                        AND FDESIND.ID_TEMPORADA = '" . $TEMPORADA . "' AND VES.ID_ESPECIES = '" . $ESPECIE . "';	");
+            $datos->execute();
+            $resultado = $datos->fetchAll();
+            $datos=null;
+
+            //	print_r($resultado);
+            //	var_dump($resultado);
+
+
+            return $resultado;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
     public function listarDespachompEmpresaTemporadaCBX($EMPRESA,  $TEMPORADA)
     {
         try {

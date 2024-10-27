@@ -1379,6 +1379,45 @@ class EXIMATERIAPRIMA_ADO
             die($e->getMessage());
         }
     }
+
+    public function listarEximateriaprimaTemporadaDisponibleEst(   $TEMPORADA, $ESPECIE)
+    {
+        try {
+
+            $datos = $this->conexion->prepare("SELECT *,  
+                                                    DATEDIFF(SYSDATE(), FECHA_COSECHA_EXIMATERIAPRIMA) AS 'DIAS',
+                                                    DATE_FORMAT(FEXMP.INGRESO, '%Y-%m-%d')AS 'INGRESO',
+                                                    DATE_FORMAT(FEXMP.MODIFICACION, '%Y-%m-%d') AS 'MODIFICACION',
+                                                    FECHA_COSECHA_EXIMATERIAPRIMA AS 'COSECHA',
+                                                    IFNULL(DATE_FORMAT(FECHA_RECEPCION, '%d-%m-%Y'),'Sin Datos') AS 'RECEPCION',
+                                                    IFNULL(DATE_FORMAT(FECHA_REPALETIZAJE, '%d-%m-%Y'),'Sin Datos') AS 'REPALETIZAJE',
+                                                    IFNULL(DATE_FORMAT(FECHA_DESPACHO, '%d-%m-%Y'),'Sin Datos') AS 'DESPACHO',
+                                                    IFNULL(CANTIDAD_ENVASE_EXIMATERIAPRIMA,0) AS 'ENVASE',
+                                                    IFNULL(KILOS_NETO_EXIMATERIAPRIMA,0) AS 'NETO',
+                                                    IFNULL(KILOS_BRUTO_EXIMATERIAPRIMA,0) AS 'BRUTO',
+                                                    IFNULL(KILOS_PROMEDIO_EXIMATERIAPRIMA,0) AS 'PROMEDIO',
+                                                    IFNULL(PESO_PALLET_EXIMATERIAPRIMA,0) AS 'PALLET'
+                                                    FROM fruta_eximateriaprima FEXMP
+
+                                            LEFT JOIN fruta_vespecies VES ON FEXMP.ID_VESPECIES = VES.ID_VESPECIES
+                                                    WHERE FEXMP.ESTADO_REGISTRO = 1
+                                                    AND FEXMP.ESTADO = 2
+                                                    AND FEXMP.ID_TEMPORADA = '" . $TEMPORADA . "' AND VES.ID_ESPECIES = '" . $ESPECIE . "';  ");
+            $datos->execute();
+            $resultado = $datos->fetchAll(PDO::FETCH_ASSOC);
+            $datos=null;
+
+            //	print_r($resultado);
+            //	var_dump($resultado);
+
+
+            return $resultado;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+
     public function listarEximateriaprimaEmpresaTemporadaDisponible($EMPRESA,   $TEMPORADA)
     {
         try {
