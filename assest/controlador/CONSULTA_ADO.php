@@ -401,6 +401,39 @@ class CONSULTA_ADO
             die($e->getMessage());
         }
     }
+
+
+    public function acumuladoRecepcionMpEst($TEMPORADA, $ESPECIE)
+    {
+        try {
+
+            $datos = $this->conexion->prepare("SELECT 
+                                                     IFNULL(SUM(detalle.KILOS_NETO_DRECEPCION),0)  AS 'NETO' 
+                                                FROM  fruta_recepcionmp recepcion
+												LEFT JOIN fruta_drecepcionmp detalle ON recepcion.ID_RECEPCION = detalle.ID_RECEPCION
+											    LEFT JOIN principal_empresa empresa ON recepcion.ID_EMPRESA = empresa.ID_EMPRESA
+												LEFT JOIN fruta_vespecies VES ON detalle.ID_VESPECIES = VES.ID_VESPECIES
+                                                WHERE recepcion.ID_RECEPCION =  detalle.ID_RECEPCION
+                                                AND recepcion.ID_EMPRESA=empresa.ID_EMPRESA
+                                                AND  empresa.ESTADO_REGISTRO = 1
+                                                AND  recepcion.ESTADO = 0
+                                                AND  recepcion.ESTADO_REGISTRO = 1
+                                                AND  detalle.ESTADO_REGISTRO = 1 
+                                                AND  recepcion.ID_TEMPORADA = '".$TEMPORADA."' AND VES.ID_ESPECIES = '" . $ESPECIE . "'
+                                                ;	");
+            $datos->execute();
+            $resultado = $datos->fetchAll();
+            $datos=null;
+
+            //	print_r($resultado);
+            //	var_dump($resultado);
+
+
+            return $resultado;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
     
     public function acumuladoRecepcionMpNoBulk($TEMPORADA)
     {
@@ -461,6 +494,41 @@ class CONSULTA_ADO
             die($e->getMessage());
         }
     }
+
+
+    public function acumuladoRecepcionMpBulkEst($TEMPORADA, $ESPECIE)
+    {
+        try {
+
+            $datos = $this->conexion->prepare("SELECT 
+                                                     IFNULL(SUM(detalle.KILOS_NETO_DRECEPCION),0)  AS 'NETO' 
+                                                FROM  fruta_recepcionmp recepcion 
+                                                LEFT JOIN fruta_drecepcionmp detalle ON recepcion.ID_RECEPCION = detalle.ID_RECEPCION
+												LEFT JOIN principal_empresa empresa ON recepcion.ID_EMPRESA = empresa.ID_EMPRESA
+												LEFT JOIN fruta_vespecies VES ON detalle.ID_VESPECIES = VES.ID_VESPECIES
+                                                WHERE recepcion.ID_RECEPCION =  detalle.ID_RECEPCION
+                                                AND  recepcion.ID_EMPRESA=empresa.ID_EMPRESA
+                                                AND  empresa.ESTADO_REGISTRO = 1
+                                                AND  recepcion.ESTADO = 0
+                                                AND  recepcion.ESTADO_REGISTRO = 1
+                                                AND  detalle.ESTADO_REGISTRO = 1 
+                                                AND  recepcion.TRECEPCION = 3
+                                                AND  recepcion.ID_TEMPORADA = '".$TEMPORADA."' AND VES.ID_ESPECIES = '" . $ESPECIE . "'
+                                                ;	");
+            $datos->execute();
+            $resultado = $datos->fetchAll();
+            $datos=null;
+
+            //	print_r($resultado);
+            //	var_dump($resultado);
+
+
+            return $resultado;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
     public function acumuladoRecepcionMpPorEmpresa($EMPRESA,$TEMPORADA)
     {
         try {
@@ -749,6 +817,36 @@ class CONSULTA_ADO
             die($e->getMessage());
         }
     }
+
+
+    public function acumuladoProcesadoMpEst($TEMPORADA, $ESPECIE)
+    {
+        try {
+
+            $datos = $this->conexion->prepare("SELECT 
+                                                     IFNULL(SUM(existencia.KILOS_NETO_EXIMATERIAPRIMA),0)  AS 'NETO' 
+                                                FROM fruta_eximateriaprima existencia
+                                                LEFT JOIN principal_empresa empresa ON existencia.ID_EMPRESA = empresa.ID_EMPRESA
+                                                LEFT JOIN fruta_vespecies VES ON existencia.ID_VESPECIES = VES.ID_VESPECIES
+                                                WHERE existencia.ID_EMPRESA=empresa.ID_EMPRESA
+                                                AND empresa.ESTADO_REGISTRO = 1
+                                                AND existencia.ESTADO_REGISTRO = 1 
+                                                AND existencia.ID_PROCESO IS NOT NULL                                             
+                                                AND existencia.ID_TEMPORADA = '".$TEMPORADA."' AND VES.ID_ESPECIES = '" . $ESPECIE . "'
+                                                ;	");
+            $datos->execute();
+            $resultado = $datos->fetchAll();
+            $datos=null;
+
+            //	print_r($resultado);
+            //	var_dump($resultado);
+
+
+            return $resultado;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
     
     public function acumuladoProcesadoMpPorEmpresa($EMPRESA,$TEMPORADA)
     {
@@ -846,6 +944,36 @@ class CONSULTA_ADO
                                                 AND existencia.ESTADO_REGISTRO = 1 
                                                 AND existencia.ESTADO = 2                                           
                                                 AND existencia.ID_TEMPORADA = '".$TEMPORADA."'
+                                                ;	");
+            $datos->execute();
+            $resultado = $datos->fetchAll();
+            $datos=null;
+
+            //	print_r($resultado);
+            //	var_dump($resultado);
+
+
+            return $resultado;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+
+    public function existenciaDisponibleMpEst($TEMPORADA, $ESPECIE)
+    {
+        try {
+
+            $datos = $this->conexion->prepare("SELECT 
+                                                     IFNULL(SUM(existencia.KILOS_NETO_EXIMATERIAPRIMA),0)  AS 'NETO' 
+                                                FROM fruta_eximateriaprima existencia
+                                                LEFT JOIN principal_empresa empresa ON existencia.ID_EMPRESA = empresa.ID_EMPRESA
+												LEFT JOIN fruta_vespecies VES ON existencia.ID_VESPECIES = VES.ID_VESPECIES
+                                                WHERE existencia.ID_EMPRESA=empresa.ID_EMPRESA
+                                                AND empresa.ESTADO_REGISTRO = 1
+                                                AND existencia.ESTADO_REGISTRO = 1 
+                                                AND existencia.ESTADO = 2                                           
+                                                AND existencia.ID_TEMPORADA = '".$TEMPORADA."' AND VES.ID_ESPECIES = '" . $ESPECIE . "'
                                                 ;	");
             $datos->execute();
             $resultado = $datos->fetchAll();
