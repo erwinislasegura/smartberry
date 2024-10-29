@@ -549,6 +549,7 @@ class RECEPCIONMP_ADO
                                                     IFNULL(KILOS_NETO_RECEPCION,0) AS 'NETO',
                                                     IFNULL(KILOS_BRUTO_RECEPCION,0)  AS 'BRUTO',
                                                     IFNULL(TOTAL_KILOS_GUIA_RECEPCION,0)  AS 'GUIA'
+                                                    (FRECMP.ESTADO)AS ESTADO_CIERRE
                                             FROM fruta_recepcionmp FRECMP
 											LEFT JOIN fruta_drecepcionmp FDRECMP ON FRECMP.ID_RECEPCION = FDRECMP.ID_RECEPCION
                                             LEFT JOIN fruta_vespecies VES ON FDRECMP.ID_VESPECIES = VES.ID_VESPECIES
@@ -557,7 +558,6 @@ class RECEPCIONMP_ADO
                                                 AND FRECMP.ID_PRODUCTOR = '" . $PRODUCTOR . "'
                                                 AND FRECMP.ID_TEMPORADA = '" . $TEMPORADA . "'
                                                 AND VES.ID_ESPECIES = '" . $ESPECIE . "' 
-                                                AND FRECMP.ESTADO = 0 
                                                 AND FRECMP.FECHA_RECEPCION < CURRENT_DATE 
                                             GROUP BY FRECMP.ID_RECEPCION;	");
             $datos->execute();
