@@ -548,7 +548,7 @@ class RECEPCIONMP_ADO
                                                     IFNULL(CANTIDAD_ENVASE_RECEPCION,0)  AS 'ENVASE',
                                                     IFNULL(KILOS_NETO_RECEPCION,0) AS 'NETO',
                                                     IFNULL(KILOS_BRUTO_RECEPCION,0)  AS 'BRUTO',
-                                                    IFNULL(TOTAL_KILOS_GUIA_RECEPCION,0)  AS 'GUIA'
+                                                    IFNULL(TOTAL_KILOS_GUIA_RECEPCION,0)  AS 'GUIA',
                                                     (FRECMP.ESTADO)AS ESTADO_CIERRE
                                             FROM fruta_recepcionmp FRECMP
 											LEFT JOIN fruta_drecepcionmp FDRECMP ON FRECMP.ID_RECEPCION = FDRECMP.ID_RECEPCION
