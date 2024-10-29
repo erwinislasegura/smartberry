@@ -471,6 +471,44 @@ class PROCESO_ADO
             die($e->getMessage());
         }
     }
+
+
+    public function listarProcesoEmpresaProductorTemporadaCBXEstadisticasEst($EMPRESA,$PRODUCTOR, $TEMPORADA, $ESPECIE)
+    {
+        try {
+
+            $datos = $this->conexion->prepare("SELECT * ,  
+                                                    IFNULL(KILOS_EXPORTACION_PROCESO,0) AS 'EXPORTACION'   ,                                                 
+                                                    IFNULL(KILOS_INDUSTRIAL_PROCESO,0) AS 'INDUSTRIAL'    ,                                                
+                                                    IFNULL(KILOS_INDUSTRIALSC_PROCESO,0) AS 'INDUSTRIALSC'    ,                                               
+                                                    IFNULL(KILOS_INDUSTRIALNC_PROCESO,0) AS 'INDUSTRIALNC'    ,                                                
+                                                    IFNULL(KILOS_NETO_PROCESO,0) AS 'NETO',                                        
+                                                    IFNULL(KILOS_NETO_ENTRADA,0) AS 'ENTRADA',
+                                                    FECHA_PROCESO AS 'FECHA', 
+                                                    DATE_FORMAT(FPRO.INGRESO, '%Y-%m-%d') AS 'INGRESO', 
+                                                    DATE_FORMAT(FPRO.MODIFICACION, '%Y-%m-%d') AS 'MODIFICACION'
+                                                FROM fruta_proceso  FPRO 
+	
+	LEFT JOIN fruta_vespecies VES ON FPRO.ID_VESPECIES = VES.ID_VESPECIES                                                      
+                                                WHERE   FPRO.ESTADO_REGISTRO = 1 
+                                                AND  FPRO.ID_EMPRESA = '" . $EMPRESA . "' 
+                                                AND FPRO.ID_PRODUCTOR = '" . $PRODUCTOR . "'
+                                                AND VES.ID_ESPECIES = '" . $ESPECIE . "' 
+                                                AND FPRO.ID_TEMPORADA = '" . $TEMPORADA . "' AND FPRO.FECHA_PROCESO < CURRENT_DATE AND FPRO.ESTADO=0 
+                                                GROUP BY  FPRO.ID_PROCESO;	");
+            $datos->execute();
+            $resultado = $datos->fetchAll();
+            $datos=null;
+
+            //	print_r($resultado);
+            //	var_dump($resultado);
+
+
+            return $resultado;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
     
     public function listarProcesoTemporadaCBX( $TEMPORADA)
     {

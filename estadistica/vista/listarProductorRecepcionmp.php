@@ -181,7 +181,7 @@ $ARRAYEMPRESAPRODUCTOR=$EMPRESAPRODUCTOR_ADO->buscarEmpresaProductorPorUsuarioCB
                                             <?php foreach ($ARRAYEMPRESAPRODUCTOR as $a) : ?>
                                                 <?php 
                                                     if ( $TEMPORADAS) {
-                                                        $ARRAYRECEPCION = $RECEPCIONMP_ADO->listarRecepcionEmpresaProductorTemporadaCBX($a["ID_EMPRESA"], $a["ID_PRODUCTOR"], $TEMPORADAS);
+                                                        $ARRAYRECEPCION = $RECEPCIONMP_ADO->listarRecepcionEmpresaProductorTemporadaCBXEst($a["ID_EMPRESA"], $a["ID_PRODUCTOR"], $TEMPORADAS, $ESPECIE);
                                                     }    
                                                 ?>
                                                 <?php foreach ($ARRAYRECEPCION as $r) : ?>                                                    

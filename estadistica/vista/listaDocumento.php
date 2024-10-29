@@ -5,24 +5,20 @@ include_once "../../assest/config/validarUsuarioOpera.php";
 //LLAMADA ARCHIVOS NECESARIOS PARA LAS OPERACIONES
 
 include_once '../../assest/controlador/productor_controller.php';
+include_once '../../assest/controlador/EMPRESAPRODUCTOR_ADO.php';
 
 
+$EMPRESAPRODUCTOR_ADO =  new EMPRESAPRODUCTOR_ADO();
+
+
+$ARRAYEMPRESAPRODUCTOR=$EMPRESAPRODUCTOR_ADO->buscarEmpresaProductorPorUsuarioCBX($IDUSUARIOS);
 //INCIALIZAR LAS VARIBLES
 //INICIALIZAR CONTROLADOR
-$id = base64_decode($_REQUEST['id']);
+//$id = base64_decode($_REQUEST['id']);
 $productorController = new ProductorController();
 
-// Verificar si se ha enviado el formulario para eliminar un documento
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_documento'])) {
-    $id_documento = $_POST['id_documento'];
-    $productorController->deleteDocumento($id_documento);
-    // Redirigir o recargar la página después de eliminar el documento
-    header("Location: listaDocumento.php?id=" . base64_encode($id));
-    exit();
-}
 
 
-$documentos = $productorController->viewDocumentos($id);
 
 
 
@@ -103,11 +99,16 @@ $documentos = $productorController->viewDocumentos($id);
                                                         <th>Archivo</th>
                                                         <th>Nombre</th>
                                                         <th>Vigencia</th>
-                                                        <th>Acciones</th>
+                                                      
                                                     </tr>
                                                 </thead>
                                                 <tbody id="bodyRegistroCalidad">
-                                         
+                                                <?php foreach ($ARRAYEMPRESAPRODUCTOR as $a) : ?>
+                                                <?php 
+                                                    
+                                                        $documentos = $productorController->viewDocumentos($a["ID_PRODUCTOR"]);
+                                                
+                                                ?>
                                                 <?php if (!empty($documentos)): ?>
                                                     <?php foreach ($documentos as $documento): ?>
                                                         <tr>
@@ -118,22 +119,15 @@ $documentos = $productorController->viewDocumentos($id);
                                                             </td>
                                                             <td><?php echo htmlspecialchars($documento->nombre_documento); ?></td>
                                                             <td><?php echo $documento->vigencia_documento; ?></td>
-                                                            <td>
-                                                            <form method="POST" style="display:inline;">
-                                                                    <input type="hidden" name="id_documento" value="<?php echo $documento->id_documento; ?>">
-                                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este documento?');">
-                                                                        <i class="ti-trash"></i> Eliminar
-                                                                    </button>
-                                                                </form>
-                                                            </td>
+                                      
                                                         </tr>
                                                     <?php endforeach; ?>
                                                 <?php else: ?>
-                                                    <tr>
+                                                   <!--<tr>
                                                         <td colspan="7">No hay productores disponibles.</td>
-                                                    </tr>
+                                                    </tr>-->
                                                 <?php endif; ?>
-       
+                                                <?php endforeach; ?>
                                                 </tbody>
                                             </table>
                                         </div>

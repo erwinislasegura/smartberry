@@ -110,7 +110,7 @@ $ARRAYMGUIAPT = "";
 
 
 if (  $TEMPORADAS) {
-    $ARRAYDESPACHOMP = $DESPACHOMP_ADO->listarDespachompTemporadaCBXEst( $TEMPORADAS, $ESPECIE);
+    $ARRAYDESPACHOMP = $DESPACHOMP_ADO->listarDespachompTemporadaCBX( $TEMPORADAS);
 }
 
 

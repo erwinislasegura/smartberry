@@ -93,7 +93,7 @@ $ARRAYPRODUCTOR = "";
 
 
 if ( $TEMPORADAS) {
-    $ARRAYRECEPCIONMP = $RECEPCIONMP_ADO->listarRecepcionTemporadaCBXEst(  $TEMPORADAS, $ESPECIE);
+    $ARRAYRECEPCIONMP = $RECEPCIONMP_ADO->listarRecepcionTemporadaCBX(  $TEMPORADAS);
 }
 
 

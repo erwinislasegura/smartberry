@@ -180,7 +180,7 @@ include_once "../../assest/config/datosUrLP.php";
                                             <?php foreach ($ARRAYEMPRESAPRODUCTOR as $a) : ?>
                                                 <?php 
                                                     if ( $TEMPORADAS) {
-                                                        $ARRAYRECEPCION = $RECEPCIONIND_ADO->listarRecepcionEmpresaProductorTemporadaCBX($a["ID_EMPRESA"], $a["ID_PRODUCTOR"], $TEMPORADAS);
+                                                        $ARRAYRECEPCION = $RECEPCIONIND_ADO->listarRecepcionEmpresaProductorTemporadaCBXEst($a["ID_EMPRESA"], $a["ID_PRODUCTOR"], $TEMPORADAS, $ESPECIE);
                                                     }    
                                                 ?>
                                                 <?php foreach ($ARRAYRECEPCION as $r) : ?>

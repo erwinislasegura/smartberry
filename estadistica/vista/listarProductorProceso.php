@@ -172,7 +172,7 @@ $ARRAYEMPRESAPRODUCTOR=$EMPRESAPRODUCTOR_ADO->buscarEmpresaProductorPorUsuarioCB
                                             <?php foreach ($ARRAYEMPRESAPRODUCTOR as $a) : ?>
                                                 <?php 
                                                     if ( $TEMPORADAS) {
-                                                        $ARRAYPROCESO = $PROCESO_ADO->listarProcesoEmpresaProductorTemporadaCBXEstadisticas($a["ID_EMPRESA"], $a["ID_PRODUCTOR"], $TEMPORADAS);
+                                                        $ARRAYPROCESO = $PROCESO_ADO->listarProcesoEmpresaProductorTemporadaCBXEstadisticasEst($a["ID_EMPRESA"], $a["ID_PRODUCTOR"], $TEMPORADAS, $ESPECIE);
                                                     }
                                                     ?>
                                                     <?php foreach ($ARRAYPROCESO as $r) : ?>

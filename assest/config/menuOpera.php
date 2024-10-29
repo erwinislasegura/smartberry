@@ -280,14 +280,14 @@
         <?php  } ?>
 
 
-        <?php //if($PESTAPRODUCTOR=="1"){ ?>
+        <?php if($PESTAPRODUCTOR=="1"){ ?>
           <li>
-            <a href="listaDocumento.php?id=<?php echo base64_encode($_SESSION["ID_USUARIO"]);?>">
+            <a href="listaDocumento.php">
               <img src="../../api/cryptioadmin10/html/images/svg-icon/sidebar-menu/pages.svg" class="svg-icon" alt="">
               <span>Mis Documentos</span>
             </a>
           </li>   
-        <?php  //} ?>
+        <?php  } ?>
 
 
       <?php  } ?>
