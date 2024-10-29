@@ -556,9 +556,10 @@ class RECEPCIONMP_ADO
                                                 AND  FRECMP.ID_EMPRESA = '" . $EMPRESA . "' 
                                                 AND FRECMP.ID_PRODUCTOR = '" . $PRODUCTOR . "'
                                                 AND FRECMP.ID_TEMPORADA = '" . $TEMPORADA . "'
-                                                AND VES.ID_ESPECIES = '" . $ESPECIE . "'
+                                                AND VES.ID_ESPECIES = '" . $ESPECIE . "' 
+                                                AND FRECMP.ESTADO = 0 
                                                 AND FRECMP.FECHA_RECEPCION < CURRENT_DATE 
-                                            GROUP BY FRECMP.ID_RECEPCION;;	");
+                                            GROUP BY FRECMP.ID_RECEPCION;	");
             $datos->execute();
             $resultado = $datos->fetchAll();
             $datos=null;

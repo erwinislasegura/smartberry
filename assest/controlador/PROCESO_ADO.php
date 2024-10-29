@@ -496,6 +496,7 @@ class PROCESO_ADO
                                                 AND VES.ID_ESPECIES = '" . $ESPECIE . "' 
                                                 AND FPRO.ID_TEMPORADA = '" . $TEMPORADA . "' AND FPRO.FECHA_PROCESO < CURRENT_DATE AND FPRO.ESTADO=0 
                                                 GROUP BY  FPRO.ID_PROCESO;	");
+                                                
             $datos->execute();
             $resultado = $datos->fetchAll();
             $datos=null;

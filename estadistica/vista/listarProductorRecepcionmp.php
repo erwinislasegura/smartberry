@@ -262,10 +262,10 @@ $ARRAYEMPRESAPRODUCTOR=$EMPRESAPRODUCTOR_ADO->buscarEmpresaProductorPorUsuarioCB
                                                             </a>
                                                         </td>
                                                         <td>
-                                                            <?php if ($r['ESTADO'] == "0") { ?>
+                                                            <?php if ($r['ESTADO_CIERRE'] == 0) { ?>
                                                                 <button type="button" class="btn btn-block btn-danger">Cerrado</button>
                                                             <?php  }  ?>
-                                                            <?php if ($r['ESTADO'] == "1") { ?>
+                                                            <?php if ($r['ESTADO_CIERRE'] == 1) { ?>
                                                                 <button type="button" class="btn btn-block btn-success">Abierto</button>
                                                             <?php  }  ?>
                                                         </td>
