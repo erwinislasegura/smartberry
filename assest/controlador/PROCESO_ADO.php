@@ -674,12 +674,27 @@ FROM
             WEEKOFYEAR(FECHA_PROCESO) AS 'SEMANAISO', 
             
             DATE_FORMAT(INGRESO, '%Y-%m-%d') AS 'INGRESO',
-            DATE_FORMAT(MODIFICACION, '%Y-%m-%d') AS 'MODIFICACION' 
-        FROM fruta_proceso                                                        
-        WHERE   ESTADO_REGISTRO = 1 
-        AND  ID_EMPRESA = '" . $EMPRESA . "' 
-        AND ID_PLANTA = '" . $PLANTA . "'
-        AND ID_TEMPORADA = '" . $TEMPORADA . "' ;	";*/
+            DATE_FORMAT(MODIFICACION, '%Y-%m-%d') AS 'MODIFICACION',
+						(SELECT SUM(fruta_exiindustrial.KILOS_NETO_EXIINDUSTRIAL) FROM fruta_exiindustrial 
+				JOIN estandar_eindustrial on estandar_eindustrial.ID_ESTANDAR = fruta_exiindustrial.ID_ESTANDAR 
+				where ID_PROCESO = fruta_proceso.ID_PROCESO AND AGRUPACION='1' AND fruta_exiindustrial.ESTADO_REGISTRO=1 AND ESTADO != 6)AS 'IQF_INFO',
+						(SELECT SUM(fruta_exiindustrial.KILOS_NETO_EXIINDUSTRIAL) FROM fruta_exiindustrial 
+				JOIN estandar_eindustrial on estandar_eindustrial.ID_ESTANDAR = fruta_exiindustrial.ID_ESTANDAR 
+				where ID_PROCESO = fruta_proceso.ID_PROCESO AND AGRUPACION='2' AND fruta_exiindustrial.ESTADO_REGISTRO=1)AS 'MERMA_INFO',
+				(SELECT SUM(fruta_exiindustrial.KILOS_NETO_EXIINDUSTRIAL) FROM fruta_exiindustrial 
+				JOIN estandar_eindustrial on estandar_eindustrial.ID_ESTANDAR = fruta_exiindustrial.ID_ESTANDAR 
+				where ID_PROCESO = fruta_proceso.ID_PROCESO AND AGRUPACION='3' AND fruta_exiindustrial.ESTADO_REGISTRO=1)AS 'DESECHO_INFO',
+                (SELECT SUM(fruta_exiindustrial.KILOS_NETO_EXIINDUSTRIAL) FROM fruta_exiindustrial 
+				JOIN estandar_eindustrial on estandar_eindustrial.ID_ESTANDAR = fruta_exiindustrial.ID_ESTANDAR 
+				where ID_PROCESO = fruta_proceso.ID_PROCESO AND AGRUPACION='4' AND fruta_exiindustrial.ESTADO_REGISTRO=1)AS 'SUMA_DIFERENCIA_PROCESO',
+				(SELECT SUM(fruta_exiindustrial.KILOS_NETO_EXIINDUSTRIAL) FROM fruta_exiindustrial 
+				JOIN estandar_eindustrial on estandar_eindustrial.ID_ESTANDAR = fruta_exiindustrial.ID_ESTANDAR 
+				where ID_PROCESO = fruta_proceso.ID_PROCESO AND ESTADO != 6 AND (AGRUPACION='1' OR AGRUPACION='2' OR AGRUPACION='3') AND fruta_exiindustrial.ESTADO_REGISTRO=1)AS 'SUMA_INDUSTRIAL_INFO' 
+        FROM fruta_proceso                                                           
+                                                WHERE   ESTADO_REGISTRO = 1 
+                                                AND  ID_EMPRESA = '" . $EMPRESA . "' 
+                                                AND ID_PLANTA = '" . $PLANTA . "'
+                                                AND ID_TEMPORADA = '" . $TEMPORADA . "' ;	";*/
             $datos = $this->conexion->prepare("SELECT * ,  
             IFNULL(KILOS_EXPORTACION_PROCESO,0) AS 'EXPORTACION'   ,                                                 
             IFNULL(KILOS_INDUSTRIAL_PROCESO,0) AS 'INDUSTRIAL'    ,                                                
@@ -708,7 +723,7 @@ FROM
 				where ID_PROCESO = fruta_proceso.ID_PROCESO AND AGRUPACION='4' AND fruta_exiindustrial.ESTADO_REGISTRO=1)AS 'SUMA_DIFERENCIA_PROCESO',
 				(SELECT SUM(fruta_exiindustrial.KILOS_NETO_EXIINDUSTRIAL) FROM fruta_exiindustrial 
 				JOIN estandar_eindustrial on estandar_eindustrial.ID_ESTANDAR = fruta_exiindustrial.ID_ESTANDAR 
-				where ID_PROCESO = fruta_proceso.ID_PROCESO AND ESTADO != 6 AND (AGRUPACION='1' OR AGRUPACION='2' OR AGRUPACION='3') AND fruta_exiindustrial.ESTADO_REGISTRO=1)AS 'SUMA_INDUSTRIAL_INFO' 
+				where ID_PROCESO = fruta_proceso.ID_PROCESO AND fruta_exiindustrial.ESTADO NOT IN(6,0) AND (AGRUPACION='1' OR AGRUPACION='2' OR AGRUPACION='3') AND fruta_exiindustrial.ESTADO_REGISTRO=1)AS 'SUMA_INDUSTRIAL_INFO' 
         FROM fruta_proceso                                                           
                                                 WHERE   ESTADO_REGISTRO = 1 
                                                 AND  ID_EMPRESA = '" . $EMPRESA . "' 
