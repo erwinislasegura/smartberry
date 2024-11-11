@@ -17,11 +17,6 @@ $ARRAYEMPRESAPRODUCTOR=$EMPRESAPRODUCTOR_ADO->buscarEmpresaProductorPorUsuarioCB
 //$id = base64_decode($_REQUEST['id']);
 $productorController = new ProductorController();
 
-
-
-
-
-
 ?>
 
 
@@ -106,7 +101,7 @@ $productorController = new ProductorController();
                                                 <?php foreach ($ARRAYEMPRESAPRODUCTOR as $a) : ?>
                                                 <?php 
                                                     
-                                                        $documentos = $productorController->viewDocumentos($a["ID_PRODUCTOR"]);
+                                                        $documentos = $productorController->viewDocumentosEspecie($a["ID_PRODUCTOR"], $ESPECIE);
                                                 
                                                 ?>
                                                 <?php if (!empty($documentos)): ?>

@@ -23,8 +23,8 @@ class ProductorModel {
     }
 
     public function saveDocumento($data) {
-        $query = "INSERT INTO tb_documento (productor_documento, archivo_documento, vigencia_documento, estado_documento, nombre_documento, create_documento) 
-                  VALUES (:productor_documento, :archivo_documento, :vigencia_documento, 1, :nombre_documento, NOW())";
+        $query = "INSERT INTO tb_documento (productor_documento, archivo_documento, vigencia_documento, estado_documento, nombre_documento, create_documento, especie_documento) 
+                  VALUES (:productor_documento, :archivo_documento, :vigencia_documento, 1, :nombre_documento, NOW(), :especie_documento)";
         $stmt = $this->db->prepare($query);
         $stmt->execute($data);
     }

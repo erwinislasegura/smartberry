@@ -3,13 +3,11 @@
 
     include_once '../../assest/controlador/productor_controller.php';
 
-
     $ID_EMPRESA = $_SESSION['ID_EMPRESA'];
     $productorController = new ProductorController();
 
-
-
     $productores = $productorController->index($ID_EMPRESA);
+    $especies = $productorController->listaEspecie();
 
 ?>
 
@@ -76,6 +74,18 @@
                                                     <option value="">Seleccione una opción</option>
                                                     <?php foreach ($productores as $productor): ?>
                                                         <option value="<?= $productor->ID_PRODUCTOR ?>">(CSG: <?= $productor->CSG_PRODUCTOR ?>) <?= $productor->NOMBRE_PRODUCTOR ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label>Especie</label>
+                                                <select class="form-control select2" id="especie" name="especie" style="width: 100%;">
+                                                    <option value="">Seleccione una opción</option>
+                                                    <?php foreach ($especies as $especie): ?>
+                                                        <option value="<?= $especie->ID_ESPECIES ?>"><?= $especie->NOMBRE_ESPECIES ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>

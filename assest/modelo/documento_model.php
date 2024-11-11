@@ -15,6 +15,13 @@ class DocumentoModel {
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function getDocumentosByProductorEspecie($productorId, $especieId) {
+        $query = "SELECT * FROM tb_documento WHERE productor_documento = :productorId AND estado_documento = 1";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute(['productorId' => $productorId]);
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function getDocumentoById($id) {
         $query = "SELECT * FROM tb_documento WHERE id_documento = :id";
         $stmt = $this->db->prepare($query);

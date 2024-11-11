@@ -1,15 +1,18 @@
 <?php
 include_once '../../assest/modelo/productor_model.php';
 include_once '../../assest/modelo/documento_model.php';
+include_once '../../assest/modelo/especie_model.php';
 
 class ProductorController {
     private $productorModel;
     private $documentoModel;
+    private $especieModel;
 
     public function __construct() {
         // Crea instancias de los modelos
         $this->productorModel = new ProductorModel();
         $this->documentoModel = new DocumentoModel();
+        $this->especieModel = new EspecieModel();
     }
 
     // Detectar la acción enviada por AJAX
@@ -19,10 +22,18 @@ class ProductorController {
        return $productores;
     }
 
-    
+    public function listaEspecie() {
+        $especies = $this->especieModel->getAllEspecie();
+       return $especies;
+    }
 
     public function viewDocumentos($productorId) {
         $documentos = $this->documentoModel->getDocumentosByProductor($productorId);
+        return $documentos;
+    }
+
+    public function viewDocumentosEspecie($productorId, $especieId) {
+        $documentos = $this->documentoModel->getDocumentosByProductorEspecie($productorId, $especieId);
         return $documentos;
     }
 
@@ -33,6 +44,7 @@ class ProductorController {
             $productorId = $_POST['productor'];
             $nombreDocumento = $_POST['nombre_documento'];
             $fechaVigencia = $_POST['fecha_vigencia'];
+            $especie = $_POST['especie'];
 
             // Convertir la fecha de vigencia a formato DDMMYYYY
             $fechaVigenciaFormateada = date("dmY", strtotime($fechaVigencia));
@@ -49,10 +61,11 @@ class ProductorController {
 
                 // Guardar datos en la base de datos
                 $data = [
-                    'productor_documento' => $productorId,
-                    'nombre_documento' => $nombreDocumento,
-                    'vigencia_documento' => $fechaVigencia,
-                    'archivo_documento' => $nombreArchivo
+                    'productor_documento'   => $productorId,
+                    'nombre_documento'      => $nombreDocumento,
+                    'vigencia_documento'    => $fechaVigencia,
+                    'archivo_documento'     => $nombreArchivo,
+                    'especie_documento'     => $especie
                 ];
 
                 $this->productorModel->saveDocumento($data);
