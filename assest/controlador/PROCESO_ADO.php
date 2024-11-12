@@ -527,10 +527,10 @@ class PROCESO_ADO
                                                     DATE_FORMAT(MODIFICACION, '%Y-%m-%d') AS 'MODIFICACION',
                                                     (select SUM(FINDM.KILOS_NETO_EXIINDUSTRIAL) from fruta_exiindustrial FINDM
                                                     LEFT JOIN estandar_eindustrial ESM ON FINDM.ID_ESTANDAR = ESM.ID_ESTANDAR
-                                                    WHERE FINDM.ID_PROCESO=FPRO.ID_PROCESO AND ESM.AGRUPACION=2 AND ESM.COBRO = 0)AS MERMA, 
+                                                    WHERE FINDM.ID_PROCESO=FPRO.ID_PROCESO AND ESM.AGRUPACION=2 AND ESM.COBRO = 0  AND FINDM.ESTADO_REGISTRO=1)AS MERMA, 
                                                     (select SUM(FINDD.KILOS_NETO_EXIINDUSTRIAL) from fruta_exiindustrial FINDD
                                                     LEFT JOIN estandar_eindustrial ESD ON FINDD.ID_ESTANDAR = ESD.ID_ESTANDAR
-                                                    WHERE FINDD.ID_PROCESO=FPRO.ID_PROCESO AND ESD.AGRUPACION=3 AND ESD.COBRO = 0)AS DESECHO 
+                                                    WHERE FINDD.ID_PROCESO=FPRO.ID_PROCESO AND ESD.AGRUPACION=3 AND ESD.COBRO = 0 AND FINDD.ESTADO NOT IN(6,0))AS DESECHO 
                                                 FROM fruta_proceso FPRO                                                       
                                                 WHERE   ESTADO_REGISTRO = 1 
                                                 AND  ID_TEMPORADA = '" . $TEMPORADA . "' ;	");
@@ -593,11 +593,12 @@ class PROCESO_ADO
 		FINDM.ID_PROCESO = FPRO.ID_PROCESO 
 		AND ESM.AGRUPACION = 2 
 		AND ESM.COBRO = 0 
+        AND FINDM.ESTADO_REGISTRO=1
 	) AS MERMA,
 	(SELECT SUM( FINDD.KILOS_NETO_EXIINDUSTRIAL ) FROM fruta_exiindustrial FINDD LEFT JOIN estandar_eindustrial ESD ON FINDD.ID_ESTANDAR = ESD.ID_ESTANDAR WHERE
 		FINDD.ID_PROCESO = FPRO.ID_PROCESO 
 		AND ESD.AGRUPACION = 3 
-		AND ESD.COBRO = 0 
+		AND ESD.COBRO = 0 AND FINDD.ESTADO NOT IN(6,0)
 	) AS DESECHO 
 FROM
 	fruta_proceso FPRO 
