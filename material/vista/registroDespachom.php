@@ -738,6 +738,7 @@ if (isset($_POST)) {
                                                     <option value="5" <?php if ($TDESPACHO == "5") { echo "selected"; } ?>> Planta Externa</option>
                                                     <option value="6" <?php if ($TDESPACHO == "6") { echo "selected";  } ?>> Venta </option>
                                                     <option value="7" <?php if ($TDESPACHO == "7") { echo "selected"; } ?>> Regalo </option>
+                                                    
 
                                                 </select>
                                                 <label id="val_tdespacho" class="validacion"> </label>

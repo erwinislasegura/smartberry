@@ -788,6 +788,7 @@ if (isset($_POST)) {
                                                     <option value="3" <?php if ($TRECEPCION == "3") { echo "selected"; } ?>> Planta Externa </option>
                                                     <option value="4" <?php if ($TRECEPCION == "4") { echo "selected"; } ?>> Inventario Inicial</option>
                                                     <option value="5" <?php if ($TRECEPCION == "5") { echo "selected"; } ?>> Desde Packing</option>
+                                                    <option value="6" <?php if ($TRECEPCION == "6") { echo "selected"; } ?>> Desde Etiquetado </option>
                                                 </select>
                                                 <label id="val_trecepcion" class="validacion"> </label>
                                             </div>
@@ -955,7 +956,7 @@ if (isset($_POST)) {
                                             </div>
                                         </div>
 
-                                        <?php if ($TRECEPCION != "5") { ?>
+                                        <?php if ($TRECEPCION != "5" && $TRECEPCION != "6") { ?>
 
                                         <div class="col-xxl-3 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
                                             <label>Tipo Documento</label>
@@ -1070,7 +1071,7 @@ if (isset($_POST)) {
 
                                         <?php } ?>
 
-                                        <?php if($TRECEPCION == "5"){?>
+                                        <?php if($TRECEPCION == "5" || $TRECEPCION == "6"){?>
                                         <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
                                             <div class="form-group">
                                                 <label>Responsable</label>
