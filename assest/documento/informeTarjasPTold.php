@@ -98,7 +98,6 @@ if (isset($_REQUEST['parametro'])) {
 if (isset($_REQUEST['parametro1'])) {
 	$ARRAYEMPRESA=$EMPRESA_ADO->verEmpresa($_REQUEST['parametro1']);
 	$NOMBREEMPRESA=$ARRAYEMPRESA[0]['NOMBRE_EMPRESA'];
-    $coc_empresa=$ARRAYEMPRESA[0]['COC'];
 	$EMPRESA=$_REQUEST['parametro1'];
 }
 if (isset($_REQUEST['parametro2'])) {
@@ -221,80 +220,81 @@ foreach ($ARRAYEXISTENCIAPT as $r) :
 		$NOMBREESTANDAR="Sin Datos";
 	}
 	$html = $html . '
-    <table style="width: 100%;">
-    <tbody>   	  
+    <div class=" " >
+		<div class="titulotarja" style="text-align: center; >
+             <b  "> 
+				 <img src="../../assest/img/logo.png" width="90px" height="25px"/>
+             </b><br>
+            <b > 
+				PRODUCTO TERMINADO :   ' . $r['FOLIO_AUXILIAR_EXIEXPORTACION'] . ' 
+			</b>	
+		</div>							
+		<div class="subtitulotarja " > 
+			&nbsp;<b> Estandar : </b> '.$NOMBREESTANDAR.' <br>
+			&nbsp;<b> Total Envase : </b> ' . $r['ENVASE'] . '<br>
+			&nbsp;<b> Total Neto : </b>   ' . $r['NETO'] . ' <br>       
+		</div>	
+';
+
+
+
+	$html = $html . '   
+  <table border="0" cellspacing="0" cellpadding="0"  >
+    <thead>   	  
       <tr>
-        <td style="border: solid 3 black; width: 50px;" colspan="1">
-            <img src="../../assest/img/logo.png" style="height: 30px;  padding-top: 20px; padding-bottom: 20px;"/>
-        </td>
-        <td style="border: solid 3 black; text-align: center;" colspan="2">
-            <b>
-                <p style="font-size: 50px;">' . $r['FOLIO_AUXILIAR_EXIEXPORTACION'] . ' </p>
-                <p style="font-size: 12px;">'.$NOMBREESTANDAR.'</p>
-            </b>
-        </td>
+        <th class=" center">Fecha Embalado</th>
+        <th class=" center ">CSG </th>
+        <th class=" center ">Nombre Productor </th>
+        <th class=" center ">Cant. Envase</th>
+        <th class=" center ">Kilos Neto</th>
+        <th class=" center ">Embolsado </th>
+        <th class=" center ">Variedad </th>
       </tr>
-      <tr>
-        <td style="border: solid 3 black; text-align: center;">
-            <b>
-               <p style="font-size: 12px;">Grower</p>
-            </b>
-        </td>
-        <td style="border: solid 3 black; text-align: center;">
-            <b>
-               <p style="font-size: 12px;">Variety</p>
-            </b>
-        </td>
-        <td style="border: solid 3 black; text-align: center;">
-            <b>
-               <p style="font-size: 12px;">Boxes</p>
-            </b>
-        </td>
-      </tr>';
+    </thead>
+     <tbody >
+	 
+    ';
 
-      foreach ($ARRAYEXISTENCIAPORFOLIO as $s) :
-        $ARRAYVERPRODUCTORID = $PRODUCTOR_ADO->verProductor($s['ID_PRODUCTOR']);
+	foreach ($ARRAYEXISTENCIAPORFOLIO as $s) :
+		$ARRAYVERPRODUCTORID = $PRODUCTOR_ADO->verProductor($s['ID_PRODUCTOR']);
 		$ARRAYVESPECIES = $VESPECIES_ADO->verVespecies($s['ID_VESPECIES']);
-        $html .='
-        <tr>
-            <td style="border: solid 3 black; text-align: center;">
-                <b>
-                <p style="font-size: 12px;">' . $ARRAYVERPRODUCTORID[0]['CSG_PRODUCTOR'] . '</p>
-                </b>
-            </td>
-            <td style="border: solid 3 black; text-align: center;">
-                <b>
-                <p style="font-size: 12px;">' . $ARRAYVESPECIES[0]['NOMBRE_VESPECIES'] . '</p>
-                </b>
-            </td>
-            <td style="border: solid 3 black; text-align: center;">
-                <b>
-                <p style="font-size: 12px;">' . $s['ENVASE'] . '</p>
-                </b>
-            </td>
-        </tr>>';
 
-      endforeach;
+		if ($s['EMBOLSADO'] == "1") {
+			$EMBOLSADO = "SI";
+		}
+		if ($s['EMBOLSADO'] == "0") {
+			$EMBOLSADO = "NO";
+		}
+	
+	
 
-      $html .='
-        <tr>
-            <td style="border: solid 3 black; text-align: center;" colspan="3">
-                <b>
-                <p style="font-size: 12px;">'.$coc_empresa.'</p>
-                </b>
-            </td>
-        </tr>>';
-
-    $html .='</tbody>
-    </table>';
+		$html = $html . ' 
+    <tr >
+        <td  class="center"> ' . $s['EMBALADO'] . '</td>
+        <td  class="center  ">' . $ARRAYVERPRODUCTORID[0]['CSG_PRODUCTOR'] . '</td>
+        <td  class="center  ">' . $ARRAYVERPRODUCTORID[0]['NOMBRE_PRODUCTOR'] . '</td>
+        <td  class="center  ">' . $s['ENVASE'] . '</td>
+        <td  class="center ">' . $s['NETO'] . '</td>
+        <td  class="center  ">' . $EMBOLSADO . '</td>
+        <td  class="center  ">' . $ARRAYVESPECIES[0]['NOMBRE_VESPECIES'] . '</td>
+    </tr>
+    ';
 
 
-
-
-
+	endforeach;
 
 	$html = $html . '
-	  <div class="salto" style=" page-break-after: always; border: none;   margin: 0;   padding: 0;"></div> ';
+    </tbody>
+  </table>  
+  ';
+
+	$html = $html . '
+	
+</div>  
+	  <div class="salto" style=" page-break-after: always; border: none;   margin: 0;   padding: 0;"></div>  
+
+
+    ';
 endforeach;
 
 
@@ -375,9 +375,9 @@ $PDF->SetSubject($ASUNTO); //ASUNTO PDF
 //$PDF->packTableData = true;
 
 
-//$stylesheet1 = file_get_contents('../../assest/css/styleTarja.css'); // carga archivo css
+$stylesheet1 = file_get_contents('../../assest/css/styleTarja.css'); // carga archivo css
 $stylesheet2 = file_get_contents('../../assest/css/reset.css'); // carga archivo css
-//$PDF->WriteHTML($stylesheet1, 1);
+$PDF->WriteHTML($stylesheet1, 1);
 $PDF->WriteHTML($stylesheet2, 1);
 $PDF->WriteHTML($html);
 //$PDF->Output();

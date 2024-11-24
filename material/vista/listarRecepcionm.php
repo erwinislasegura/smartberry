@@ -201,6 +201,11 @@ include_once "../../assest/config/datosUrLP.php";
                                                     } else if ($r['TRECEPCION'] == "4") {
                                                         $CSGCSPORIGEN="No Aplica";
                                                         $TRECEPCION = "Inventario Inicial";                                                    
+                                                        $NOMBREORIGEN = "Sin Datos";  
+                                                                                                              
+                                                    }else if ($r['TRECEPCION'] == "6") {
+                                                        $CSGCSPORIGEN="No Aplica";
+                                                        $TRECEPCION = "Desde Etiquetado";                                                    
                                                         $NOMBREORIGEN = "Sin Datos";                                                        
                                                     } else {
                                                         $CSGCSPORIGEN = "Sin Datos";
