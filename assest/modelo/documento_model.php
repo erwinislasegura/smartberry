@@ -10,6 +10,7 @@ class DocumentoModel {
 
     public function getDocumentosByProductor($productorId) {
         $query = "SELECT * FROM tb_documento WHERE productor_documento = :productorId AND estado_documento = 1";
+        //echo $productorId.' '.$query;
         $stmt = $this->db->prepare($query);
         $stmt->execute(['productorId' => $productorId]);
         return $stmt->fetchAll(PDO::FETCH_OBJ);
