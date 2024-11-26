@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once "../../assest/config/validarUsuarioFruta.php";
 
 //LLAMADA ARCHIVOS NECESARIOS PARA LAS OPERACIONES
