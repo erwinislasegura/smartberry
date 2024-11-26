@@ -272,9 +272,11 @@ foreach ($ARRAYEXISTENCIAPT as $r) :
                 <p style="font-size: 12px;">' . $s['ENVASE'] . '</p>
                 </b>
             </td>
-        </tr>>';
+        </tr>';
 
       endforeach;
+
+      
 
       $html .='
         <tr>
