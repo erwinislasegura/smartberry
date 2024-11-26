@@ -2334,11 +2334,14 @@ class EXIEXPORTACION_ADO
                         FOLIO_AUXILIAR_EXIEXPORTACION, 
                         FOLIO_EXIEXPORTACION,
                         ID_ESTANDAR,
+                        COLOR,
                         SUM(CANTIDAD_ENVASE_EXIEXPORTACION)AS ENVASES,
                         SUM(KILOS_NETO_EXIEXPORTACION)AS KILOS_NETO,
                         SUM(KILOS_BRUTO_EXIEXPORTACION)AS KILOS_BRUTO,
                         SUM(KILOS_DESHIRATACION_EXIEXPORTACION)AS KILOS_DESHIDRATACION,
-                        (REFERENCIA)AS NUMERO_REFERENCIA FROM
+                        (REFERENCIA)AS NUMERO_REFERENCIA, 
+                        (SELECT count(ID) FROM registro_calidad WHERE FOLIOEX = FOLIO_EXIEXPORTACION AND ID_EMPRESA = '" . $EMPRESA . "' AND ESTADO=1)AS NUMERO_REGISTROS
+                         FROM
                         fruta_exiexportacion 
                     WHERE
                     ID_EMPRESA = '" . $EMPRESA . "' 
@@ -2346,9 +2349,8 @@ class EXIEXPORTACION_ADO
                     AND ID_TEMPORADA = '" . $TEMPORADA . "' 
                         AND ESTADO_REGISTRO = 1 
                         AND ESTADO = 2 
-                        AND (COLOR IS NULL OR COLOR != 1)
                     GROUP BY
-                        FOLIO_AUXILIAR_EXIEXPORTACION;";*/
+                        FOLIO_EXIEXPORTACION;";*/
 
 
                         

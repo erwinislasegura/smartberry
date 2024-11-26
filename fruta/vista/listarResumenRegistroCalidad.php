@@ -563,6 +563,7 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
             var formData = new FormData();
                 formData.append('action', 'listResumen');
                 formData.append('empresa', <?php echo $_SESSION['ID_EMPRESA']; ?>);
+                formData.append('temporada', <?php echo $_SESSION['ID_TEMPORADA']; ?>);
             $.ajax({
                     data: formData,
                     url: "../../assest/controlador/REGCALIDAD_ADO.php",

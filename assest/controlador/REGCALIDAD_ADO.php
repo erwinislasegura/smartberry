@@ -42,14 +42,15 @@ class REGCALIDAD_ADO {
         }
     }
 
-    public function listarResumenRegCalidad($empresa) {
+    public function listarResumenRegCalidad($empresa, $temporada) {
         try {
             $datos = $this->conexion->prepare("SELECT * FROM registro_calidad 
              LEFT JOIN fruta_exiexportacion  on fruta_exiexportacion.FOLIO_AUXILIAR_EXIEXPORTACION = registro_calidad.FOLIO 
              LEFT JOIN fruta_productor on fruta_productor.id_productor = fruta_exiexportacion.id_productor 
              LEFT JOIN estandar_eexportacion on estandar_eexportacion.ID_ESTANDAR = fruta_exiexportacion.ID_ESTANDAR 
-             WHERE registro_calidad.ID_EMPRESA = ? AND registro_calidad.ESTADO=1 order by ID DESC;");
+             WHERE registro_calidad.ID_EMPRESA = ? AND registro_calidad.ESTADO=1 AND fruta_exiexportacion.ID_TEMPORADA=?  order by ID DESC;");
             $datos->execute([$empresa]);
+            $datos->execute([$temporada]);
             $resultado = $datos->fetchAll();
             $datos = null;
             return $resultado;
@@ -159,7 +160,8 @@ class REGCALIDAD_ADO {
             }elseif ($action == 'listResumen') {
 
                 $empresa = $_POST['empresa'];
-                $resultado = $this->listarResumenRegCalidad($empresa);
+                $temporada = $_POST['temporada'];
+                $resultado = $this->listarResumenRegCalidad($empresa, $temporada);
                 echo json_encode($resultado);
 
             }elseif ($action == 'rechazo') {
