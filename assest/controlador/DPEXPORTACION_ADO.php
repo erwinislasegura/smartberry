@@ -387,7 +387,8 @@ class DPEXPORTACION_ADO
                                                             FORMAT(PDESHIDRATACION_DPEXPORTACION,2,'de_DE') AS 'PORCENTAJE',
                                                             FORMAT(KILOS_DESHIDRATACION_DPEXPORTACION,2,'de_DE') AS 'DESHIDRATACION'
                                                 FROM fruta_dpexportacion 
-                                                WHERE ID_PROCESO= '" . $IDPROCESO . "' AND  ESTADO_REGISTRO = 1 ;");
+                                                LEFT JOIN fruta_tcalibre FTC ON fruta_dpexportacion.ID_TCALIBRE = FTC.ID_TCALIBRE
+                                                WHERE fruta_dpexportacion.ID_PROCESO= '" . $IDPROCESO . "' AND  fruta_dpexportacion.ESTADO_REGISTRO = 1 ;");
             $datos->execute();
             $resultado = $datos->fetchAll();
             $datos=null;
