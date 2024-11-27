@@ -2908,14 +2908,15 @@ class EXIEXPORTACION_ADO
                                                     IFNULL(KILOS_BRUTO_EXIEXPORTACION,0) AS 'BRUTO',
                                                     ID_PRODUCTOR,
                                                     ID_VESPECIES,
-                                                    EMBOLSADO
+                                                    EMBOLSADO, NOMBRE_TCALIBRE
                                                 FROM fruta_exiexportacion 
+                                                LEFT JOIN fruta_tcalibre FTC ON fruta_exiexportacion.ID_TCALIBRE = FTC.ID_TCALIBRE
                                                 WHERE  
-                                                    FOLIO_AUXILIAR_EXIEXPORTACION = '" . $FOLIOAUXILIAREXIEXPORTACION . "' 
-                                                    AND ID_EMPRESA = '" . $EMPRESA . "' 
-                                                    AND ID_PLANTA = '" . $PLANTA . "'
-                                                    AND ESTADO_REGISTRO =  1 
-                                                    AND ESTADO != 0  ;");
+                                                    fruta_exiexportacion.FOLIO_AUXILIAR_EXIEXPORTACION = '" . $FOLIOAUXILIAREXIEXPORTACION . "' 
+                                                    AND fruta_exiexportacion.ID_EMPRESA = '" . $EMPRESA . "' 
+                                                    AND fruta_exiexportacion.ID_PLANTA = '" . $PLANTA . "'
+                                                    AND fruta_exiexportacion.ESTADO_REGISTRO =  1 
+                                                    AND fruta_exiexportacion.ESTADO != 0  ;");
             $datos->execute();
             $resultado = $datos->fetchAll();
             $datos=null;
