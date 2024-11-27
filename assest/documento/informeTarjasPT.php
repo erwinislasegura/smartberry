@@ -220,17 +220,24 @@ foreach ($ARRAYEXISTENCIAPT as $r) :
 		$CODIGOESTANDAR="Sin Datos";
 		$NOMBREESTANDAR="Sin Datos";
 	}
+
+    foreach ($ARRAYEXISTENCIAPORFOLIO as $c) :
+        $nombre_calibre = $c['NOMBRE_TCALIBRE'];
+    endforeach;
+
 	$html = $html . '
     <table style="width: 100%;">
     <tbody>   	  
       <tr>
-        <td style="border: solid 3 black; width: 50px;" colspan="1">
-            <img src="../../assest/img/logo.png" style="height: 30px;  padding-top: 20px; padding-bottom: 20px;"/>
+        <td style="border: solid 3 black; width: 50px; text-align: center;" colspan="1">
+            <b><p style="font-size: 40px;">' . $nombre_calibre . ' </p></b>
+            <b><p style="font-size: 20px;">Size</p></b>
         </td>
         <td style="border: solid 3 black; text-align: center;" colspan="2">
             <b>
                 <p style="font-size: 50px;">' . $r['FOLIO_AUXILIAR_EXIEXPORTACION'] . ' </p>
                 <p style="font-size: 12px;">'.$NOMBREESTANDAR.'</p>
+                <p style="font-size: 12px;">N° '.$coc_empresa.'</p>
             </b>
         </td>
       </tr>
@@ -251,7 +258,7 @@ foreach ($ARRAYEXISTENCIAPT as $r) :
             </b>
         </td>
       </tr>';
-
+$total_envases = 0;
       foreach ($ARRAYEXISTENCIAPORFOLIO as $s) :
         $ARRAYVERPRODUCTORID = $PRODUCTOR_ADO->verProductor($s['ID_PRODUCTOR']);
 		$ARRAYVESPECIES = $VESPECIES_ADO->verVespecies($s['ID_VESPECIES']);
@@ -274,18 +281,26 @@ foreach ($ARRAYEXISTENCIAPT as $r) :
             </td>
         </tr>';
 
-      endforeach;
+        $total_envases = $total_envases + $s['ENVASE'];
 
-      
+      endforeach;
 
       $html .='
         <tr>
-            <td style="border: solid 3 black; text-align: center;" colspan="3">
+            <td style="border: solid 3 black; text-align: center;">
+
+            </td>
+            <td style="border: solid 3 black; text-align: center;">
                 <b>
-                <p style="font-size: 12px;">'.$coc_empresa.'</p>
+                <p style="font-size: 12px;">TOTAL</p>
                 </b>
             </td>
-        </tr>>';
+            <td style="border: solid 3 black; text-align: center;">
+                <b>
+                <p style="font-size: 12px;">' . $total_envases . '</p>
+                </b>
+            </td>
+        </tr>';
 
     $html .='</tbody>
     </table>';
