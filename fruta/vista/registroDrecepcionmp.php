@@ -1023,7 +1023,7 @@ if ($_POST) {
             if ($FOLIOMANUAL == "on") {
                 $NUMEROFOLIODRECEPCION = $_REQUEST['NUMEROFOLIODRECEPCION'];
                 $FOLIOMANUALR = "1";
-                $ARRAYFOLIOPOEXPO = $EXIMATERIAPRIMA_ADO->buscarPorFolio($NUMEROFOLIODRECEPCION);
+                $ARRAYFOLIOPOEXPO = $EXIMATERIAPRIMA_ADO->buscarPorFolio($NUMEROFOLIODRECEPCION, $_REQUEST['EMPRESA'], $_REQUEST['TEMPORADA']);
                 if ($ARRAYFOLIOPOEXPO) {
                     $SINO = "1";
                     $MENSAJE = "El folio ingresado, ya existe.";
@@ -1037,7 +1037,7 @@ if ($_POST) {
                 $SINO = "0";
                 //$ARRAYULTIMOFOLIO = $DRECEPCIONPT_ADO->obtenerFolio($FOLIO);
 
-                $ARRAYULTIMOFOLIO = $EXIMATERIAPRIMA_ADO->obtenerFolio($FOLIO, $_REQUEST['EMPRESA'], $_REQUEST['PLANTA'], $_REQUEST['TEMPORADA']);
+                $ARRAYULTIMOFOLIO = $EXIMATERIAPRIMA_ADO->obtenerFolio($FOLIO, $_REQUEST['EMPRESA'], $_REQUEST['TEMPORADA']);
                 if ($ARRAYULTIMOFOLIO) {
                     if ($ARRAYULTIMOFOLIO[0]['ULTIMOFOLIO'] == 0) {
                         $FOLIOMATERIAPRIMA = $ARRAYVERFOLIO[0]['NUMERO_FOLIO'];
@@ -1048,9 +1048,9 @@ if ($_POST) {
                     $FOLIOMATERIAPRIMA = $ARRAYVERFOLIO[0]['NUMERO_FOLIO'];
                 }
                 $NUMEROFOLIODRECEPCION = $FOLIOMATERIAPRIMA + 1;
-                $ARRAYFOLIOPOEXPO = $EXIMATERIAPRIMA_ADO->buscarPorFolio($NUMEROFOLIODRECEPCION);
+                $ARRAYFOLIOPOEXPO = $EXIMATERIAPRIMA_ADO->buscarPorFolio($NUMEROFOLIODRECEPCION, $_REQUEST['EMPRESA'], $_REQUEST['TEMPORADA']);
                 while (count($ARRAYFOLIOPOEXPO) == 1) {
-                    $ARRAYFOLIOPOEXPO = $EXIMATERIAPRIMA_ADO->buscarPorFolio($NUMEROFOLIODRECEPCION);
+                    $ARRAYFOLIOPOEXPO = $EXIMATERIAPRIMA_ADO->buscarPorFolio($NUMEROFOLIODRECEPCION, $_REQUEST['EMPRESA'], $_REQUEST['TEMPORADA']);
                     if (count($ARRAYFOLIOPOEXPO) == 1) {
                         $NUMEROFOLIODRECEPCION += 1;
                     }

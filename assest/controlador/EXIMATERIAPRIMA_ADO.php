@@ -2171,14 +2171,15 @@ class EXIMATERIAPRIMA_ADO
 
 
     //BUSQUEDA POR NUMERO FOLIO ASOCIADO AL REGISTRO
-    public function buscarPorFolio($FOLIOAUXILIAREXIMATERIAPRIMA)
+    public function buscarPorFolio($FOLIOAUXILIAREXIMATERIAPRIMA, $EMPRESA, $TEMPORADA)
     {
         try {
 
             $datos = $this->conexion->prepare("SELECT * 
                                              FROM fruta_eximateriaprima 
-                                             WHERE   FOLIO_AUXILIAR_EXIMATERIAPRIMA LIKE '" . $FOLIOAUXILIAREXIMATERIAPRIMA . "'
-                                               ;");
+                                             WHERE   FOLIO_AUXILIAR_EXIMATERIAPRIMA LIKE '" . $FOLIOAUXILIAREXIMATERIAPRIMA . "' 
+                                            AND ID_EMPRESA = '" . $EMPRESA . "' 
+                                            AND ID_TEMPORADA = '" . $TEMPORADA . "';");
             $datos->execute();
             $resultado = $datos->fetchAll(PDO::FETCH_ASSOC);
             $datos=null;
