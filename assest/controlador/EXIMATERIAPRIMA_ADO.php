@@ -3346,7 +3346,8 @@ class EXIMATERIAPRIMA_ADO
     //OBTENER EL ULTIMO FOLIO OCUPADO DEL DETALLE DE  RECEPCIONS
 
 
-    public function obtenerFolio($IDFOLIO, $EMPRESA, $PLANTA, $TEMPORADA)
+
+    public function obtenerFolio($IDFOLIO)
     {
         try {
 
@@ -3357,9 +3358,6 @@ class EXIMATERIAPRIMA_ADO
                                                 AND ID_DESPACHO2 IS NULL   
                                                 AND ID_DESPACHO3 IS NULL   
                                                 AND ID_PROCESO2 IS NULL                                                                             
-                                                AND ID_EMPRESA = '" . $EMPRESA . "' 
-                                                AND ID_PLANTA = '" . $PLANTA . "'
-                                                AND ID_TEMPORADA = '" . $TEMPORADA . "' 
                                                 ; ");
             $datos->execute();
             $resultado = $datos->fetchAll();

@@ -1037,7 +1037,7 @@ if ($_POST) {
                 $SINO = "0";
                 //$ARRAYULTIMOFOLIO = $DRECEPCIONPT_ADO->obtenerFolio($FOLIO);
 
-                $ARRAYULTIMOFOLIO = $EXIMATERIAPRIMA_ADO->obtenerFolio($FOLIO, $_REQUEST['EMPRESA'], $_REQUEST['TEMPORADA']);
+                $ARRAYULTIMOFOLIO = $EXIMATERIAPRIMA_ADO->obtenerFolio($FOLIO);
                 if ($ARRAYULTIMOFOLIO) {
                     if ($ARRAYULTIMOFOLIO[0]['ULTIMOFOLIO'] == 0) {
                         $FOLIOMATERIAPRIMA = $ARRAYVERFOLIO[0]['NUMERO_FOLIO'];
