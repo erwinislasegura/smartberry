@@ -230,7 +230,7 @@ foreach ($ARRAYDEXPORTACION as $r) :
     <tbody>   	  
       <tr>
         <td style="border: solid 3 black; width: 50px; text-align: center;" colspan="1">
-            <b><p style="font-size: 40px;">' . $r['NOMBRE_TCALIBRE'] . ' </p></b>
+            <b><p style="font-size: 40px;">' . $ARRAYDEXPORTACION[0]['NOMBRE_TCALIBRE'] . ' </p></b>
             <b><p style="font-size: 20px;">Size</p></b>
         </td>
         <td style="border: solid 3 black; text-align: center;" colspan="2">
@@ -333,7 +333,7 @@ foreach ($ARRAYDINDUSTRIAL as $r) :
     <tbody>   	  
       <tr>
         <td style="border: solid 3 black; width: 50px; text-align: center;" colspan="1">
-            <b><p style="font-size: 30px;">'. $calibre_ind.' </p></b>
+            <b><p style="font-size: 30px;">'. $ARRAYEVEEXPORTACIONID[0]['NOMBRE_ESTANDAR'].' </p></b>
         </td>
         <td style="border: solid 3 black; text-align: center;" colspan="2">
             <b>

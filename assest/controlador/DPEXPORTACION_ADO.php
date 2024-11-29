@@ -385,10 +385,10 @@ class DPEXPORTACION_ADO
                                                             FORMAT(KILOS_NETO_DPEXPORTACION,2,'de_DE') AS 'NETO',
                                                             FORMAT(KILOS_BRUTO_DPEXPORTACION,2,'de_DE') AS 'BRUTO',
                                                             FORMAT(PDESHIDRATACION_DPEXPORTACION,2,'de_DE') AS 'PORCENTAJE',
-                                                            FORMAT(KILOS_DESHIDRATACION_DPEXPORTACION,2,'de_DE') AS 'DESHIDRATACION'
+                                                            FORMAT(KILOS_DESHIDRATACION_DPEXPORTACION,2,'de_DE') AS 'DESHIDRATACION', FTC.ORDEN
                                                 FROM fruta_dpexportacion 
                                                 LEFT JOIN fruta_tcalibre FTC ON fruta_dpexportacion.ID_TCALIBRE = FTC.ID_TCALIBRE
-                                                WHERE fruta_dpexportacion.ID_PROCESO= '" . $IDPROCESO . "' AND  fruta_dpexportacion.ESTADO_REGISTRO = 1 ;");
+                                                WHERE fruta_dpexportacion.ID_PROCESO= '" . $IDPROCESO . "' AND  fruta_dpexportacion.ESTADO_REGISTRO = 1  ORDER BY FTC.ORDEN ASC ;");
             $datos->execute();
             $resultado = $datos->fetchAll();
             $datos=null;
