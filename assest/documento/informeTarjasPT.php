@@ -221,9 +221,11 @@ foreach ($ARRAYEXISTENCIAPT as $r) :
 		$NOMBREESTANDAR="Sin Datos";
 	}
 
-    foreach ($ARRAYEXISTENCIAPORFOLIO as $c) :
+    $nombre_calibre = $ARRAYEXISTENCIAPORFOLIO[0]['NOMBRE_TCALIBRE'];
+
+    /*foreach ($ARRAYEXISTENCIAPORFOLIO as $c) :
         $nombre_calibre = $c['NOMBRE_TCALIBRE'];
-    endforeach;
+    endforeach;*/
 
 	$html = $html . '
     <table style="width: 100%;">
@@ -258,7 +260,7 @@ foreach ($ARRAYEXISTENCIAPT as $r) :
             </b>
         </td>
       </tr>';
-$total_envases = 0;
+
       foreach ($ARRAYEXISTENCIAPORFOLIO as $s) :
         $ARRAYVERPRODUCTORID = $PRODUCTOR_ADO->verProductor($s['ID_PRODUCTOR']);
 		$ARRAYVESPECIES = $VESPECIES_ADO->verVespecies($s['ID_VESPECIES']);
