@@ -2840,14 +2840,15 @@ class EXIEXPORTACION_ADO
                                                     IFNULL(KILOS_BRUTO_EXIEXPORTACION,0) AS 'BRUTO',
                                                     ID_PRODUCTOR,
                                                     ID_VESPECIES,
-                                                    EMBOLSADO
+                                                    EMBOLSADO, FTC.NOMBRE_TCALIBRE, FTC.ORDEN
                                                 FROM fruta_exiexportacion 
+                                                LEFT JOIN fruta_tcalibre FTC ON fruta_exiexportacion.ID_TCALIBRE = FTC.ID_TCALIBRE
                                                 WHERE  
-                                                    FOLIO_AUXILIAR_EXIEXPORTACION = '" . $FOLIOAUXILIAREXIEXPORTACION . "' 
-                                                    AND ID_EMPRESA = '" . $EMPRESA . "' 
-                                                    AND ID_PLANTA = '" . $PLANTA . "'
-                                                    AND ESTADO_REGISTRO =  1 
-                                                    AND ESTADO = 2  ;");
+                                                    fruta_exiexportacion.FOLIO_AUXILIAR_EXIEXPORTACION = '" . $FOLIOAUXILIAREXIEXPORTACION . "' 
+                                                    AND fruta_exiexportacion.ID_EMPRESA = '" . $EMPRESA . "' 
+                                                    AND fruta_exiexportacion.ID_PLANTA = '" . $PLANTA . "'
+                                                    AND fruta_exiexportacion.ESTADO_REGISTRO =  1 
+                                                    AND fruta_exiexportacion.ESTADO = 2 ORDER BY FTC.ORDEN ASC;");
             $datos->execute();
             $resultado = $datos->fetchAll();
             $datos=null;
@@ -2874,14 +2875,15 @@ class EXIEXPORTACION_ADO
                                                     IFNULL(KILOS_BRUTO_EXIEXPORTACION,0) AS 'BRUTO',
                                                     ID_PRODUCTOR,
                                                     ID_VESPECIES,
-                                                    EMBOLSADO
+                                                    EMBOLSADO, FTC.NOMBRE_TCALIBRE, FTC.ORDEN
                                                 FROM fruta_exiexportacion 
+                                                LEFT JOIN fruta_tcalibre FTC ON fruta_exiexportacion.ID_TCALIBRE = FTC.ID_TCALIBRE
                                                 WHERE  
-                                                    FOLIO_AUXILIAR_EXIEXPORTACION = '" . $FOLIOAUXILIAREXIEXPORTACION . "' 
-                                                    AND ID_EMPRESA = '" . $EMPRESA . "'
-                                                    AND ID_PLANTA = '" . $PLANTA . "' 
-                                                    AND ESTADO_REGISTRO =  1 
-                                                    AND ESTADO = 8  ;");
+                                                    fruta_exiexportacion.FOLIO_AUXILIAR_EXIEXPORTACION = '" . $FOLIOAUXILIAREXIEXPORTACION . "' 
+                                                    AND fruta_exiexportacion.ID_EMPRESA = '" . $EMPRESA . "'
+                                                    AND fruta_exiexportacion.ID_PLANTA = '" . $PLANTA . "' 
+                                                    AND fruta_exiexportacion.ESTADO_REGISTRO =  1 
+                                                    AND fruta_exiexportacion.ESTADO = 8  ORDER BY FTC.ORDEN ASC;");
             $datos->execute();
             $resultado = $datos->fetchAll();
             $datos=null;
@@ -2898,7 +2900,6 @@ class EXIEXPORTACION_ADO
     public function buscarPorFoliotTarjaHistorial($FOLIOAUXILIAREXIEXPORTACION,$EMPRESA,$PLANTA)
     {
         try {
-
             $datos = $this->conexion->prepare(" SELECT 
                                                     DATE_FORMAT(FECHA_EMBALADO_EXIEXPORTACION, '%d-%m-%Y') AS 'EMBALADO',
                                                     IFNULL(CANTIDAD_ENVASE_EXIEXPORTACION,0) AS 'ENVASE',
@@ -2908,7 +2909,7 @@ class EXIEXPORTACION_ADO
                                                     IFNULL(KILOS_BRUTO_EXIEXPORTACION,0) AS 'BRUTO',
                                                     ID_PRODUCTOR,
                                                     ID_VESPECIES,
-                                                    EMBOLSADO, NOMBRE_TCALIBRE, FTC.ORDEN
+                                                    EMBOLSADO, FTC.NOMBRE_TCALIBRE, FTC.ORDEN
                                                 FROM fruta_exiexportacion 
                                                 LEFT JOIN fruta_tcalibre FTC ON fruta_exiexportacion.ID_TCALIBRE = FTC.ID_TCALIBRE
                                                 WHERE  

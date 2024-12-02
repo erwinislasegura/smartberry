@@ -221,18 +221,19 @@ foreach ($ARRAYEXISTENCIAPT as $r) :
 		$NOMBREESTANDAR="Sin Datos";
 	}
 
-    $nombre_calibre = $ARRAYEXISTENCIAPORFOLIO[0]['NOMBRE_TCALIBRE'];
+    //$nombre_calibre = $ARRAYEXISTENCIAPORFOLIO[0]['NOMBRE_TCALIBRE'];
+    if($ARRAYEXISTENCIAPORFOLIO){
+		$nombre_calibre = $ARRAYEXISTENCIAPORFOLIO[0]["NOMBRE_TCALIBRE"];
+	}
 
-    /*foreach ($ARRAYEXISTENCIAPORFOLIO as $c) :
-        $nombre_calibre = $c['NOMBRE_TCALIBRE'];
-    endforeach;*/
+
 
 	$html = $html . '
     <table style="width: 100%;">
     <tbody>   	  
       <tr>
         <td style="border: solid 3 black; width: 50px; text-align: center;" colspan="1">
-            <b><p style="font-size: 40px;">' . $nombre_calibre . ' </p></b>
+            <b><p style="font-size: 30px;">' . $nombre_calibre . ' </p></b>
             <b><p style="font-size: 20px;">Size</p></b>
         </td>
         <td style="border: solid 3 black; text-align: center;" colspan="2">
