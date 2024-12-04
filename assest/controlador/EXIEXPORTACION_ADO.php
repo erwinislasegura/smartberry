@@ -2326,7 +2326,7 @@ class EXIEXPORTACION_ADO
                     AND ID_PLANTA = '" . $PLANTA . "'
                     AND ID_TEMPORADA = '" . $TEMPORADA . "' 
                         AND ESTADO_REGISTRO = 1 
-                        AND ESTADO = 2 
+                        AND ESTADO IN (2,8) 
                     GROUP BY
                         FOLIO_EXIEXPORTACION;");
 
