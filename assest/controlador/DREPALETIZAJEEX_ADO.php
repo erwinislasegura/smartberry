@@ -562,11 +562,13 @@ class DREPALETIZAJEEX_ADO
 
             $datos = $this->conexion->prepare("SELECT * ,DATE_FORMAT(FECHA_EMBALADO_DREPALETIZAJE, '%d-%m-%Y')  AS 'FECHA',
                                                         FORMAT(IFNULL(CANTIDAD_ENVASE_DREPALETIZAJE,0),0,'de_DE') AS 'ENVASE',
-                                                        FORMAT(IFNULL(KILOS_NETO_DREPALETIZAJE,0),2,'de_DE') AS 'NETO'
+                                                        FORMAT(IFNULL(KILOS_NETO_DREPALETIZAJE,0),2,'de_DE') AS 'NETO',
+                                                        FTC.NOMBRE_TCALIBRE, FTC.ORDEN
                                                 FROM fruta_drepaletizajeex 
-                                                WHERE FOLIO_NUEVO_DREPALETIZAJE= '" . $FOLIONUEVODREPALETIZAJE . "'
-                                                AND ID_REPALETIZAJE = '" . $IDREPALETIZAJE . "' 
-                                                AND ESTADO_REGISTRO = 1  ;");
+                                                LEFT JOIN fruta_tcalibre FTC ON fruta_drepaletizajeex.ID_TCALIBRE = FTC.ID_TCALIBRE
+                                                WHERE fruta_drepaletizajeex.FOLIO_NUEVO_DREPALETIZAJE= '" . $FOLIONUEVODREPALETIZAJE . "'
+                                                AND fruta_drepaletizajeex.ID_REPALETIZAJE = '" . $IDREPALETIZAJE . "' 
+                                                AND fruta_drepaletizajeex.ESTADO_REGISTRO = 1 ORDER BY FTC.ORDEN ASC ;");
             $datos->execute();
             $resultado = $datos->fetchAll();
             $datos=null;
