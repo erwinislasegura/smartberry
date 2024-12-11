@@ -3399,6 +3399,26 @@ class EXIEXPORTACION_ADO
                                                     IFNULL(KILOS_NETO_EXIEXPORTACION,0) AS 'NETO',
                                                     IFNULL(KILOS_DESHIRATACION_EXIEXPORTACION,0) AS 'DESHIRATACION',
                                                     IFNULL(PDESHIDRATACION_EXIEXPORTACION,0) AS 'PORCENTAJE',
+                                                    IFNULL((PESO_BRUTO_ESTANDAR*CANTIDAD_ENVASE_EXIEXPORTACION),0) AS 'BRUTO',
+                                                    IFNULL(PRECIO_PALLET,0) AS 'PRECIO',
+                                                    IFNULL(PRECIO_PALLET*CANTIDAD_ENVASE_EXIEXPORTACION,0) AS 'TOTAL_PRECIO',
+                                                    IF(STOCK = '0','Sin Datos',STOCK ) AS 'STOCKR'
+                                                FROM fruta_exiexportacion 
+                                                LEFT JOIN estandar_eexportacion ON fruta_exiexportacion.ID_ESTANDAR = estandar_eexportacion.ID_ESTANDAR
+                                                WHERE ID_DESPACHOEX= '" . $IDDESEXPORTACION . "'   
+                                                AND ESTADO BETWEEN 7 AND  8
+                                                AND ESTADO_REGISTRO = 1;");
+                                                /*$datos = $this->conexion->prepare("SELECT * ,           
+                                                    FECHA_EMBALADO_EXIEXPORTACION AS 'EMBALADO',                         
+                                                    IFNULL(FECHA_RECEPCION,'Sin Datos') AS 'RECEPCION',
+                                                    IFNULL(FECHA_PROCESO,'Sin Datos') AS 'PROCESO',
+                                                    IFNULL(FECHA_REEMBALAJE,'Sin Datos') AS 'REEMBALAJE',
+                                                    IFNULL(FECHA_REPALETIZAJE,'Sin Datos') AS 'REPALETIZAJE',
+                                                    IFNULL(FECHA_DESPACHO,'Sin Datos') AS 'DESPACHO',            
+                                                    IFNULL(CANTIDAD_ENVASE_EXIEXPORTACION,0) AS 'ENVASE', 
+                                                    IFNULL(KILOS_NETO_EXIEXPORTACION,0) AS 'NETO',
+                                                    IFNULL(KILOS_DESHIRATACION_EXIEXPORTACION,0) AS 'DESHIRATACION',
+                                                    IFNULL(PDESHIDRATACION_EXIEXPORTACION,0) AS 'PORCENTAJE',
                                                     IFNULL(KILOS_BRUTO_EXIEXPORTACION,0) AS 'BRUTO',
                                                     IFNULL(PRECIO_PALLET,0) AS 'PRECIO',
                                                     IFNULL(PRECIO_PALLET*CANTIDAD_ENVASE_EXIEXPORTACION,0) AS 'TOTAL_PRECIO',
@@ -3406,7 +3426,7 @@ class EXIEXPORTACION_ADO
                                                 FROM fruta_exiexportacion 
                                                 WHERE ID_DESPACHOEX= '" . $IDDESEXPORTACION . "'   
                                                 AND ESTADO BETWEEN 7 AND  8
-                                                AND ESTADO_REGISTRO = 1;");
+                                                AND ESTADO_REGISTRO = 1;");*/
             $datos->execute();
             $resultado = $datos->fetchAll();
             $datos=null;
