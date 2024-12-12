@@ -3403,8 +3403,10 @@ class EXIEXPORTACION_ADO
                                                     IFNULL(KILOS_BRUTO_EXIEXPORTACION,0) AS 'BRUTO',
                                                     IFNULL(PRECIO_PALLET,0) AS 'PRECIO',
                                                     IFNULL(PRECIO_PALLET*CANTIDAD_ENVASE_EXIEXPORTACION,0) AS 'TOTAL_PRECIO',
-                                                    IF(STOCK = '0','Sin Datos',STOCK ) AS 'STOCKR'
+                                                    IF(fruta_exiexportacion.STOCK = '0','Sin Datos',fruta_exiexportacion.STOCK ) AS 'STOCKR',
+													IFNULL(estandar_eexportacion.PESO_PALLET_ESTANDAR,0) AS PESO_PALLET
                                                 FROM fruta_exiexportacion 
+                                                 LEFT JOIN estandar_eexportacion ON fruta_exiexportacion.ID_ESTANDAR = estandar_eexportacion.ID_ESTANDAR
                                                 WHERE ID_DESPACHOEX= '" . $IDDESEXPORTACION . "'   
                                                 AND ESTADO BETWEEN 7 AND  8
                                                 AND ESTADO_REGISTRO = 1;");

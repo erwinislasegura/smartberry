@@ -528,7 +528,7 @@ $html = '
         <th class="color center ">Etiqueta </th>
         <th class="color center ">Envases </th>
         <th class="color center ">Kilos Neto </th>
-        <th class="color center ">Kilos Bruto </th>
+        <th class="color center ">Kilos Bruto</th>
         <th class="color center ">Recibiddor</th>
 ';
 
@@ -700,7 +700,7 @@ foreach ($ARRAYDESPACHOEX as $s) :
                   <td class=" center ">' . $NOMBRETETIQUETA . ' </td>
                   <td class=" center">' . $r['ENVASE'] . '</td>
                   <td class=" center">' . $r['NETO'] . '</td>
-                  <td class=" center">' . $r['BRUTO'] . '</td>
+                  <td class=" center">' . $r['BRUTO']-$r['PESO_PALLET'] . '</td>
                   <td class=" center ">' . $NOMBRERFINAL . ' </td>  
 
                   ';
