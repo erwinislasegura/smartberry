@@ -101,7 +101,7 @@ class RFINAL_ADO
     public function verRfinal($ID)
     {
         try {
-
+            //echo "SELECT * FROM  fruta_rfinal  WHERE  ID_RFINAL = '" . $ID . "';";
             $datos = $this->conexion->prepare("SELECT * FROM  fruta_rfinal  WHERE  ID_RFINAL = '" . $ID . "';");
             $datos->execute();
             $resultado = $datos->fetchAll();

@@ -276,7 +276,7 @@ if($ARRAYICARGA){
       }  
       $ARRAYRFINAL=$RFINAL_ADO->verRfinal($ARRAYICARGA[0]["ID_RFINAL"]);
       if($ARRAYRFINAL){
-          $NOMBRERFINAL=$ARRAYRFINAL[0]["NOMBRE_RFINAL"];
+          $NOMBRERFINAL=htmlspecialchars($ARRAYRFINAL[0]["NOMBRE_RFINAL"], ENT_QUOTES, 'UTF-8');
       }else{
           $NOMBRERFINAL="Sin Datos";
       }
