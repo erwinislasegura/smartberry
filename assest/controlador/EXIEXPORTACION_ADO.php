@@ -3407,9 +3407,9 @@ class EXIEXPORTACION_ADO
 													IFNULL(estandar_eexportacion.PESO_PALLET_ESTANDAR,0) AS PESO_PALLET
                                                 FROM fruta_exiexportacion 
                                                  LEFT JOIN estandar_eexportacion ON fruta_exiexportacion.ID_ESTANDAR = estandar_eexportacion.ID_ESTANDAR
-                                                WHERE ID_DESPACHOEX= '" . $IDDESEXPORTACION . "'   
-                                                AND ESTADO BETWEEN 7 AND  8
-                                                AND ESTADO_REGISTRO = 1;");
+                                                WHERE fruta_exiexportacion.ID_DESPACHOEX= '" . $IDDESEXPORTACION . "'   
+                                                AND fruta_exiexportacion.ESTADO BETWEEN 7 AND  8
+                                                AND fruta_exiexportacion.ESTADO_REGISTRO = 1;");
             $datos->execute();
             $resultado = $datos->fetchAll();
             $datos=null;
