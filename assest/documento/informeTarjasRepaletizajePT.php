@@ -228,7 +228,7 @@ foreach ($ARRAYDREPALETIZAJEMP as $r) :
 
 
 
-
+	  $total_envases = 0;
 	foreach ($ARRAYEXIMATERIAPRIMA as $s) :
 		$ARRAYVERPRODUCTORID = $PRODUCTOR_ADO->verProductor($s['ID_PRODUCTOR']);
 		$ARRAYVESPECIES = $VESPECIES_ADO->verVespecies($s['ID_VESPECIES']);
