@@ -5220,6 +5220,30 @@ class EXIEXPORTACION_ADO
             die($e->getMessage());
         }
     }
+
+    public function actualizarDespachoAgregarTermografo(EXIEXPORTACION $EXIEXPORTACION)
+    {
+        try {
+            $query = "
+                    UPDATE fruta_exiexportacion SET
+                        MODIFICACION = SYSDATE(), 
+                        ID_DESPACHO = ?,    
+                        N_TERMOGRAFO = ?         
+                    WHERE ID_EXIEXPORTACION= ? ;";
+            $this->conexion->prepare($query)
+                ->execute(
+                    array(
+                        $EXIEXPORTACION->__GET('ID_DESPACHO'),
+                        $EXIEXPORTACION->__GET('N_TERMOGRAFO'),
+                        $EXIEXPORTACION->__GET('ID_EXIEXPORTACION')
+
+                    )
+
+                );
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
     public function actualizarSelecionarSagCambiarEstado(EXIEXPORTACION $EXIEXPORTACION)
     {
         try {

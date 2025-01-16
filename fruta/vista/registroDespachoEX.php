@@ -2236,7 +2236,14 @@ if (isset($_POST)) {
                                                     Seleccion PC
                                                 </button>
                                             </div>
-                                        </form>                                       
+                                        </form>  
+                                        
+                                        <div class="col-auto">
+                                                        <button type="submit" form="form2" class="btn btn-success btn-block" data-toggle="tooltip" title="Agregar Termografos" name="TERMOGRAFOS" value="TERMOGRAFOS">
+                                                                Agregar Termógrafos
+                                                        </button>
+                                                </div>
+
                                         <div class="col-auto">
                                             <label class="sr-only" for=""></label>
                                             <div class="input-group mb-2">
@@ -2278,6 +2285,7 @@ if (isset($_POST)) {
                                                     <th>Condición </th>
                                                     <th class="text-center">Operaciónes</th>
                                                     <th>Fecha Embalado </th>
+                                                    <th>Termógrafo </th>
                                                     <th>Código Estandar</th>
                                                     <th>Envase/Estandar</th>
                                                     <th>Variedad</th>
@@ -2299,6 +2307,7 @@ if (isset($_POST)) {
                                                 <?php if ($ARRAYTOMADO) { ?>
                                                     <?php foreach ($ARRAYTOMADO as $r) : ?>
                                                         <?php
+                                                        $CONTADOR = $CONTADOR + 1;
                                                         if ($r['TESTADOSAG'] == null || $r['TESTADOSAG'] == "0") {
                                                             $ESTADOSAG = "Sin Condición";
                                                         }
@@ -2378,6 +2387,16 @@ if (isset($_POST)) {
                                                                 </form>
                                                             </td>
                                                             <td><?php echo $r['EMBALADO']; ?></td>
+                                                            <td>
+                                                                <div class="form-group">
+                                                                    <input type="hidden" class="form-control" placeholder="ID DESPACHO" id="IDP" name="IDP" value="<?php echo $IDOP; ?>" />
+                                                                    <input type="hidden" class="form-control" name="FOLIOEXIEXPORTACIONTERMOGRAFO[]" value="<?php echo $r['FOLIO_AUXILIAR_EXIEXPORTACION']; ?>" />
+                                                                    <input type="hidden" class="form-control" name="IDEXIEXPORTACIONTERMOGRAFO[]" value="<?php echo $r['ID_EXIEXPORTACION']; ?>" />
+                                                                    <input type="hidden" class="form-control" name="IDTERMOGRAFO[]" value="<?php echo  $CONTADOR; ?>">
+                                                                    <input type="text" placeholder="Termógrafo" class="form-control" name="TERMOGRAFO[]"
+                                                                    <?php if ($ESTADO == 0) { echo "disabled";} ?> value="<?php echo $r['N_TERMOGRAFO']; ?>">
+                                                                </div>
+                                                            </td>
                                                             <td><?php echo $CODIGOESTANDAR; ?></td>
                                                             <td><?php echo $NOMBREESTANDAR; ?></td>
                                                             <td><?php echo $NOMBREVARIEDAD; ?></td>
@@ -2805,6 +2824,80 @@ if (isset($_POST)) {
                     location.href = "registroDespachoEX.php?op&id='.$id_dato.'&a='.$accion_dato.'";                            
                 })
             </script>';
+        }
+
+        if (isset($_REQUEST['TERMOGRAFOS'])) {
+            $ARRAYDDESPACHOMP2 = $EXIEXPORTACION_ADO->verExistenciaPorDespacho($_REQUEST['IDP']);
+            if (empty($ARRAYDDESPACHOMP2)) {
+                $MENSAJE = "TIENE  QUE HABER AL MENOS UNA EXISTENCIA DE PRODUCTO TERMINADO";
+                $SINO = "1";
+            } else {
+                $MENSAJE = "";
+                $SINO = "0";
+            }
+            if ($SINO == 0) {
+                $ARRAYIDDESPACHO = $_REQUEST['IDDESPACHO'];
+                $ARRAYIDEXIEXPORTACIONTERMOGRAFO = $_REQUEST['IDEXIEXPORTACIONTERMOGRAFO'];
+                $ARRAYFOLIOEXIEXPORTACIONTERMOGRAFO = $_REQUEST['FOLIOEXIEXPORTACIONTERMOGRAFO'];
+                $ARRAYTERMOGRAFO = $_REQUEST['TERMOGRAFO'];
+                $ARRAYIDTERMOGRAFO = $_REQUEST['IDTERMOGRAFO'];
+
+                foreach ($ARRAYIDTERMOGRAFO as $ID) :
+                    $IDTERMOGRAFO = $ID - 1;
+                    $IDDESPACHO = $ARRAYIDDESPACHO[$IDTERMOGRAFO];
+                    $IDEXIEXPORTACIONTERMOGRAFO = $ARRAYIDEXIEXPORTACIONTERMOGRAFO[$IDTERMOGRAFO];
+                    $FOLIOEXIEXPORTACIONTERMOGRAFO = $ARRAYFOLIOEXIEXPORTACIONTERMOGRAFO[$IDTERMOGRAFO];
+                    $TERMOGRAFO = $ARRAYTERMOGRAFO[$IDTERMOGRAFO];
+
+                    if ($TERMOGRAFO != "") {
+                        $SINOTERMOGRAFO = 0;
+                        $MENSAJETERMOGRAFO2 = $MENSAJETERMOGRAFO2;
+                    } else {
+                        $SINOTERMOGRAFO = 1;
+                        $MENSAJETERMOGRAFO2 = $MENSAJETERMOGRAFO2 . "" . $FOLIOEXIEXPORTACIONTERMOGRAFO . ": SE DEBE INGRESAR UN DATO. ";
+                    }
+                    if ($SINOTERMOGRAFO == 0) {
+
+                        $EXIEXPORTACION->__SET('ID_DESPACHO', $IDDESPACHO);
+                        $EXIEXPORTACION->__SET('ID_EXIEXPORTACION', $IDEXIEXPORTACIONTERMOGRAFO);
+                        $EXIEXPORTACION->__SET('N_TERMOGRAFO', $TERMOGRAFO);
+                        // LLAMADA AL METODO DE REGISTRO DEL CONTROLADOR
+                        $EXIEXPORTACION_ADO->actualizarDespachoAgregarTermografo($EXIEXPORTACION);
+
+                        //$AUSUARIO_ADO->agregarAusuario2("NULL",1,2,"".$_SESSION["NOMBRE_USUARIO"].", Se agrego el precio a la Existencia en el despacho de producto terminado.","fruta_exiexportacion", "NULL" ,$_SESSION["ID_USUARIO"],$_SESSION['ID_EMPRESA'], $_SESSION['ID_PLANTA'],$_SESSION['ID_TEMPORADA'] );  
+                    }
+                endforeach;
+                
+            if($MENSAJETERMOGRAFO2!=""){                
+                echo '
+                    <script>
+                        Swal.fire({
+                            icon:"warning",
+                            title:"Accion restringida",
+                            text:"' . $MENSAJETERMOGRAFO2 . '",
+                            showConfirmButton: true,
+                            confirmButtonText:"Cerrar",
+                            closeOnConfirm:false
+                        }).then((result)=>{
+                            location.href ="registroDespachopt.php?op&id='.$id_dato.'&a='.$accion_dato.'";                                
+                        });
+                </script>';
+            }else{                                
+                echo '
+                    <script>
+                        Swal.fire({
+                            icon:"success",
+                            title:"Accion realizada",
+                            text:"Se agregaron los precios correctamente.",
+                            showConfirmButton: true,
+                            confirmButtonText:"Cerrar",
+                            closeOnConfirm:false
+                        }).then((result)=>{
+                            location.href ="registroDespachopt.php?op&id='.$id_dato.'&a='.$accion_dato.'";                                
+                        });
+                </script>';
+            }
+            }
         }
 ?>
 
