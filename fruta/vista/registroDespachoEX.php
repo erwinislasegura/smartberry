@@ -188,6 +188,14 @@ $IDOP = "";
 $OP = "";
 $ID = "";
 
+$IDEXIEXPORTACIONTERMOGRAFO = "";
+$FOLIOEXIEXPORTACIONTERMOGRAFO = "";
+$IDDESPACHO = "";
+$IDTERMOGRAFO = "";
+$CONTADOR = 0;
+$TERMOGRAFO= "";
+
+
 $EEXPORTACION = "";
 $VESPECIES = "";
 $CALIBRE = "";
@@ -2239,10 +2247,10 @@ if (isset($_POST)) {
                                         </form>  
                                         
                                         <div class="col-auto">
-                                                        <button type="submit" form="form2" class="btn btn-success btn-block" data-toggle="tooltip" title="Agregar Termografos" name="TERMOGRAFOS" value="TERMOGRAFOS">
+                                                        <button type="submit" form="form" class="btn btn-success btn-block" data-toggle="tooltip" title="Agregar Termografos" name="TERMOGRAFOS" value="TERMOGRAFOS">
                                                                 Agregar Termógrafos
                                                         </button>
-                                                </div>
+                                                        </div>
 
                                         <div class="col-auto">
                                             <label class="sr-only" for=""></label>
@@ -2278,6 +2286,7 @@ if (isset($_POST)) {
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
+                                    <form method="post" id="form">
                                         <table id="detalle" class="table-hover " style="width: 100%;">
                                             <thead>
                                                 <tr>
@@ -2390,11 +2399,12 @@ if (isset($_POST)) {
                                                             <td>
                                                                 <div class="form-group">
                                                                     <input type="hidden" class="form-control" placeholder="ID DESPACHO" id="IDP" name="IDP" value="<?php echo $IDOP; ?>" />
+                                                                    <input type="hidden" class="form-control" name="IDDESPACHO[]" value="<?php echo $IDOP; ?>" />
                                                                     <input type="hidden" class="form-control" name="FOLIOEXIEXPORTACIONTERMOGRAFO[]" value="<?php echo $r['FOLIO_AUXILIAR_EXIEXPORTACION']; ?>" />
                                                                     <input type="hidden" class="form-control" name="IDEXIEXPORTACIONTERMOGRAFO[]" value="<?php echo $r['ID_EXIEXPORTACION']; ?>" />
                                                                     <input type="hidden" class="form-control" name="IDTERMOGRAFO[]" value="<?php echo  $CONTADOR; ?>">
                                                                     <input type="text" placeholder="Termógrafo" class="form-control" name="TERMOGRAFO[]"
-                                                                    <?php if ($ESTADO == 0) { echo "disabled";} ?> value="<?php echo $r['N_TERMOGRAFO']; ?>">
+                                                                    <?php //if ($ESTADO == 0) { echo "disabled";} ?> value="<?php echo $r['N_TERMOGRAFO']; ?>">
                                                                 </div>
                                                             </td>
                                                             <td><?php echo $CODIGOESTANDAR; ?></td>
@@ -2417,6 +2427,7 @@ if (isset($_POST)) {
                                                 <?php } ?>
                                             </tbody>
                                         </table>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -2827,76 +2838,97 @@ if (isset($_POST)) {
         }
 
         if (isset($_REQUEST['TERMOGRAFOS'])) {
+            //echo '<script> alert("accede a termografo");</script>';
             $ARRAYDDESPACHOMP2 = $EXIEXPORTACION_ADO->verExistenciaPorDespacho($_REQUEST['IDP']);
+            //echo '<script> alert("2");</script>';
             if (empty($ARRAYDDESPACHOMP2)) {
+                //echo '<script> alert("3");</script>';
                 $MENSAJE = "TIENE  QUE HABER AL MENOS UNA EXISTENCIA DE PRODUCTO TERMINADO";
                 $SINO = "1";
             } else {
+               // echo '<script> alert("4");</script>';
                 $MENSAJE = "";
                 $SINO = "0";
             }
+
+  
+
             if ($SINO == 0) {
+
+                //echo '<script> alert("accede 2");</script>';
                 $ARRAYIDDESPACHO = $_REQUEST['IDDESPACHO'];
                 $ARRAYIDEXIEXPORTACIONTERMOGRAFO = $_REQUEST['IDEXIEXPORTACIONTERMOGRAFO'];
                 $ARRAYFOLIOEXIEXPORTACIONTERMOGRAFO = $_REQUEST['FOLIOEXIEXPORTACIONTERMOGRAFO'];
                 $ARRAYTERMOGRAFO = $_REQUEST['TERMOGRAFO'];
                 $ARRAYIDTERMOGRAFO = $_REQUEST['IDTERMOGRAFO'];
 
+                var_dump($ARRAYFOLIOEXIEXPORTACIONTERMOGRAFO);
                 foreach ($ARRAYIDTERMOGRAFO as $ID) :
                     $IDTERMOGRAFO = $ID - 1;
+           
                     $IDDESPACHO = $ARRAYIDDESPACHO[$IDTERMOGRAFO];
+                   
                     $IDEXIEXPORTACIONTERMOGRAFO = $ARRAYIDEXIEXPORTACIONTERMOGRAFO[$IDTERMOGRAFO];
+                  
                     $FOLIOEXIEXPORTACIONTERMOGRAFO = $ARRAYFOLIOEXIEXPORTACIONTERMOGRAFO[$IDTERMOGRAFO];
+                   
                     $TERMOGRAFO = $ARRAYTERMOGRAFO[$IDTERMOGRAFO];
+                
+
+                    //var_dump($TERMOGRAFO);
 
                     if ($TERMOGRAFO != "") {
                         $SINOTERMOGRAFO = 0;
                         $MENSAJETERMOGRAFO2 = $MENSAJETERMOGRAFO2;
-                    } else {
+                        //die('trae datos');
+                    } /*else {
+                        //die('no trae datos');
                         $SINOTERMOGRAFO = 1;
                         $MENSAJETERMOGRAFO2 = $MENSAJETERMOGRAFO2 . "" . $FOLIOEXIEXPORTACIONTERMOGRAFO . ": SE DEBE INGRESAR UN DATO. ";
-                    }
+                    }*/
                     if ($SINOTERMOGRAFO == 0) {
-
+                        //die('si trae ingresa');
                         $EXIEXPORTACION->__SET('ID_DESPACHO', $IDDESPACHO);
                         $EXIEXPORTACION->__SET('ID_EXIEXPORTACION', $IDEXIEXPORTACIONTERMOGRAFO);
                         $EXIEXPORTACION->__SET('N_TERMOGRAFO', $TERMOGRAFO);
                         // LLAMADA AL METODO DE REGISTRO DEL CONTROLADOR
                         $EXIEXPORTACION_ADO->actualizarDespachoAgregarTermografo($EXIEXPORTACION);
 
+                        $MENSAJETERMOGRAFO2 = $EXIEXPORTACION_ADO->actualizarDespachoAgregarTermografo($EXIEXPORTACION);
+
                         //$AUSUARIO_ADO->agregarAusuario2("NULL",1,2,"".$_SESSION["NOMBRE_USUARIO"].", Se agrego el precio a la Existencia en el despacho de producto terminado.","fruta_exiexportacion", "NULL" ,$_SESSION["ID_USUARIO"],$_SESSION['ID_EMPRESA'], $_SESSION['ID_PLANTA'],$_SESSION['ID_TEMPORADA'] );  
                     }
                 endforeach;
                 
-            if($MENSAJETERMOGRAFO2!=""){                
-                echo '
-                    <script>
-                        Swal.fire({
-                            icon:"warning",
-                            title:"Accion restringida",
-                            text:"' . $MENSAJETERMOGRAFO2 . '",
-                            showConfirmButton: true,
-                            confirmButtonText:"Cerrar",
-                            closeOnConfirm:false
-                        }).then((result)=>{
-                            location.href ="registroDespachopt.php?op&id='.$id_dato.'&a='.$accion_dato.'";                                
-                        });
-                </script>';
-            }else{                                
-                echo '
-                    <script>
-                        Swal.fire({
-                            icon:"success",
-                            title:"Accion realizada",
-                            text:"Se agregaron los precios correctamente.",
-                            showConfirmButton: true,
-                            confirmButtonText:"Cerrar",
-                            closeOnConfirm:false
-                        }).then((result)=>{
-                            location.href ="registroDespachopt.php?op&id='.$id_dato.'&a='.$accion_dato.'";                                
-                        });
-                </script>';
-            }
+                if($MENSAJETERMOGRAFO2!=""){                
+                    echo '
+                        <script>
+                            Swal.fire({
+                                icon:"warning",
+                                title:"Accion restringida",
+                                text:"' . $MENSAJETERMOGRAFO2 . '",
+                                showConfirmButton: true,
+                                confirmButtonText:"Cerrar",
+                                closeOnConfirm:false
+                            }).then((result)=>{
+                                location.href ="registroDespachoEX.php?op&id='.$id_dato.'&a='.$accion_dato.'";                                
+                            });
+                    </script>';
+                }else{                                
+                    echo '
+                        <script>
+                            Swal.fire({
+                                icon:"success",
+                                title:"Accion realizada",
+                                text:"Se agregaron los termógrafos correctamente.",
+                                showConfirmButton: true,
+                                confirmButtonText:"Cerrar",
+                                closeOnConfirm:false
+                            }).then((result)=>{
+                                location.href ="registroDespachoEX.php?op&id='.$id_dato.'&a='.$accion_dato.'";                                
+                            });
+                    </script>';
+                }
             }
         }
 ?>

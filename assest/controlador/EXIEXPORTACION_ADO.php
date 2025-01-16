@@ -1042,7 +1042,9 @@ class EXIEXPORTACION_ADO
     public function verExistenciaPorDespachoEX($IDDESPACHOEX)
     {
         try {
-
+            die("SELECT * FROM fruta_exiexportacion 
+                                        WHERE ID_DESPACHOEX= '" . $IDDESPACHOEX . "'                                           
+                                        AND ESTADO_REGISTRO = 1;");
             $datos = $this->conexion->prepare("SELECT * FROM fruta_exiexportacion 
                                         WHERE ID_DESPACHOEX= '" . $IDDESPACHOEX . "'                                           
                                         AND ESTADO_REGISTRO = 1;");
@@ -5240,6 +5242,7 @@ class EXIEXPORTACION_ADO
                     )
 
                 );
+                echo $query;
         } catch (Exception $e) {
             die($e->getMessage());
         }
