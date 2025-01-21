@@ -171,7 +171,7 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                                                     <th>Folio Final</th>
                                                     <th>Tipo</th>
 
-                                                    <th>Cod. Productor</th>
+                                                    <th>CSG Productor</th>
                                                     <th>Productor</th>
                                                     <th>F. Embalaje</th>
                                                     <th>Estandar</th>
@@ -193,7 +193,81 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                                                     <th>QC Condición</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody id="bodyRegistroCalidad">
+                                                <tbody>
+                                                <?php if ($ARRAYEXIEXPORTACION) { ?>
+                                                    <?php foreach ($ARRAYEXIEXPORTACION as $r) : ?>
+                                                        <?php 
+                                                            
+                                                            $ARRAYVERPRODUCTORID = $PRODUCTOR_ADO->verProductor($r['ID_PRODUCTOR']);
+                                                            if ($ARRAYVERPRODUCTORID) {
+                                                                $CSGPRODUCTOR = $ARRAYVERPRODUCTORID[0]['CSG_PRODUCTOR'];
+                                                                $NOMBREPRODUCTOR = $ARRAYVERPRODUCTORID[0]['NOMBRE_PRODUCTOR'];
+                                                            } else {
+                                                                $CSGPRODUCTOR = "Sin Datos";
+                                                                $NOMBREPRODUCTOR = "Sin Datos";
+                                                            }
+
+
+                                                            $ARRAYEVERERECEPCIONID = $EEXPORTACION_ADO->verEstandar($r['ID_ESTANDAR']);
+                                                            if ($ARRAYEVERERECEPCIONID) {
+                                                                $CODIGOESTANDAR = $ARRAYEVERERECEPCIONID[0]['CODIGO_ESTANDAR'];
+                                                                $NOMBREESTANDAR = $ARRAYEVERERECEPCIONID[0]['NOMBRE_ESTANDAR'];
+                                                            } else {
+                                                                $NOMBREESTANDAR = "Sin Datos";
+                                                                $CODIGOESTANDAR = "Sin Datos";
+                                                            }
+
+
+                                                            $ARRAYTEMBALAJE = $TEMBALAJE_ADO->verEmbalaje($r['ID_TEMBALAJE']);
+                                                        if ($ARRAYTEMBALAJE) {
+                                                            $NOMBRETEMBALAJE = $ARRAYTEMBALAJE[0]['NOMBRE_TEMBALAJE'];
+                                                        } else {
+                                                            $NOMBRETEMBALAJE = "Sin Datos";
+                                                        }
+                                                            
+                                                            
+                                                        ?>
+                                                        <tr class="center">
+                                                        <td><?php echo $r['FECHA'].'/'.$r['HORA']; ?></td>
+                                                        <td><?php echo $r['Folioex']; ?></td>
+                                                        <td><?php echo $r['FOLIO']; ?></td>
+                                                        <td>
+                                                            <?php 
+                                                                switch($r['TIPO']){
+                                                                    case '1': echo 'Origen';
+                                                                    break;
+                                                                    case '2': echo 'Destino';
+                                                                    break;
+                                                                    default: echo 'No definido';
+                                                                }
+                                                        
+                                                        ?></td>
+
+                                                        <td><?php echo $CSGPRODUCTOR; ?></td>
+                                                        <td><?php echo $NOMBREPRODUCTOR; ?></td>
+                                                        <td><?php echo $NOMBRETEMBALAJE; ?></td>
+                                                        <td><?php echo $NOMBREESTANDAR; ?></td>
+                                                        <td><?php echo $CODIGOESTANDAR; ?></td>
+                                                        <td><?php echo $r['CANTIDAD_ENVASE_EXIEXPORTACION']; ?></td>
+
+                                                        <td><?php echo $r['BAXLO_PROMEDIO']; ?></td>
+                                                        <td><?php echo $r['PESO_10_FRUTOS']; ?></td>
+                                                        <td><?php echo $r['TEMPERATURA']; ?></td>
+                                                        <td><?php echo $r['BRIX']; ?></td>
+                                                        <td><?php echo $r['PUDRICION_MICELIO']; ?></td>
+                                                        <td><?php echo $r['HERIDAS_ABIERTAS']; ?></td>
+                                                        <td><?php echo $r['DESHIDRATACION']; ?></td>
+                                                        <td><?php echo $r['EXUDACION_JUGO']; ?></td>
+                                                        <td><?php echo $r['BLANDO']; ?></td>
+                                                        <td><?php echo $r['MACHUCON']; ?></td>
+                                                        <td><?php echo $r['INMADURA_ROJA']; ?></td>
+                                                        <td><?php echo $r['QC_CALIDAD']; ?></td>
+                                                        <td><?php echo $r['QC_CONDICION']; ?></td>
+                           
+
+                                                        </tr>
+                                                        <?php endforeach; ?>
+                                                        <?php } ?>
                                                    
                                                 </tbody>
                                             </table>
@@ -543,92 +617,6 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                 }
             });
         });
-        </script>
-        <script>
-            // const Toast = Swal.mixin({
-            //     toast: true,
-            //     position: 'top',
-            //     showConfirmButton: false,
-            //     showConfirmButton: false
-            // })
-            // Toast.fire({
-            //     icon: "info",
-            //     title: "Informacion importante",
-            //     html: "<label>Las <b>Existencia</b> que tienen la letra de color <b>Rojo</b> tiene mas de 7 dias desde su ingreso.</label>"
-            // })
-
-            
-
-
-            var formData = new FormData();
-                formData.append('action', 'listResumen');
-                formData.append('empresa', <?php echo $_SESSION['ID_EMPRESA']; ?>);
-                formData.append('temporada', <?php echo $_SESSION['ID_TEMPORADA']; ?>);
-            $.ajax({
-                    data: formData,
-                    url: "../../assest/controlador/REGCALIDAD_ADO.php",
-                    type: "POST",
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    beforeSend: function() {
-                        console.log('precargamos la tabla');
-                    },
-                    success: function(respuesta) {
-                    console.log(respuesta);
-                    var registros = JSON.parse(respuesta);
-
-                    if (registros.status !== 'error') {
-                            var html = '';
-                            registros.forEach(function(registro) {
-                                html += '<tr>';
-                                html += '<td>' + registro.FECHA + '/' + registro.HORA + '</td>';
-                                html += '<td>' + registro.FOLIOEX + '</td>';
-                                html += '<td>' + registro.FOLIO + '</td>';
-                                
-                                var tipo_descripcion = '';
-                                switch(registro.TIPO){
-                                    case '1': tipo_descripcion = 'Origen';
-                                    break;
-                                    case '2': tipo_descripcion = 'Destino';
-                                    break;
-                                    default: tipo_descripcion = 'Desconocido';
-                                }
-                                html += '<td>' + tipo_descripcion + '</td>';
-
-                                html += '<td>' + registro.ID_PRODUCTOR + '</td>';
-                                html += '<td>' + registro.NOMBRE_PRODUCTOR + '</td>';
-                                html += '<td>' + registro.FECHA_EMBALADO_EXIEXPORTACION + '</td>';
-                                html += '<td>' + registro.ID_ESTANDAR + '</td>';
-                                html += '<td>' + registro.NOMBRE_ESTANDAR + '</td>';
-                                html += '<td>' + registro.CANTIDAD_ENVASE_EXIEXPORTACION + '</td>';
-
-
-                                html += '<td>' + registro.BAXLO_PROMEDIO + '</td>';
-                                html += '<td>' + registro.PESO_10_FRUTOS + '</td>';
-                                html += '<td>' + registro.TEMPERATURA + '</td>';
-                                html += '<td>' + registro.BRIX + '</td>';
-                                html += '<td>' + registro.PUDRICION_MICELIO + '</td>';
-                                html += '<td>' + registro.HERIDAS_ABIERTAS + '</td>';
-                                html += '<td>' + registro.DESHIDRATACION + '</td>';
-                                html += '<td>' + registro.EXUDACION_JUGO + '</td>';
-                                html += '<td>' + registro.BLANDO + '</td>';
-                                html += '<td>' + registro.MACHUCON + '</td>';
-                                html += '<td>' + registro.INMADURA_ROJA + '</td>';
-                                html += '<td>' + registro.QC_CALIDAD + '</td>';
-                                html += '<td>' + registro.QC_CONDICION + '</td>';
-                                html += '</tr>';
-                            });
-                            
-                            $('#bodyRegistroCalidad').html(html);
-                        } else {
-                            console.log(registros.message);
-                        }
-                        
-                    }
-                });
-
-
         </script>
 
 
