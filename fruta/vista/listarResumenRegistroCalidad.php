@@ -545,6 +545,14 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                 dom: 'Bfrtip',
                 buttons: [
                     {
+                extend: 'excelHtml5',
+                text: 'Exportar Excel',
+                title: 'Resumen de Calidad',
+                exportOptions: {
+                    columns: ':visible' // Exportar solo columnas visibles
+                }
+            },
+                    {
                         extend: 'pdfHtml5',
                         text: 'Exportar PDF',
                         title: 'Agrupado PT Registros de Calidad',
