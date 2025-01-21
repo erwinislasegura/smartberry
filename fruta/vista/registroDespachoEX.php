@@ -1514,7 +1514,7 @@ if (isset($_POST)) {
                                                     <label id="val_numerocontenedor" class="validacion"> </label>
                                                 </div>
                                             </div>
-                                            <div class="col-xxl-2 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6">
+                                            <div class="col-xxl-2 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6" style="display: none;">
                                                 <div class="form-group">
                                                     <label>Temorgrafo </label>
                                                     <input type="hidden" class="form-control" placeholder="TERMOGRAFODESPACHOEXE" id="TERMOGRAFODESPACHOEXE" name="TERMOGRAFODESPACHOEXE" value="<?php echo $TERMOGRAFODESPACHOEX; ?>" />

@@ -234,7 +234,7 @@ include_once "../../assest/config/datosUrLP.php";
                                                     <th>Empresa</th>
                                                     <th>Planta</th>
                                                     <th>Temporada</th>
-                                                    <th>Termógrafo</th>
+                                                  
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -479,7 +479,7 @@ include_once "../../assest/config/datosUrLP.php";
                                                         <td><?php echo $NOMBREEMPRESA; ?></td>
                                                         <td><?php echo $NOMBREPLANTA; ?></td>
                                                         <td><?php echo $NOMBRETEMPORADA; ?></td>
-                                                        <td><?php echo $r['N_TERMOGRAFO']; ?></td>
+                                                       
                                                     </tr>
                                                 <?php endforeach; ?>
                                             </tbody>

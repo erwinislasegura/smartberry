@@ -575,6 +575,8 @@ foreach ($ARRAYDESPACHOEX as $s) :
   $FECHADESPACHOEX=$s['FECHA'];
   $NUMEROCONTENEDOR=$s['NUMERO_CONTENEDOR_DESPACHOEX'];
   $NUMEROSELLO=$s['NUMERO_SELLO_DESPACHOEX'];
+
+
   $TERMOGRAFODESPACHOEX=$s['TERMOGRAFO_DESPACHOEX'];
   $ARRAYVERPLANTA = $PLANTA_ADO->verPlanta($s['ID_PLANTA']);
   if($ARRAYVERPLANTA){
@@ -678,6 +680,14 @@ foreach ($ARRAYDESPACHOEX as $s) :
         } else {
             $NOMBRETEMBALAJE = "Sin Datos";
         }
+
+        $ArrayTermografoPallet =$EXIEXPORTACION_ADO->verFolio($r['FOLIO_EXIEXPORTACION']);  
+              if($ArrayTermografoPallet){
+                $termografoPallet=$ArrayTermografoPallet[0]["N_TERMOGRAFO"];
+              }else{
+                $termografoPallet="Sin Datos";
+              }
+
         $html = $html . '    
               <tr class="center">        
                   <td class=" center ">' . $NUMEROIREFERENCIA . ' </td>
@@ -737,9 +747,10 @@ foreach ($ARRAYDESPACHOEX as $s) :
 
                   $html=$html.'
 
-                                <td class=" center ">' . $TERMOGRAFODESPACHOEX . ' </td>   
+                               <td class=" center ">' . $termografoPallet . ' </td>   
                               </tr>
                               ';
+                              // <td class=" center ">' . $TERMOGRAFODESPACHOEX . ' </td>   
 
 
   endforeach;

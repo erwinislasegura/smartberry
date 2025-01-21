@@ -2332,7 +2332,7 @@ class EXIEXPORTACION_ADO
                     GROUP BY
                         FOLIO_EXIEXPORTACION;");
 
-                        /*echo "SELECT
+                        echo "SELECT
                         FOLIO_AUXILIAR_EXIEXPORTACION, 
                         FOLIO_EXIEXPORTACION,
                         ID_ESTANDAR,
@@ -2350,9 +2350,9 @@ class EXIEXPORTACION_ADO
                     AND ID_PLANTA = '" . $PLANTA . "'
                     AND ID_TEMPORADA = '" . $TEMPORADA . "' 
                         AND ESTADO_REGISTRO = 1 
-                        AND ESTADO = 2 
+                        AND ESTADO IN (2,8) 
                     GROUP BY
-                        FOLIO_EXIEXPORTACION;";*/
+                        FOLIO_EXIEXPORTACION;";
 
 
                         
@@ -6389,6 +6389,26 @@ class EXIEXPORTACION_ADO
             die($e->getMessage());
         }
     }
+
+    public function verFolio($ID){
+        try{
+            
+            $datos=$this->conexion->prepare("SELECT * FROM  fruta_exiexportacion  WHERE  FOLIO_AUXILIAR_EXIEXPORTACION = '".$ID."' LIMIT 1;");
+            $datos->execute();
+            $resultado = $datos->fetchAll();
+            $datos=null;
+            
+            //	print_r($resultado);
+            //	var_dump($resultado);
+            
+            
+            return $resultado;
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+        
+    }
+
     public function buscarExistenciaBolsaInspeccion2($IDINPSAG)
     {
         try {
