@@ -173,7 +173,7 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
 
                                                     <th>CSG Productor</th>
                                                     <th>Productor</th>
-                                                    <th>F. Embalaje</th>
+                                                    <th>Embalaje</th>
                                                     <th>Estandar</th>
                                                     <th>Cod. Estandar</th>
                                                     <th>Cajas</th>
