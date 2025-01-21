@@ -647,6 +647,7 @@ foreach ($ARRAYDESPACHOEX as $s) :
         if ($ARRAYEVERERECEPCIONID) {
             $CODIGOESTANDAR = $ARRAYEVERERECEPCIONID[0]['CODIGO_ESTANDAR'];
             $NOMBREESTANDAR = $ARRAYEVERERECEPCIONID[0]['NOMBRE_ESTANDAR'];
+            $PESO_BRUTO_ESTANDAR = $ARRAYEVERERECEPCIONID[0]['PESO_BRUTO_ESTANDAR'];
             $ARRAYTETIQUETA=$TETIQUETA_ADO->verEtiqueta($ARRAYEVERERECEPCIONID[0]['ID_TETIQUETA']);
             if($ARRAYTETIQUETA){
                 $NOMBRETETIQUETA = $ARRAYTETIQUETA[0]['NOMBRE_TETIQUETA'];
@@ -710,7 +711,7 @@ foreach ($ARRAYDESPACHOEX as $s) :
                   <td class=" center ">' . $NOMBRETETIQUETA . ' </td>
                   <td class=" center">' . $r['ENVASE'] . '</td>
                   <td class=" center">' . $r['NETO'] . '</td>
-                  <td class=" center">' . ($r['BRUTO']-$r['PESO_PALLET']). '</td>
+                  <td class=" center">' . ($PESO_BRUTO_ESTANDAR*$r['ENVASE']). '</td>
                   <td class=" center ">' . $NOMBRERFINAL . ' </td>  
 
                   ';
