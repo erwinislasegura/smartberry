@@ -702,7 +702,7 @@ foreach ($ARRAYTOMADO as $r) :
     }
 
 
-    $ArrayTermografoPallet =$EXIEXPORTACION_ADO->verFolio($r['FOLIO_EXIEXPORTACION']);  
+    $ArrayTermografoPallet =$EXIEXPORTACION_ADO->verFolio($r['FOLIO_AUXILIAR_EXIEXPORTACION']);  
               if($ArrayTermografoPallet){
                 $termografoPallet=$ArrayTermografoPallet[0]["N_TERMOGRAFO"];
               }else{
