@@ -2307,6 +2307,68 @@ class EXIEXPORTACION_ADO
                     }
     }
 
+
+    public function listaFolioAgrupadoExistenciaExportacionCalidadReg($EMPRESA, $PLANTA, $TEMPORADA){
+        try {
+        echo "SELECT
+                        FOLIO_AUXILIAR_EXIEXPORTACION, 
+                        FOLIO_EXIEXPORTACION,
+                        ID_ESTANDAR,
+                        COLOR,
+                        SUM(CANTIDAD_ENVASE_EXIEXPORTACION)AS ENVASES,
+                        SUM(KILOS_NETO_EXIEXPORTACION)AS KILOS_NETO,
+                        SUM(KILOS_BRUTO_EXIEXPORTACION)AS KILOS_BRUTO,
+                        SUM(KILOS_DESHIRATACION_EXIEXPORTACION)AS KILOS_DESHIDRATACION,
+                        (REFERENCIA)AS NUMERO_REFERENCIA, 
+                        (SELECT count(ID) FROM registro_calidad WHERE FOLIOEX = FOLIO_EXIEXPORTACION AND ID_EMPRESA = '" . $EMPRESA . "' AND ESTADO=1)AS NUMERO_REGISTROS
+                         FROM
+                        fruta_exiexportacion 
+                    WHERE
+                    ID_EMPRESA = '" . $EMPRESA . "' 
+                    AND ID_PLANTA = '" . $PLANTA . "'
+                    AND ID_TEMPORADA = '" . $TEMPORADA . "' 
+                        AND ESTADO_REGISTRO = 1 
+                        AND ESTADO IN (2,8) 
+                    GROUP BY
+                        FOLIO_EXIEXPORTACION;";
+            $datos = $this->conexion->prepare("SELECT
+                        FOLIO_AUXILIAR_EXIEXPORTACION, 
+                        FOLIO_EXIEXPORTACION,
+                        ID_ESTANDAR,
+                        COLOR,
+                        SUM(CANTIDAD_ENVASE_EXIEXPORTACION)AS ENVASES,
+                        SUM(KILOS_NETO_EXIEXPORTACION)AS KILOS_NETO,
+                        SUM(KILOS_BRUTO_EXIEXPORTACION)AS KILOS_BRUTO,
+                        SUM(KILOS_DESHIRATACION_EXIEXPORTACION)AS KILOS_DESHIDRATACION,
+                        (REFERENCIA)AS NUMERO_REFERENCIA, 
+                        (SELECT count(ID) FROM registro_calidad WHERE FOLIOEX = FOLIO_EXIEXPORTACION AND ID_EMPRESA = '" . $EMPRESA . "' AND ESTADO=1)AS NUMERO_REGISTROS
+                         FROM
+                        fruta_exiexportacion 
+                    WHERE
+                    ID_EMPRESA = '" . $EMPRESA . "' 
+                    AND ID_PLANTA = '" . $PLANTA . "'
+                    AND ID_TEMPORADA = '" . $TEMPORADA . "' 
+                        AND ESTADO_REGISTRO = 1 
+                        AND ESTADO IN (2,8) 
+                    GROUP BY
+                        FOLIO_EXIEXPORTACION;");
+
+
+                        
+                        $datos->execute();
+                        $resultado = $datos->fetchAll();
+                        $datos=null;
+
+                        //	print_r($resultado);
+                        //	var_dump($resultado);
+
+
+                        return $resultado;
+                    } catch (Exception $e) {
+                        die($e->getMessage());
+                    }
+    }
+
     public function listaFolioAgrupadoExistenciaExportacionCalidad($EMPRESA){
         try {
         
