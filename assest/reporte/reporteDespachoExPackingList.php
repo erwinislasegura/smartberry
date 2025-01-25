@@ -640,6 +640,7 @@ $html=$html.'
             <th class="color center ">CSP Planta </th>
             <th class="color center ">Nombre Planta </th>
             <th class="color center ">Temporada  </th>
+            <th class="color center ">Termógrafo  </th>
     </tr>
     </thead>
  <tbody>
@@ -699,6 +700,14 @@ foreach ($ARRAYTOMADO as $r) :
     } else {
         $NOMBRETCALIBRE = "Sin Datos";
     }
+
+
+    $ArrayTermografoPallet =$EXIEXPORTACION_ADO->verFolio($r['FOLIO_EXIEXPORTACION']);  
+              if($ArrayTermografoPallet){
+                $termografoPallet=$ArrayTermografoPallet[0]["N_TERMOGRAFO"];
+              }else{
+                $termografoPallet="Sin Datos";
+              }
   
 $html = $html . '    
             <tr class="center">        
@@ -755,6 +764,7 @@ if ($TEMBARQUE == "3") {
               <td class=" center ">' . $CODIGOSAGPLANTA . ' </td>
               <td class=" center ">' . $NOMBREPLANTA . ' </td>
               <td class=" center ">' . $NOMBRETEMPORADA . ' </td>
+              <td class=" center ">' . $termografoPallet  . ' </td>
             </tr>
             ';
 
