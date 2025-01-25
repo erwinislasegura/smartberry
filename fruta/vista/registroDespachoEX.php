@@ -1517,8 +1517,8 @@ if (isset($_POST)) {
                                             <div class="col-xxl-2 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6" style="display: none;">
                                                 <div class="form-group">
                                                     <label>Temorgrafo </label>
-                                                    <input type="hidden" class="form-control" placeholder="TERMOGRAFODESPACHOEXE" id="TERMOGRAFODESPACHOEXE" name="TERMOGRAFODESPACHOEXE" value="<?php echo $TERMOGRAFODESPACHOEX; ?>" />
-                                                    <input type="text" class="form-control"  placeholder="Temórgrafo" id="TERMOGRAFODESPACHOEX" name="TERMOGRAFODESPACHOEX" value="<?php echo $TERMOGRAFODESPACHOEX; ?>" <?php echo $DISABLED2; ?>  />
+                                                    <input type="hidden" class="form-control" placeholder="TERMOGRAFODESPACHOEXE" id="TERMOGRAFODESPACHOEXE" name="TERMOGRAFODESPACHOEXE" value="0<?php //echo $TERMOGRAFODESPACHOEX; ?>" />
+                                                    <input type="text" class="form-control"  placeholder="Temórgrafo" id="TERMOGRAFODESPACHOEX" name="TERMOGRAFODESPACHOEX" value="0<?php //echo $TERMOGRAFODESPACHOEX; ?>" <?php echo $DISABLED2; ?>  />
                                                     <label id="val_temorgrafo" class="validacion"> </label>
                                                 </div>
                                             </div>
