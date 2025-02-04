@@ -32,6 +32,7 @@ class REGCALIDAD_ADO {
 
     public function listarRegCalidad($folioex, $empresa) {
         try {
+            //echo '"SELECT * FROM registro_calidad WHERE FOLIOEX = ? AND ID_EMPRESA = ? AND ESTADO=1 order by ID DESC;"';
             $datos = $this->conexion->prepare("SELECT * FROM registro_calidad WHERE FOLIOEX = ? AND ID_EMPRESA = ? AND ESTADO=1 order by ID DESC;");
             $datos->execute([$folioex, $empresa]);
             $resultado = $datos->fetchAll();
@@ -62,6 +63,61 @@ class REGCALIDAD_ADO {
             die($e->getMessage());
         }
     }
+
+    public function actualizarRegCalidad(REGCALIDAD $REGCALIDAD) {
+        try {
+            $query = "UPDATE registro_calidad SET
+                         FOLIO = ?, 
+                         FECHA = ?, 
+                         HORA = ?, 
+                         ID_USUARIO = ?, 
+                         TIPO = ?, 
+                         BAXLO_PROMEDIO = ?, 
+                         PESO_10_FRUTOS = ?, 
+                         TEMPERATURA = ?, 
+                         BRIX = ?, 
+                         PUDRICION_MICELIO = ?, 
+                         HERIDAS_ABIERTAS = ?, 
+                         DESHIDRATACION = ?, 
+                         EXUDACION_JUGO = ?, 
+                         BLANDO = ?, 
+                         MACHUCON = ?, 
+                         INMADURA_ROJA = ?, 
+                         QC_CALIDAD = ?, 
+                         QC_CONDICION = ?, 
+                         ID_EMPRESA = ?
+                       WHERE FOLIOEX = ? AND FOLIO = ? AND ESTADO = 1";
+            
+            // Ejecutamos la consulta con los parámetros
+            $this->conexion->prepare($query)->execute(array(
+                $REGCALIDAD->__GET('FOLIO'),
+                $REGCALIDAD->__GET('FECHA'),
+                $REGCALIDAD->__GET('HORA'),
+                $REGCALIDAD->__GET('ID_USUARIO'),
+                $REGCALIDAD->__GET('TIPO'),
+                $REGCALIDAD->__GET('BAXLO_PROMEDIO'),
+                $REGCALIDAD->__GET('PESO_10_FRUTOS'),
+                $REGCALIDAD->__GET('TEMPERATURA'),
+                $REGCALIDAD->__GET('BRIX'),
+                $REGCALIDAD->__GET('PUDRICION_MICELIO'),
+                $REGCALIDAD->__GET('HERIDAS_ABIERTAS'),
+                $REGCALIDAD->__GET('DESHIDRATACION'),
+                $REGCALIDAD->__GET('EXUDACION_JUGO'),
+                $REGCALIDAD->__GET('BLANDO'),
+                $REGCALIDAD->__GET('MACHUCON'),
+                $REGCALIDAD->__GET('INMADURA_ROJA'),
+                $REGCALIDAD->__GET('QC_CALIDAD'),
+                $REGCALIDAD->__GET('QC_CONDICION'),
+                $REGCALIDAD->__GET('ID_EMPRESA'),
+                $REGCALIDAD->__GET('FOLIOEX'),
+                $REGCALIDAD->__GET('FOLIO')
+            ));
+            
+        } catch(Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    
 
     public function agregarRegCalidad(REGCALIDAD $REGCALIDAD) {
         try {
@@ -150,6 +206,33 @@ class REGCALIDAD_ADO {
                 $this->agregarRegCalidad($regCalidad);
                 
                 echo 1;
+            } elseif ($action == 'update') {
+                // Acción para actualizar el registro
+                $regCalidad = new REGCALIDAD();
+                $regCalidad->__SET('FOLIOEX', $_POST['folioex']);
+                $regCalidad->__SET('FOLIO', $_POST['folio']);
+                $regCalidad->__SET('FECHA', $_POST['fecha']);
+                $regCalidad->__SET('HORA', $_POST['hora']);
+                $regCalidad->__SET('ID_USUARIO', $_POST['usuario']);
+                $regCalidad->__SET('TIPO', $_POST['tipo']);
+                $regCalidad->__SET('BAXLO_PROMEDIO', $_POST['baxlo_promedio']);
+                $regCalidad->__SET('PESO_10_FRUTOS', $_POST['peso_10_frutos']);
+                $regCalidad->__SET('TEMPERATURA', $_POST['temperatura']);
+                $regCalidad->__SET('BRIX', $_POST['brix']);
+                $regCalidad->__SET('PUDRICION_MICELIO', $_POST['pudricion_micelio']);
+                $regCalidad->__SET('HERIDAS_ABIERTAS', $_POST['heridas_abiertas']);
+                $regCalidad->__SET('DESHIDRATACION', $_POST['deshidratacion']);
+                $regCalidad->__SET('EXUDACION_JUGO', $_POST['exudacion_jugo']);
+                $regCalidad->__SET('BLANDO', $_POST['blando']);
+                $regCalidad->__SET('MACHUCON', $_POST['machucon']);
+                $regCalidad->__SET('INMADURA_ROJA', $_POST['inmadura_roja']);
+                $regCalidad->__SET('QC_CALIDAD', $_POST['qc_calidad']);
+                $regCalidad->__SET('QC_CONDICION', $_POST['qc_condicion']);
+                $regCalidad->__SET('ID_EMPRESA', $_POST['empresa']);
+                
+                $this->actualizarRegCalidad($regCalidad);
+                
+                echo 1; // Respuesta de éxito
             } elseif ($action == 'list') {
 
                 $folioex = $_POST['folioex'];

@@ -422,6 +422,7 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
             </div>
             <div class="row">
             <div class="col-md-12">
+            <button type="submit" class="btn btn-secondary float-right btnEdit">Modificar Registro</button>
             <button type="submit" class="btn btn-primary float-right btnAdd">Guardar Registro</button>
             <!--<button type="button" class="btn btn-danger float-left btnRechazo">Rechazar Folio </button>-->
             </div>
@@ -435,6 +436,7 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                         <table class="table-hover dataTable" style="width: 100%;" >
                             <thead>
                                 <tr class="text-center">
+                                    <th></th>
                                     <th>Fecha/Hora</th>
                                     <th>Folio Original</th>
                                     <th>Folio Final</th>
@@ -610,6 +612,12 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
             $('body').on('click', 'button.registroCalidad', function(event) {
                 console.log('ejecutamos modal-left');
 
+
+                $('.btnEdit').css('display', 'none');
+        $('.btnAdd').css('display', 'block'); 
+        $('input[name="action"]').val('insert');
+
+
                 var folio = $(this).attr('attr-id');
                 var folioex = $(this).attr('attr-idex');
 
@@ -656,8 +664,9 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                             var html = '';
                             registros.forEach(function(registro) {
                                 html += '<tr>';
+                                html += '<td><button class="btn btn-secondary btn-editar" data-registro=\'' + JSON.stringify(registro) + '\'>Editar</button></td>';
                                 html += '<td>' + registro.FECHA + '/' + registro.HORA + '</td>';
-                                html += '<td>' + registro.FOLIOEX + '</td>';
+                                html += '<td>' + registro.Folioex + '</td>';
                                 html += '<td>' + registro.FOLIO + '</td>';
                                 
                                 var tipo_descripcion = '';
@@ -698,6 +707,38 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                 return false;
             });
 
+
+               // Manejar el clic en el botón "Editar"
+    $(document).on('click', '.btn-editar', function() {
+        var registro = $(this).data('registro'); // Obtener el objeto de datos del registro
+        
+        // Asignar los datos del registro a los campos del formulario
+        $('input[name="fecha"]').val(registro.FECHA);
+        $('input[name="hora"]').val(registro.HORA);
+        $('input[name="folioex"]').val(registro.Folioex);
+        $('input[name="folio"]').val(registro.FOLIO);
+        $('input[name="tipo"]').val(registro.TIPO); // Si tienes un <select> para el tipo, usa .val() con el valor correspondiente
+        $('input[name="baxlo_promedio"]').val(registro.BAXLO_PROMEDIO);
+        $('input[name="peso_10_frutos"]').val(registro.PESO_10_FRUTOS);
+        $('input[name="temperatura"]').val(registro.TEMPERATURA);
+        $('input[name="brix"]').val(registro.BRIX);
+        $('input[name="pudricion_micelio"]').val(registro.PUDRICION_MICELIO);
+        $('input[name="heridas_abiertas"]').val(registro.HERIDAS_ABIERTAS);
+        $('input[name="deshidratacion"]').val(registro.DESHIDRATACION);
+        $('input[name="exudacion_jugo"]').val(registro.EXUDACION_JUGO);
+        $('input[name="blando"]').val(registro.BLANDO);
+        $('input[name="machucon"]').val(registro.MACHUCON);
+        $('input[name="inmadura_roja"]').val(registro.INMADURA_ROJA);
+        $('input[name="qc_calidad"]').val(registro.QC_CALIDAD);
+        $('input[name="qc_condicion"]').val(registro.QC_CONDICION);
+        
+        // Si tienes un campo oculto para saber si es edición, puedes asignarlo también
+        $('input[name="action"]').val('update');
+        $('.btnEdit').css('display', 'block');
+        $('.btnAdd').css('display', 'none'); 
+
+    });
+
             $('body').on('submit', 'form#formRegistroCalidad', function(event) {
                 var formData = new FormData($('form#formRegistroCalidad')[0]);
                 var folio = $("input[name='folio']").val();
@@ -729,6 +770,9 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                             stack: 6
                         });
                         //$("form#form")[0].reset();
+                        $('input[name="action"]').val('insert');
+                        $('.btnEdit').css('display', 'none');
+        $('.btnAdd').css('display', 'block'); 
 
                        
 
@@ -759,8 +803,9 @@ if ($EMPRESAS  && $PLANTAS && $TEMPORADAS) {
                             var html = '';
                             registros.forEach(function(registro) {
                                 html += '<tr>';
+                                html += '<td><button class="btn btn-secondary btn-editar" data-registro=\'' + JSON.stringify(registro) + '\'>Editar</button></td>';
                                 html += '<td>' + registro.FECHA + '/' + registro.HORA + '</td>';
-                                html += '<td>' + registro.FOLIOEX + '</td>';
+                                html += '<td>' + registro.Folioex + '</td>';
                                 html += '<td>' + registro.FOLIO + '</td>';
                                 
                                 var tipo_descripcion = '';

@@ -2310,7 +2310,7 @@ class EXIEXPORTACION_ADO
 
     public function listaFolioAgrupadoExistenciaExportacionCalidadReg($EMPRESA, $PLANTA, $TEMPORADA){
         try {
-        echo "SELECT
+        /*echo "SELECT
                         FOLIO_AUXILIAR_EXIEXPORTACION, 
                         FOLIO_EXIEXPORTACION,
                         ID_ESTANDAR,
@@ -2330,7 +2330,7 @@ class EXIEXPORTACION_ADO
                         AND ESTADO_REGISTRO = 1 
                         AND ESTADO IN (2,8) 
                     GROUP BY
-                        FOLIO_EXIEXPORTACION;";
+                        FOLIO_EXIEXPORTACION;";*/
             $datos = $this->conexion->prepare("SELECT
                         FOLIO_AUXILIAR_EXIEXPORTACION, 
                         FOLIO_EXIEXPORTACION,
@@ -2351,7 +2351,7 @@ class EXIEXPORTACION_ADO
                         AND ESTADO_REGISTRO = 1 
                         AND ESTADO IN (2,8) 
                     GROUP BY
-                        FOLIO_EXIEXPORTACION;");
+                        FOLIO_EXIEXPORTACION limit 1;");
 
 
                         
