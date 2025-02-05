@@ -2351,7 +2351,7 @@ class EXIEXPORTACION_ADO
                         AND ESTADO_REGISTRO = 1 
                         AND ESTADO IN (2,8) 
                     GROUP BY
-                        FOLIO_EXIEXPORTACION limit 1;");
+                        FOLIO_EXIEXPORTACION;");
 
 
                         
